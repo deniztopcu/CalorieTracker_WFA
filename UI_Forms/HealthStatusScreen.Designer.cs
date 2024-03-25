@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HealthStatusScreen));
             groupBox1 = new GroupBox();
-            btnCalculate = new Button();
             label1 = new Label();
             lblCalorieNeed = new Label();
             label10 = new Label();
@@ -46,6 +45,7 @@
             label5 = new Label();
             lblUserAge = new Label();
             label2 = new Label();
+            btnCalculate = new Button();
             groupBox2 = new GroupBox();
             flpUsersMealsCalories = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
@@ -81,17 +81,6 @@
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "Günlük Kalori Tüketimi Hesaplayıcı";
-            // 
-            // btnCalculate
-            // 
-            btnCalculate.Location = new Point(949, 218);
-            btnCalculate.Margin = new Padding(3, 4, 3, 4);
-            btnCalculate.Name = "btnCalculate";
-            btnCalculate.Size = new Size(123, 64);
-            btnCalculate.TabIndex = 24;
-            btnCalculate.Text = "Hesapla";
-            btnCalculate.UseVisualStyleBackColor = true;
-            btnCalculate.Click += btnCalculate_Click;
             // 
             // label1
             // 
@@ -241,6 +230,18 @@
             label2.TabIndex = 9;
             label2.Text = "Yaş:";
             // 
+            // btnCalculate
+            // 
+            btnCalculate.BackColor = SystemColors.GradientInactiveCaption;
+            btnCalculate.Location = new Point(826, 319);
+            btnCalculate.Margin = new Padding(3, 4, 3, 4);
+            btnCalculate.Name = "btnCalculate";
+            btnCalculate.Size = new Size(200, 64);
+            btnCalculate.TabIndex = 24;
+            btnCalculate.Text = "Hesapla";
+            btnCalculate.UseVisualStyleBackColor = false;
+            btnCalculate.Click += btnCalculate_Click;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(flpUsersMealsCalories);
@@ -265,7 +266,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(706, 131);
+            pictureBox1.Location = new Point(826, 48);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 252);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;

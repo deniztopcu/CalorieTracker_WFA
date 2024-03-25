@@ -47,7 +47,7 @@ namespace UI_Forms
             txtDogumTarihi.Text = userDetailService.GetById(_user.ID).BirthDate.ToString();
             txtCinsiyet.Text = userDetailService.GetById(_user.ID).Gender.ToString();
             txtBoy.Text = userDetailService.GetById(_user.ID).Height.ToString();
-            txtKilo.Text = userDetailService.GetById(_user.ID).Height.ToString();
+            txtKilo.Text = userDetailService.GetById(_user.ID).Weight.ToString();
             lblUserType.Text = userService.GetById(_user.ID).UserType.ToString();
         }
 
@@ -65,7 +65,7 @@ namespace UI_Forms
                 updatedUserDetail.Height = Convert.ToInt32(txtGuncelBoy.Text);
                 updatedUserDetail.Weight = Convert.ToDouble(txtGuncelKilo.Text);
                 if (userDetailService.Update(updatedUserDetail))
-                    MessageBox.Show("Boy ve kile başarıyla güncellendi!");
+                    MessageBox.Show("Boy ve kilo başarıyla güncellendi!");
                 else
                 {
                     MessageBox.Show("Güncellenirken beklenmedik bir hata oluştu");
