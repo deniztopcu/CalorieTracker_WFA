@@ -29,7 +29,7 @@ namespace CaloriTracker.DAL
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer("Data source =MIHRAP-PC\\SQLEXPRESS; Initial catalog =CalorieTrackerDB90;Integrated security=true;TrustServerCertificate = true");
+            optionsBuilder.UseSqlServer("Data source =ONUR\\MSSQLSERVER01; Initial catalog =CalorieTrackerDB90;Integrated security=true;TrustServerCertificate = true");
 
         }
 
@@ -48,32 +48,7 @@ namespace CaloriTracker.DAL
             modelBuilder.ApplyConfiguration(new SeedMeals());
         }
 
-        //onur
-        //akpınar
-        //aassddff
 
-
-
-        //asfffgfhgh
-
-        // deniz
-        // deinz2
-        // deniz 4
-
-
-
-
-
-        // 793404
-
-
-
-
-        //u3489324
-
-
-
-        // 793404
 
     }
 }

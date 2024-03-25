@@ -23,5 +23,10 @@ namespace Models.Concrete
         //public User? User { get; set; }
 
         public ICollection<UserMealDetail> UserMealDetails { get; set; }
+
+        public override string ToString()
+        {
+            return MealType.ToString();
+        }
     }
 }
