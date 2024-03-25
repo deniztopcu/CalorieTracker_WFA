@@ -17,6 +17,7 @@ namespace UI_Forms
         public HomeScreen()
         {
             InitializeComponent();
+
             foodService = new FoodService();
 
         }
@@ -52,7 +53,6 @@ namespace UI_Forms
 
         private void btnSoftDrink_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
