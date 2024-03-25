@@ -22,6 +22,8 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             return _dbContext.Foods.Where(x => (x.CategoryID == categoryID && x.Status != Status.Passive)).ToList();
         }
 
+       
+
 
     }
 }
