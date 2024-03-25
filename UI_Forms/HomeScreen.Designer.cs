@@ -31,21 +31,21 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             panel1 = new Panel();
+            btnDiger = new Button();
+            btnTahilUrunleri = new Button();
+            btnFastFood = new Button();
+            btnEtUrunleri = new Button();
+            btnDenizUrunleri = new Button();
+            btnSutUrunleri = new Button();
+            btnSalata = new Button();
+            btnTatli = new Button();
+            btnAtistirmalik = new Button();
+            btnAlkol = new Button();
+            btnSoftDrink = new Button();
+            btnFruit = new Button();
             btnVegetables = new Button();
             toolTip1 = new ToolTip(components);
-            btnFruit = new Button();
-            btnSoftDrink = new Button();
-            btnAlkol = new Button();
-            btnAtistirmalik = new Button();
-            btnTatli = new Button();
-            btnSalata = new Button();
-            btnSutUrunleri = new Button();
-            btnDenizUrunleri = new Button();
-            btnEtUrunleri = new Button();
-            btnFastFood = new Button();
-            btnTahilUrunleri = new Button();
-            btnDiger = new Button();
-            listView1 = new ListView();
+            lvOgunleriListele = new ListView();
             label1 = new Label();
             cmbOgunler = new ComboBox();
             label2 = new Label();
@@ -84,126 +84,16 @@
             panel1.Size = new Size(958, 83);
             panel1.TabIndex = 0;
             // 
-            // btnVegetables
+            // btnDiger
             // 
-            btnVegetables.FlatStyle = FlatStyle.Flat;
-            btnVegetables.Image = (Image)resources.GetObject("btnVegetables.Image");
-            btnVegetables.Location = new Point(8, 18);
-            btnVegetables.Name = "btnVegetables";
-            btnVegetables.Size = new Size(55, 50);
-            btnVegetables.TabIndex = 0;
-            toolTip1.SetToolTip(btnVegetables, "Sebze");
-            btnVegetables.UseVisualStyleBackColor = true;
-            // 
-            // btnFruit
-            // 
-            btnFruit.FlatStyle = FlatStyle.Flat;
-            btnFruit.Image = (Image)resources.GetObject("btnFruit.Image");
-            btnFruit.Location = new Point(69, 18);
-            btnFruit.Name = "btnFruit";
-            btnFruit.Size = new Size(56, 50);
-            btnFruit.TabIndex = 1;
-            toolTip1.SetToolTip(btnFruit, "Meyve");
-            btnFruit.UseVisualStyleBackColor = true;
-            // 
-            // btnSoftDrink
-            // 
-            btnSoftDrink.FlatStyle = FlatStyle.Flat;
-            btnSoftDrink.Image = (Image)resources.GetObject("btnSoftDrink.Image");
-            btnSoftDrink.Location = new Point(131, 18);
-            btnSoftDrink.Name = "btnSoftDrink";
-            btnSoftDrink.Size = new Size(58, 50);
-            btnSoftDrink.TabIndex = 2;
-            toolTip1.SetToolTip(btnSoftDrink, "Meşrubat");
-            btnSoftDrink.UseVisualStyleBackColor = true;
-            // 
-            // btnAlkol
-            // 
-            btnAlkol.FlatStyle = FlatStyle.Flat;
-            btnAlkol.Image = (Image)resources.GetObject("btnAlkol.Image");
-            btnAlkol.Location = new Point(195, 18);
-            btnAlkol.Name = "btnAlkol";
-            btnAlkol.Size = new Size(48, 50);
-            btnAlkol.TabIndex = 3;
-            toolTip1.SetToolTip(btnAlkol, "Alkol");
-            btnAlkol.UseVisualStyleBackColor = true;
-            // 
-            // btnAtistirmalik
-            // 
-            btnAtistirmalik.FlatStyle = FlatStyle.Flat;
-            btnAtistirmalik.Image = (Image)resources.GetObject("btnAtistirmalik.Image");
-            btnAtistirmalik.Location = new Point(249, 18);
-            btnAtistirmalik.Name = "btnAtistirmalik";
-            btnAtistirmalik.Size = new Size(48, 50);
-            btnAtistirmalik.TabIndex = 4;
-            toolTip1.SetToolTip(btnAtistirmalik, "Atıştırmalık");
-            btnAtistirmalik.UseVisualStyleBackColor = true;
-            // 
-            // btnTatli
-            // 
-            btnTatli.FlatStyle = FlatStyle.Flat;
-            btnTatli.Image = (Image)resources.GetObject("btnTatli.Image");
-            btnTatli.Location = new Point(305, 18);
-            btnTatli.Name = "btnTatli";
-            btnTatli.Size = new Size(63, 50);
-            btnTatli.TabIndex = 5;
-            toolTip1.SetToolTip(btnTatli, "Tatlı");
-            btnTatli.UseVisualStyleBackColor = true;
-            // 
-            // btnSalata
-            // 
-            btnSalata.FlatStyle = FlatStyle.Flat;
-            btnSalata.Image = (Image)resources.GetObject("btnSalata.Image");
-            btnSalata.Location = new Point(374, 18);
-            btnSalata.Name = "btnSalata";
-            btnSalata.Size = new Size(65, 50);
-            btnSalata.TabIndex = 6;
-            toolTip1.SetToolTip(btnSalata, "Salata");
-            btnSalata.UseVisualStyleBackColor = true;
-            // 
-            // btnSutUrunleri
-            // 
-            btnSutUrunleri.FlatStyle = FlatStyle.Flat;
-            btnSutUrunleri.Image = (Image)resources.GetObject("btnSutUrunleri.Image");
-            btnSutUrunleri.Location = new Point(457, 18);
-            btnSutUrunleri.Name = "btnSutUrunleri";
-            btnSutUrunleri.Size = new Size(72, 50);
-            btnSutUrunleri.TabIndex = 7;
-            toolTip1.SetToolTip(btnSutUrunleri, "Süt ve Süt Ürünleri");
-            btnSutUrunleri.UseVisualStyleBackColor = true;
-            // 
-            // btnDenizUrunleri
-            // 
-            btnDenizUrunleri.FlatStyle = FlatStyle.Flat;
-            btnDenizUrunleri.Image = (Image)resources.GetObject("btnDenizUrunleri.Image");
-            btnDenizUrunleri.Location = new Point(535, 18);
-            btnDenizUrunleri.Name = "btnDenizUrunleri";
-            btnDenizUrunleri.Size = new Size(58, 50);
-            btnDenizUrunleri.TabIndex = 8;
-            toolTip1.SetToolTip(btnDenizUrunleri, "Deniz Ürünleri");
-            btnDenizUrunleri.UseVisualStyleBackColor = true;
-            // 
-            // btnEtUrunleri
-            // 
-            btnEtUrunleri.FlatStyle = FlatStyle.Flat;
-            btnEtUrunleri.Image = (Image)resources.GetObject("btnEtUrunleri.Image");
-            btnEtUrunleri.Location = new Point(688, 18);
-            btnEtUrunleri.Name = "btnEtUrunleri";
-            btnEtUrunleri.Size = new Size(60, 50);
-            btnEtUrunleri.TabIndex = 9;
-            toolTip1.SetToolTip(btnEtUrunleri, "Et Ürünleri");
-            btnEtUrunleri.UseVisualStyleBackColor = true;
-            // 
-            // btnFastFood
-            // 
-            btnFastFood.FlatStyle = FlatStyle.Flat;
-            btnFastFood.Image = (Image)resources.GetObject("btnFastFood.Image");
-            btnFastFood.Location = new Point(611, 18);
-            btnFastFood.Name = "btnFastFood";
-            btnFastFood.Size = new Size(71, 50);
-            btnFastFood.TabIndex = 10;
-            toolTip1.SetToolTip(btnFastFood, "Fast Food");
-            btnFastFood.UseVisualStyleBackColor = true;
+            btnDiger.FlatStyle = FlatStyle.Flat;
+            btnDiger.Image = (Image)resources.GetObject("btnDiger.Image");
+            btnDiger.Location = new Point(838, 18);
+            btnDiger.Name = "btnDiger";
+            btnDiger.Size = new Size(94, 50);
+            btnDiger.TabIndex = 12;
+            toolTip1.SetToolTip(btnDiger, "Diğer");
+            btnDiger.UseVisualStyleBackColor = true;
             // 
             // btnTahilUrunleri
             // 
@@ -216,28 +106,139 @@
             toolTip1.SetToolTip(btnTahilUrunleri, "Tahıl Ürünleri");
             btnTahilUrunleri.UseVisualStyleBackColor = true;
             // 
-            // btnDiger
+            // btnFastFood
             // 
-            btnDiger.FlatStyle = FlatStyle.Flat;
-            btnDiger.Image = (Image)resources.GetObject("btnDiger.Image");
-            btnDiger.Location = new Point(838, 18);
-            btnDiger.Name = "btnDiger";
-            btnDiger.Size = new Size(94, 50);
-            btnDiger.TabIndex = 12;
-            toolTip1.SetToolTip(btnDiger, "Diğer");
-            btnDiger.UseVisualStyleBackColor = true;
+            btnFastFood.FlatStyle = FlatStyle.Flat;
+            btnFastFood.Image = (Image)resources.GetObject("btnFastFood.Image");
+            btnFastFood.Location = new Point(611, 18);
+            btnFastFood.Name = "btnFastFood";
+            btnFastFood.Size = new Size(71, 50);
+            btnFastFood.TabIndex = 10;
+            toolTip1.SetToolTip(btnFastFood, "Fast Food");
+            btnFastFood.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // btnEtUrunleri
             // 
-            listView1.BackColor = SystemColors.InactiveCaption;
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(12, 109);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(342, 397);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            btnEtUrunleri.FlatStyle = FlatStyle.Flat;
+            btnEtUrunleri.Image = (Image)resources.GetObject("btnEtUrunleri.Image");
+            btnEtUrunleri.Location = new Point(688, 18);
+            btnEtUrunleri.Name = "btnEtUrunleri";
+            btnEtUrunleri.Size = new Size(60, 50);
+            btnEtUrunleri.TabIndex = 9;
+            toolTip1.SetToolTip(btnEtUrunleri, "Et Ürünleri");
+            btnEtUrunleri.UseVisualStyleBackColor = true;
+            // 
+            // btnDenizUrunleri
+            // 
+            btnDenizUrunleri.FlatStyle = FlatStyle.Flat;
+            btnDenizUrunleri.Image = (Image)resources.GetObject("btnDenizUrunleri.Image");
+            btnDenizUrunleri.Location = new Point(535, 18);
+            btnDenizUrunleri.Name = "btnDenizUrunleri";
+            btnDenizUrunleri.Size = new Size(58, 50);
+            btnDenizUrunleri.TabIndex = 8;
+            toolTip1.SetToolTip(btnDenizUrunleri, "Deniz Ürünleri");
+            btnDenizUrunleri.UseVisualStyleBackColor = true;
+            // 
+            // btnSutUrunleri
+            // 
+            btnSutUrunleri.FlatStyle = FlatStyle.Flat;
+            btnSutUrunleri.Image = (Image)resources.GetObject("btnSutUrunleri.Image");
+            btnSutUrunleri.Location = new Point(457, 18);
+            btnSutUrunleri.Name = "btnSutUrunleri";
+            btnSutUrunleri.Size = new Size(72, 50);
+            btnSutUrunleri.TabIndex = 7;
+            toolTip1.SetToolTip(btnSutUrunleri, "Süt ve Süt Ürünleri");
+            btnSutUrunleri.UseVisualStyleBackColor = true;
+            // 
+            // btnSalata
+            // 
+            btnSalata.FlatStyle = FlatStyle.Flat;
+            btnSalata.Image = (Image)resources.GetObject("btnSalata.Image");
+            btnSalata.Location = new Point(374, 18);
+            btnSalata.Name = "btnSalata";
+            btnSalata.Size = new Size(65, 50);
+            btnSalata.TabIndex = 6;
+            toolTip1.SetToolTip(btnSalata, "Salata");
+            btnSalata.UseVisualStyleBackColor = true;
+            // 
+            // btnTatli
+            // 
+            btnTatli.FlatStyle = FlatStyle.Flat;
+            btnTatli.Image = (Image)resources.GetObject("btnTatli.Image");
+            btnTatli.Location = new Point(305, 18);
+            btnTatli.Name = "btnTatli";
+            btnTatli.Size = new Size(63, 50);
+            btnTatli.TabIndex = 5;
+            toolTip1.SetToolTip(btnTatli, "Tatlı");
+            btnTatli.UseVisualStyleBackColor = true;
+            // 
+            // btnAtistirmalik
+            // 
+            btnAtistirmalik.FlatStyle = FlatStyle.Flat;
+            btnAtistirmalik.Image = (Image)resources.GetObject("btnAtistirmalik.Image");
+            btnAtistirmalik.Location = new Point(249, 18);
+            btnAtistirmalik.Name = "btnAtistirmalik";
+            btnAtistirmalik.Size = new Size(48, 50);
+            btnAtistirmalik.TabIndex = 4;
+            toolTip1.SetToolTip(btnAtistirmalik, "Atıştırmalık");
+            btnAtistirmalik.UseVisualStyleBackColor = true;
+            // 
+            // btnAlkol
+            // 
+            btnAlkol.FlatStyle = FlatStyle.Flat;
+            btnAlkol.Image = (Image)resources.GetObject("btnAlkol.Image");
+            btnAlkol.Location = new Point(195, 18);
+            btnAlkol.Name = "btnAlkol";
+            btnAlkol.Size = new Size(48, 50);
+            btnAlkol.TabIndex = 3;
+            toolTip1.SetToolTip(btnAlkol, "Alkol");
+            btnAlkol.UseVisualStyleBackColor = true;
+            // 
+            // btnSoftDrink
+            // 
+            btnSoftDrink.FlatStyle = FlatStyle.Flat;
+            btnSoftDrink.Image = (Image)resources.GetObject("btnSoftDrink.Image");
+            btnSoftDrink.Location = new Point(131, 18);
+            btnSoftDrink.Name = "btnSoftDrink";
+            btnSoftDrink.Size = new Size(58, 50);
+            btnSoftDrink.TabIndex = 2;
+            toolTip1.SetToolTip(btnSoftDrink, "Meşrubat");
+            btnSoftDrink.UseVisualStyleBackColor = true;
+            // 
+            // btnFruit
+            // 
+            btnFruit.FlatStyle = FlatStyle.Flat;
+            btnFruit.Image = (Image)resources.GetObject("btnFruit.Image");
+            btnFruit.Location = new Point(69, 18);
+            btnFruit.Name = "btnFruit";
+            btnFruit.Size = new Size(56, 50);
+            btnFruit.TabIndex = 1;
+            toolTip1.SetToolTip(btnFruit, "Meyve");
+            btnFruit.UseVisualStyleBackColor = true;
+            // 
+            // btnVegetables
+            // 
+            btnVegetables.FlatStyle = FlatStyle.Flat;
+            btnVegetables.Image = (Image)resources.GetObject("btnVegetables.Image");
+            btnVegetables.Location = new Point(8, 18);
+            btnVegetables.Name = "btnVegetables";
+            btnVegetables.Size = new Size(55, 50);
+            btnVegetables.TabIndex = 0;
+            toolTip1.SetToolTip(btnVegetables, "Sebze");
+            btnVegetables.UseVisualStyleBackColor = true;
+          //  btnVegetables.MouseClick += btnVegetables_MouseClick;
+            // 
+            // lvOgunleriListele
+            // 
+            lvOgunleriListele.BackColor = SystemColors.InactiveCaption;
+            lvOgunleriListele.FullRowSelect = true;
+            lvOgunleriListele.GridLines = true;
+            lvOgunleriListele.Location = new Point(12, 109);
+            lvOgunleriListele.Name = "lvOgunleriListele";
+            lvOgunleriListele.Size = new Size(342, 397);
+            lvOgunleriListele.TabIndex = 1;
+            lvOgunleriListele.UseCompatibleStateImageBehavior = false;
+            lvOgunleriListele.View = View.Details;
             // 
             // label1
             // 
@@ -364,7 +365,7 @@
             Controls.Add(label2);
             Controls.Add(cmbOgunler);
             Controls.Add(label1);
-            Controls.Add(listView1);
+            Controls.Add(lvOgunleriListele);
             Controls.Add(panel1);
             Name = "HomeScreen";
             panel1.ResumeLayout(false);
@@ -390,7 +391,7 @@
         private Button btnFastFood;
         private Button btnTahilUrunleri;
         private Button btnDiger;
-        private ListView listView1;
+        private ListView lvOgunleriListele;
         private Label label1;
         private ComboBox cmbOgunler;
         private Label label2;

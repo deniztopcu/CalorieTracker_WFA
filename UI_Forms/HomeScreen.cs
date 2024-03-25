@@ -17,5 +17,8 @@ namespace UI_Forms
             InitializeComponent();
             // deniz
         }
+
+
+      
     }
 }
