@@ -19,14 +19,14 @@ namespace CalorieTracking.BLL
 
         UserDetailManager userDetailManager;
 
-        public bool Add(UserMealDetail userDetail)
+        public bool Add(UserDetail userDetail)
         {
             userDetail.CreationDate = DateTime.Now;
             userDetail.Status = Status.Active;
             return userDetailManager.Add(userDetail);
         }
 
-        public bool Update(UserMealDetail userDetail)
+        public bool Update(UserDetail userDetail)
         {
             userDetail.ModifiedDate = DateTime.Now;
             userDetail.Status = Status.Modified;
@@ -35,13 +35,20 @@ namespace CalorieTracking.BLL
 
         public bool Delete(int id)
         {
-            UserMealDetail userDetail = GetById(id);
+            UserDetail userDetail = GetById(id);
             return userDetailManager.Delete(userDetail);
         }
 
-        public UserMealDetail GetById(int id)
+        public UserDetail GetById(int id)
         {
             return userDetailManager.Find(id);
+        }
+
+        public bool UserTypeControl(int id)
+        {
+            if(userDetailManager.GetUserType(id) == UserTypes.Admin)
+            return true;
+            else return false;
         }
     }
 }

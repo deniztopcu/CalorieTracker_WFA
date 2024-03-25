@@ -60,9 +60,7 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(3, 4);
             panel1.Name = "panel1";
-
             panel1.Size = new Size(1486, 79);
-
             panel1.TabIndex = 0;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -84,11 +82,7 @@
             btnApplicationExit.FlatStyle = FlatStyle.Flat;
             btnApplicationExit.ForeColor = SystemColors.ControlText;
             btnApplicationExit.Image = (Image)resources.GetObject("btnApplicationExit.Image");
-
-            btnApplicationExit.Location = new Point(1394, 12);
-
-            btnApplicationExit.Location = new Point(1105, 18);
-
+            btnApplicationExit.Location = new Point(1371, 23);
             btnApplicationExit.Margin = new Padding(3, 4, 3, 4);
             btnApplicationExit.Name = "btnApplicationExit";
             btnApplicationExit.Size = new Size(75, 36);
@@ -103,9 +97,7 @@
             btnUserInfo.FlatStyle = FlatStyle.Flat;
             btnUserInfo.ForeColor = SystemColors.ControlText;
             btnUserInfo.Image = (Image)resources.GetObject("btnUserInfo.Image");
-
-            btnUserInfo.Location = new Point(1239, 8);
-
+            btnUserInfo.Location = new Point(1214, 9);
             btnUserInfo.Margin = new Padding(3, 4, 3, 4);
             btnUserInfo.Name = "btnUserInfo";
             btnUserInfo.Size = new Size(72, 64);
@@ -151,9 +143,7 @@
             panel2.Controls.Add(btnHome);
             panel2.Location = new Point(3, 75);
             panel2.Name = "panel2";
-
             panel2.Size = new Size(166, 689);
-
             panel2.TabIndex = 1;
             // 
             // btnAddFood
@@ -278,9 +268,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-
             ClientSize = new Size(1491, 776);
-
             ControlBox = false;
             Controls.Add(pnlMain);
             Controls.Add(panel2);

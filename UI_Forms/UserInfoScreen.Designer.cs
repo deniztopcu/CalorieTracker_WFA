@@ -49,7 +49,7 @@
             txtKilo = new TextBox();
             label4 = new Label();
             lblUserType = new Label();
-            btnBoyveKiloGuncelle = new Button();
+            btnUpdateHeightWeight = new Button();
             btnAdminPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -234,18 +234,19 @@
             lblUserType.TabIndex = 19;
             lblUserType.Text = "-";
             // 
-            // btnBoyveKiloGuncelle
+            // btnUpdateHeightWeight
             // 
-            btnBoyveKiloGuncelle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnBoyveKiloGuncelle.ForeColor = SystemColors.ActiveCaptionText;
-            btnBoyveKiloGuncelle.Image = (Image)resources.GetObject("btnBoyveKiloGuncelle.Image");
-            btnBoyveKiloGuncelle.Location = new Point(462, 320);
-            btnBoyveKiloGuncelle.Name = "btnBoyveKiloGuncelle";
-            btnBoyveKiloGuncelle.Size = new Size(146, 61);
-            btnBoyveKiloGuncelle.TabIndex = 20;
-            btnBoyveKiloGuncelle.Text = "Güncelle";
-            btnBoyveKiloGuncelle.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnBoyveKiloGuncelle.UseVisualStyleBackColor = true;
+            btnUpdateHeightWeight.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnUpdateHeightWeight.ForeColor = SystemColors.ActiveCaptionText;
+            btnUpdateHeightWeight.Image = (Image)resources.GetObject("btnUpdateHeightWeight.Image");
+            btnUpdateHeightWeight.Location = new Point(462, 320);
+            btnUpdateHeightWeight.Name = "btnUpdateHeightWeight";
+            btnUpdateHeightWeight.Size = new Size(146, 61);
+            btnUpdateHeightWeight.TabIndex = 20;
+            btnUpdateHeightWeight.Text = "Güncelle";
+            btnUpdateHeightWeight.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUpdateHeightWeight.UseVisualStyleBackColor = true;
+            btnUpdateHeightWeight.Click += btnUpdateHeightWeight_Click;
             // 
             // btnAdminPanel
             // 
@@ -257,6 +258,7 @@
             btnAdminPanel.TabIndex = 21;
             btnAdminPanel.Text = "Admin Panel";
             btnAdminPanel.UseVisualStyleBackColor = true;
+            btnAdminPanel.Click += btnAdminPanel_Click;
             // 
             // UserInfoScreen
             // 
@@ -266,7 +268,7 @@
             ClientSize = new Size(741, 464);
             ControlBox = false;
             Controls.Add(btnAdminPanel);
-            Controls.Add(btnBoyveKiloGuncelle);
+            Controls.Add(btnUpdateHeightWeight);
             Controls.Add(lblUserType);
             Controls.Add(label4);
             Controls.Add(txtKilo);
@@ -288,6 +290,7 @@
             Controls.Add(lblAd);
             Controls.Add(pictureBox1);
             Name = "UserInfoScreen";
+            Load += UserInfoScreen_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -315,7 +318,7 @@
         private TextBox txtKilo;
         private Label label4;
         private Label lblUserType;
-        private Button btnBoyveKiloGuncelle;
+        private Button btnUpdateHeightWeight;
         private Button btnAdminPanel;
     }
 }
