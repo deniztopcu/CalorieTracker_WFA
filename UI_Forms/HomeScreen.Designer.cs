@@ -364,7 +364,7 @@
             lvOgunListesi.GridLines = true;
             lvOgunListesi.Location = new Point(629, 109);
             lvOgunListesi.Name = "lvOgunListesi";
-            lvOgunListesi.Size = new Size(333, 397);
+            lvOgunListesi.Size = new Size(496, 397);
             lvOgunListesi.TabIndex = 9;
             lvOgunListesi.UseCompatibleStateImageBehavior = false;
             lvOgunListesi.View = View.Details;
@@ -414,7 +414,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(974, 604);
+            ClientSize = new Size(1182, 655);
             ControlBox = false;
             Controls.Add(btnOgunlerimiSil);
             Controls.Add(btnOgunKaydet);

@@ -179,8 +179,11 @@ namespace UI_Forms
             {
                 finalCalorie = calorie/100 * Convert.ToDouble(nudGram.Value) * pg;
             }
-            
 
+
+          
         }
+
+     
     }
 }
