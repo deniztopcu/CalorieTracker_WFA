@@ -15,7 +15,6 @@ namespace UI_Forms
         public HomeScreen()
         {
             InitializeComponent();
-            // deniz
         }
     }
 }
