@@ -45,7 +45,8 @@
             btnFruit = new Button();
             btnVegetables = new Button();
             toolTip1 = new ToolTip(components);
-            lvOgunleriListele = new ListView();
+            lvYemekleriListele = new ListView();
+            columnHeader5 = new ColumnHeader();
             label1 = new Label();
             cmbOgunler = new ComboBox();
             label2 = new Label();
@@ -204,6 +205,7 @@
             btnSoftDrink.TabIndex = 2;
             toolTip1.SetToolTip(btnSoftDrink, "Meşrubat");
             btnSoftDrink.UseVisualStyleBackColor = true;
+            btnSoftDrink.Click += btnSoftDrink_Click;
             // 
             // btnFruit
             // 
@@ -215,6 +217,7 @@
             btnFruit.TabIndex = 1;
             toolTip1.SetToolTip(btnFruit, "Meyve");
             btnFruit.UseVisualStyleBackColor = true;
+            btnFruit.Click += btnFruit_Click;
             // 
             // btnVegetables
             // 
@@ -226,19 +229,25 @@
             btnVegetables.TabIndex = 0;
             toolTip1.SetToolTip(btnVegetables, "Sebze");
             btnVegetables.UseVisualStyleBackColor = true;
-          //  btnVegetables.MouseClick += btnVegetables_MouseClick;
+            btnVegetables.Click += btnVegetables_Click;
             // 
-            // lvOgunleriListele
+            // lvYemekleriListele
             // 
-            lvOgunleriListele.BackColor = SystemColors.InactiveCaption;
-            lvOgunleriListele.FullRowSelect = true;
-            lvOgunleriListele.GridLines = true;
-            lvOgunleriListele.Location = new Point(12, 109);
-            lvOgunleriListele.Name = "lvOgunleriListele";
-            lvOgunleriListele.Size = new Size(342, 397);
-            lvOgunleriListele.TabIndex = 1;
-            lvOgunleriListele.UseCompatibleStateImageBehavior = false;
-            lvOgunleriListele.View = View.Details;
+            lvYemekleriListele.BackColor = SystemColors.InactiveCaption;
+            lvYemekleriListele.Columns.AddRange(new ColumnHeader[] { columnHeader5 });
+            lvYemekleriListele.FullRowSelect = true;
+            lvYemekleriListele.GridLines = true;
+            lvYemekleriListele.Location = new Point(12, 109);
+            lvYemekleriListele.Name = "lvYemekleriListele";
+            lvYemekleriListele.Size = new Size(163, 397);
+            lvYemekleriListele.TabIndex = 1;
+            lvYemekleriListele.UseCompatibleStateImageBehavior = false;
+            lvYemekleriListele.View = View.Details;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Yemekler";
+            columnHeader5.Width = 300;
             // 
             // label1
             // 
@@ -365,7 +374,7 @@
             Controls.Add(label2);
             Controls.Add(cmbOgunler);
             Controls.Add(label1);
-            Controls.Add(lvOgunleriListele);
+            Controls.Add(lvYemekleriListele);
             Controls.Add(panel1);
             Name = "HomeScreen";
             panel1.ResumeLayout(false);
@@ -391,7 +400,7 @@
         private Button btnFastFood;
         private Button btnTahilUrunleri;
         private Button btnDiger;
-        private ListView lvOgunleriListele;
+        private ListView lvYemekleriListele;
         private Label label1;
         private ComboBox cmbOgunler;
         private Label label2;
@@ -405,5 +414,6 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private Button btnOgunKaydet;
+        private ColumnHeader columnHeader5;
     }
 }
