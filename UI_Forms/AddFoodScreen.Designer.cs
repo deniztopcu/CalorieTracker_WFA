@@ -32,7 +32,7 @@
             gbxAddFood = new GroupBox();
             label5 = new Label();
             txtGram = new TextBox();
-            pbNutritionImage = new PictureBox();
+            pbFoodImage = new PictureBox();
             label4 = new Label();
             cbCategory = new ComboBox();
             label3 = new Label();
@@ -43,9 +43,9 @@
             btnUpdate = new Button();
             btnAdd = new Button();
             label1 = new Label();
-            txtNutritionName = new TextBox();
+            txtFoodName = new TextBox();
             grpMeals = new GroupBox();
-            lstNutrinions = new ListView();
+            lstFoods = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
@@ -54,7 +54,7 @@
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
             gbxAddFood.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbNutritionImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoodImage).BeginInit();
             grpMeals.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             // 
             gbxAddFood.Controls.Add(label5);
             gbxAddFood.Controls.Add(txtGram);
-            gbxAddFood.Controls.Add(pbNutritionImage);
+            gbxAddFood.Controls.Add(pbFoodImage);
             gbxAddFood.Controls.Add(label4);
             gbxAddFood.Controls.Add(cbCategory);
             gbxAddFood.Controls.Add(label3);
@@ -73,7 +73,7 @@
             gbxAddFood.Controls.Add(btnUpdate);
             gbxAddFood.Controls.Add(btnAdd);
             gbxAddFood.Controls.Add(label1);
-            gbxAddFood.Controls.Add(txtNutritionName);
+            gbxAddFood.Controls.Add(txtFoodName);
             gbxAddFood.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             gbxAddFood.Location = new Point(847, 13);
             gbxAddFood.Margin = new Padding(3, 4, 3, 4);
@@ -101,17 +101,18 @@
             txtGram.Size = new Size(194, 32);
             txtGram.TabIndex = 14;
             // 
-            // pbNutritionImage
+            // pbFoodImage
             // 
-            pbNutritionImage.BorderStyle = BorderStyle.FixedSingle;
-            pbNutritionImage.Image = (Image)resources.GetObject("pbNutritionImage.Image");
-            pbNutritionImage.Location = new Point(130, 42);
-            pbNutritionImage.Margin = new Padding(3, 4, 3, 4);
-            pbNutritionImage.Name = "pbNutritionImage";
-            pbNutritionImage.Size = new Size(198, 124);
-            pbNutritionImage.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbNutritionImage.TabIndex = 13;
-            pbNutritionImage.TabStop = false;
+            pbFoodImage.BorderStyle = BorderStyle.FixedSingle;
+            pbFoodImage.Image = (Image)resources.GetObject("pbFoodImage.Image");
+            pbFoodImage.Location = new Point(130, 42);
+            pbFoodImage.Margin = new Padding(3, 4, 3, 4);
+            pbFoodImage.Name = "pbFoodImage";
+            pbFoodImage.Size = new Size(198, 124);
+            pbFoodImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbFoodImage.TabIndex = 13;
+            pbFoodImage.TabStop = false;
+            pbFoodImage.Click += pbFoodImage_Click;
             // 
             // label4
             // 
@@ -195,6 +196,7 @@
             btnAdd.TabIndex = 4;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // label1
             // 
@@ -205,17 +207,17 @@
             label1.TabIndex = 1;
             label1.Text = "Food Name:";
             // 
-            // txtNutritionName
+            // txtFoodName
             // 
-            txtNutritionName.Location = new Point(207, 207);
-            txtNutritionName.Margin = new Padding(3, 4, 3, 4);
-            txtNutritionName.Name = "txtNutritionName";
-            txtNutritionName.Size = new Size(194, 32);
-            txtNutritionName.TabIndex = 0;
+            txtFoodName.Location = new Point(207, 207);
+            txtFoodName.Margin = new Padding(3, 4, 3, 4);
+            txtFoodName.Name = "txtFoodName";
+            txtFoodName.Size = new Size(194, 32);
+            txtFoodName.TabIndex = 0;
             // 
             // grpMeals
             // 
-            grpMeals.Controls.Add(lstNutrinions);
+            grpMeals.Controls.Add(lstFoods);
             grpMeals.Font = new Font("Century Gothic", 12F);
             grpMeals.Location = new Point(39, 36);
             grpMeals.Margin = new Padding(3, 4, 3, 4);
@@ -226,18 +228,18 @@
             grpMeals.TabStop = false;
             grpMeals.Text = "Foods";
             // 
-            // lstNutrinions
+            // lstFoods
             // 
-            lstNutrinions.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader4, columnHeader5, columnHeader3, columnHeader6, columnHeader7 });
-            lstNutrinions.FullRowSelect = true;
-            lstNutrinions.GridLines = true;
-            lstNutrinions.Location = new Point(12, 33);
-            lstNutrinions.Margin = new Padding(3, 4, 3, 4);
-            lstNutrinions.Name = "lstNutrinions";
-            lstNutrinions.Size = new Size(764, 573);
-            lstNutrinions.TabIndex = 5;
-            lstNutrinions.UseCompatibleStateImageBehavior = false;
-            lstNutrinions.View = View.Details;
+            lstFoods.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader4, columnHeader5, columnHeader3, columnHeader6, columnHeader7 });
+            lstFoods.FullRowSelect = true;
+            lstFoods.GridLines = true;
+            lstFoods.Location = new Point(12, 33);
+            lstFoods.Margin = new Padding(3, 4, 3, 4);
+            lstFoods.Name = "lstFoods";
+            lstFoods.Size = new Size(764, 573);
+            lstFoods.TabIndex = 5;
+            lstFoods.UseCompatibleStateImageBehavior = false;
+            lstFoods.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -284,9 +286,10 @@
             Controls.Add(grpMeals);
             Controls.Add(gbxAddFood);
             Name = "AddFoodScreen";
+            Load += AddFoodScreen_Load;
             gbxAddFood.ResumeLayout(false);
             gbxAddFood.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbNutritionImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoodImage).EndInit();
             grpMeals.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -306,9 +309,9 @@
         private Button btnUpdate;
         private Button btnAdd;
         private Label label1;
-        private TextBox txtNutritionName;
+        private TextBox txtFoodName;
         private GroupBox grpMeals;
-        private ListView lstNutrinions;
+        private ListView lstFoods;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader4;
@@ -316,6 +319,6 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
-        private PictureBox pbNutritionImage;
+        private PictureBox pbFoodImage;
     }
 }

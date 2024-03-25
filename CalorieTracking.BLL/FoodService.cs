@@ -20,7 +20,7 @@ namespace CalorieTracking.BLL
         public bool Add(Food food)
         {
             food.CreationDate = DateTime.Now;
-            food.Status = Status.Active;
+            food.Status = Status.Passive;
             return foodManager.Add(food);
         }
 
@@ -45,6 +45,18 @@ namespace CalorieTracking.BLL
         {
             return foodManager.GetFoodsByCategoryID(categoryID);
         }
+        public bool CheckEntries(string foodName)
+        {
+            if (foodManager.GetFoodByName(foodName) == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
+        
     }
 }
