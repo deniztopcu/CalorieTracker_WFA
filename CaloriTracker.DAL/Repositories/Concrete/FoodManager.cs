@@ -1,4 +1,5 @@
 ﻿using Models.Concrete;
+using Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public AppDbContext _dbContext;
 
+        public List<Food> GetFoodsByCategoryID(int categoryID)
+        {
+            return _dbContext.Foods.Where(x => (x.CategoryID == categoryID && x.Status != Status.Passive)).ToList();
+        }
 
 
     }

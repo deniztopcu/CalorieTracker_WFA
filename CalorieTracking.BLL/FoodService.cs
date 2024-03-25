@@ -41,7 +41,10 @@ namespace CalorieTracking.BLL
         {
             return foodManager.Find(id);
         }
-
+        public List<Food> GetFoodsByCategoryID(int categoryID)
+        {
+            return foodManager.GetFoodsByCategoryID(categoryID);
+        }
 
     }
 }

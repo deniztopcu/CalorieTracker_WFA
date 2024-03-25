@@ -1,4 +1,6 @@
-﻿using Models.Concrete;
+﻿using Microsoft.EntityFrameworkCore;
+using Models.Concrete;
+using Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +18,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public AppDbContext _dbContext;
 
-
-
+       
         
     }
 }
