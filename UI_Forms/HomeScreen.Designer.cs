@@ -289,15 +289,15 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(360, 296);
+            label3.Location = new Point(348, 315);
             label3.Name = "label3";
-            label3.Size = new Size(83, 23);
+            label3.Size = new Size(118, 23);
             label3.TabIndex = 6;
-            label3.Text = "Gram : ";
+            label3.Text = "Ölçü-Adet:";
             // 
             // nudGram
             // 
-            nudGram.Location = new Point(472, 297);
+            nudGram.Location = new Point(473, 311);
             nudGram.Name = "nudGram";
             nudGram.Size = new Size(150, 27);
             nudGram.TabIndex = 7;
@@ -377,6 +377,7 @@
             Controls.Add(lvYemekleriListele);
             Controls.Add(panel1);
             Name = "HomeScreen";
+            Load += HomeScreen_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudGram).EndInit();
             ResumeLayout(false);

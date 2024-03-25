@@ -19,9 +19,10 @@ namespace UI_Forms
             InitializeComponent();
 
             foodService = new FoodService();
-
+            mealService = new MealService();
         }
         FoodService foodService;
+        MealService mealService;
 
         private void btnVegetables_Click(object sender, EventArgs e)
         {
@@ -53,6 +54,18 @@ namespace UI_Forms
 
         private void btnSoftDrink_Click(object sender, EventArgs e)
         {
+        }
+
+        private void HomeScreen_Load(object sender, EventArgs e)
+        {
+
+            var meals = mealService.GetAllMeals();
+            
+            foreach(var meal in meals)
+            {
+                cmbOgunler.Items.Add(meal);
+            }
+
         }
     }
 }
