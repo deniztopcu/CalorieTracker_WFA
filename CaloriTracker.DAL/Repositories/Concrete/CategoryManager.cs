@@ -16,7 +16,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         AppDbContext _dbContext;
 
-
+        public List<Category> GetAllCategories()
+        {
+            return _dbContext.Categories.ToList();
+        }
 
     }   
 }

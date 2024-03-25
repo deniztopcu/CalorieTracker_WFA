@@ -1,4 +1,5 @@
-﻿using Models.Concrete;
+using Microsoft.EntityFrameworkCore;
+using Models.Concrete;
 using Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,17 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         {
             return _dbContext.Foods.Where(x => (x.CategoryID == categoryID && x.Status != Status.Passive)).ToList();
         }
+        public List<Food> GetFoods()
+        {
+            return _dbContext.Foods.ToList();
+        }
 
-       
 
+        public Food GetFoodByName(string foodName)
+        {
+            var food = _dbContext.Foods.FirstOrDefault(x => x.Name == foodName);
+            return food;
 
+        }
     }
 }

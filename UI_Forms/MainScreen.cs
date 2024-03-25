@@ -70,7 +70,7 @@ namespace UI_Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToString();
+           // lblTime.Text = DateTime.Now.ToString();
         }
 
         private void btnHome_Click(object sender, EventArgs e)

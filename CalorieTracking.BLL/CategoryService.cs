@@ -44,5 +44,9 @@ namespace CalorieTracking.BLL
             return categoryManager.Find(id);
         }
 
+        public List<Category> GetAllCategories()
+        {
+            return categoryManager.GetAllCategories();
+        }
     }
 }
