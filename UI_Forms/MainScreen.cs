@@ -1,4 +1,5 @@
 ﻿using CalorieTracking.BLL;
+using Models.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,13 @@ namespace UI_Forms
     {
         UserService userService;
         LoginScreen loginScreen;
-
-        public MainScreen()
+        User _user;
+        public MainScreen(User user)
         {
             InitializeComponent();
             userService = new UserService();
             loginScreen = new LoginScreen();
+            _user = user;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -79,7 +81,7 @@ namespace UI_Forms
 
         private void btnUserInfo_Click(object sender, EventArgs e)
         {
-            UserInfoScreen userInfoScreen = new UserInfoScreen(); //user...
+            UserInfoScreen userInfoScreen = new UserInfoScreen(_user); //user...
             userInfoScreen.MdiParent = this;
             userInfoScreen.Dock = DockStyle.Fill;
             userInfoScreen.Show();
@@ -100,7 +102,7 @@ namespace UI_Forms
         {
                 
                 this.ActiveMdiChild.Close();
-                HealthStatusScreen healthStatusScreen = new HealthStatusScreen(); //user
+                HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
                 healthStatusScreen.MdiParent = this;
                 healthStatusScreen.Dock = DockStyle.Fill;
                 healthStatusScreen.Show();
@@ -121,7 +123,7 @@ namespace UI_Forms
             pnlMain.Controls.Add(historyScreen);
 
 
-            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(); //user
+            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
             healthStatusScreen.MdiParent = this;
             healthStatusScreen.Dock = DockStyle.Fill;
             healthStatusScreen.Show();
@@ -170,7 +172,7 @@ namespace UI_Forms
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
-            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(); //user
+            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
             healthStatusScreen.MdiParent = this;
             healthStatusScreen.Dock = DockStyle.Fill;
             healthStatusScreen.Show();

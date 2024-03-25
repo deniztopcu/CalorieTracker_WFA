@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBoyveKiloGuncelle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnUpdateHeightWeight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADMAAAAwCAYAAAC8NUKEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAACUpJREFUaEO9mF1o3GUWxudygh+tUSMi1FhKbUQQUaR65ceV91570RvxSqUgut2u
+        vgAADr4B6kKxwAAACUpJREFUaEO9mF1o3GUWxudygh+tUSMi1FhKbUQQUaR65ceV91570RvxSqUgut2u
         3X4lE21q2aoIoqLiQrc0tbiI1d3FbWkXKm4sxd3IurW1NJjuJDOZfDUfPf5/7+SZnrzzzmTS2j3wkDnv
         PO855znvx/+fyU1NTdnExETAxYsXbXp6uubzmbHJycngw8WP56Q4qTia10oc/l4oXbB1Pess/9u85X+3
         NHKlUslGR0dDIGxmZsZGRkaMcZk4JMDm5uaCD+/SpUthbGxsLIxRCCYOEEdxEIGlcpXL5cA5dfaUrevO

@@ -11,7 +11,7 @@ namespace UI_Forms
         {
             InitializeComponent();
             userService = new UserService();
-
+            
         }
         UserService userService;
         private void UserEntranceScreen_Load(object sender, EventArgs e)
@@ -46,14 +46,14 @@ namespace UI_Forms
             if (user != null)
             {
 
-                MainScreen mainScreen = new MainScreen(); //user ve this unutma
+                MainScreen mainScreen = new MainScreen(user); //user ve this unutma
 
                 mainScreen.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Email or password is incorrect. Please try again!");
+                MessageBox.Show("Þifreniz veya mailiniz yanlýþ.Tekrar deneyiniz!");
             }
         }
 
