@@ -47,6 +47,12 @@ namespace CaloriTracker.DAL
             modelBuilder.ApplyConfiguration(new SeedFoods());
             modelBuilder.ApplyConfiguration(new SeedMeals());
         }
+        //onur
+        //akpınar
+        //aassddff
 
+
+
+        //asfffgfhgh
     }
 }
