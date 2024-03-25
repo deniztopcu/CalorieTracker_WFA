@@ -57,6 +57,6 @@ namespace CalorieTracking.BLL
             }
         }
 
-        
+
     }
 }
