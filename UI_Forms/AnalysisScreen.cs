@@ -33,7 +33,7 @@ namespace UI_Forms
 
         public void LoadCompareYourself()
         {
-            lwHaftalikAylikDurum.Items.Clear();
+            //lwHaftalikAylikDurum.Items.Clear();
             int CompareDay = 7;
             if (rbHaftalik.Checked == true) CompareDay = 30;
             detailservice = new UserMealDetailService();
@@ -47,32 +47,32 @@ namespace UI_Forms
                     };
                 ListViewItem lvi = new ListViewItem(arr);
                 lvi.Tag = category;
-                lwOgunlereGoreKarsilastir.Items.Add(lvi);
+                lwHaftalikAylikDurum.Items.Add(lvi);
             }
         }
 
         public void LoadCompareMeals()
         {
-            lwOgunlereGoreKarsilastir.Items.Clear();
+            //lwOgunlereGoreKarsilastir.Items.Clear();
             int CompareDay = 7;
             if (rbAylik.Checked == true) CompareDay = 30;
             detailservice = new UserMealDetailService();
-            foreach (Meal meal in detailservice.GetAllMeals(user))
+            foreach (Meal meal in detailservice.GetAllMeals(_user))
             {
-                string[] arr = new string[5];
-                arr[0] = meal.MealType.ToString();
-                arr[1] = detailservice.GetMealConsumptionsOfAllUsers(meal, CompareDay);
-                arr[2] = detailservice.GetMealConsumptionsOfAllUsers(meal, _user, CompareDay);
-                arr[3] = detailservice.GetMealCaloriesOfAllUsers(meal, CompareDay);
-                arr[4] = detailservice.GetMealCaloriesOfAllUsers(meal, _user, CompareDay);
-                ListViewItem lvi = new ListViewItem(arr);
+                string[] arr2 = new string[4];
+                arr2[0] = meal.MealType.ToString();
+                arr2[1] = detailservice.GetMealConsumptionsOfAllUsers(meal, CompareDay);
+                //arr2[2] = detailservice.GetMealConsumptionsOfAllUsers(meal, _user, CompareDay);
+                arr2[2] = detailservice.GetMealCaloriesOfAllUsers(meal, CompareDay);
+                arr2[3] = detailservice.GetMealCaloriesOfAllUsers(meal, _user, CompareDay);
+                ListViewItem lvi = new ListViewItem(arr2);
                 lvi.Tag = meal;
                 lwOgunlereGoreKarsilastir.Items.Add(lvi);
 
             }
         }
 
-      
+
         public void LoadWhatDidIEat()
         {
             lwYenilenOgunler.Items.Clear();

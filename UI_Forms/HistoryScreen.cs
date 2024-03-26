@@ -43,7 +43,7 @@ namespace UI_Forms
 
         private void ListViewDoldur2()
         {
-            lvMeals.Items.GroupBy
+            //lvMeals.Items.GroupBy
         }
 
         private void ListViewDoldur(List<UserMealDetail> userMealDetails)

@@ -110,8 +110,9 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         public string GetMealConsumptionsOfAllUsers(Meal meal, User user, int compareDay)
         {
             int userID = user.ID;
+            Meal meal1 = meal;
             var result = _dbContext.Meals
-                .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType,x.ID })
+                .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType, x.ID })
                 .Where(x => x.CreationDate > DateTime.Now.AddDays(-compareDay)
                 && x.MealType == meal.MealType && x.ID == userID && x.Status == Status.Active)
                 .GroupBy(x => new { x.MealType, x.Status, x.ID })
@@ -185,7 +186,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 .ToList();
         }
          
-        public List<UserMealDetail> GetUserMealHistoryByHistory(UserMealDetail userMealDetail)
+        public void GetUserMealHistoryByHistory(UserMealDetail userMealDetail)
         {
 
             var meals = from f in _dbContext.Foods
@@ -201,9 +202,9 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             }).ToList();
 
 
-            List<> listData = queryableData.ToList();
+            //List<> listData = queryableData.ToList();
 
-            return meals;
+           
         }
     }
 }
