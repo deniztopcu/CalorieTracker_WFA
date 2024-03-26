@@ -31,6 +31,7 @@ namespace CaloriTracker.DAL
 
 
             optionsBuilder.UseSqlServer("Data source =MIHRAP-PC\\SQLEXPRESS; Initial catalog =CalorieTrackerDB90;Integrated security=true;TrustServerCertificate = true");
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,7 +49,7 @@ namespace CaloriTracker.DAL
             modelBuilder.ApplyConfiguration(new SeedMeals());
         }
 
-
+       
 
     }
 }

@@ -17,6 +17,7 @@ namespace CaloriTracker.DAL.Configurations
             builder.HasKey(x => x.ID);
             builder.Property(x=>x.Name).HasColumnType("varchar(100)");
             builder.Property(x => x.Picture).HasColumnType("varchar(900)");
+            builder.HasOne(x => x.User).WithMany(x => x.Foods).HasForeignKey(x => x.UserID).IsRequired(false);
 
         }
     }

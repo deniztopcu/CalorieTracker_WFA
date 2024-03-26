@@ -14,6 +14,7 @@ namespace CaloriTracker.DAL.Configurations
         public void Configure(EntityTypeBuilder<Meal> builder)
         {
             builder.HasKey(x => x.ID);
+            builder.HasOne(x => x.User).WithMany(x => x.Meals).HasForeignKey(x => x.UserID).IsRequired(false);
         }
     }
 }

@@ -115,7 +115,7 @@ namespace UI_Forms
         {
             this.ActiveMdiChild.Close();
 
-            HistoryScreen historyScreen = new HistoryScreen(); //user
+            HistoryScreen historyScreen = new HistoryScreen(_user); //user
             historyScreen.MdiParent = this;
             historyScreen.Dock = DockStyle.Fill;
             historyScreen.Show();

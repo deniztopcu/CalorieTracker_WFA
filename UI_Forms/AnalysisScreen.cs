@@ -15,16 +15,17 @@ namespace UI_Forms
     public partial class AnalizScreen : Form
     {
         User user;
-        public AnalizScreen(User _user)
+        public AnalizScreen(User user)
         {
             InitializeComponent();
-            user = _user;
+            _user = user;
         }
-
+        FoodService foodService;
         UserMealDetailService detailservice;
-
+        User _user;
         private void AnalizScreen_Load(object sender, EventArgs e)
         {
+
             LoadCompareYourself();
             LoadCompareMeals();
             LoadWhatDidIEat();
@@ -38,7 +39,12 @@ namespace UI_Forms
             detailservice = new UserMealDetailService();
             foreach (Category category in detailservice.GetAllCategories())
             {
-                string[] arr = { category.CategoryName, detailservice.TotalConsumptionOfCategory(category.ID, CompareDay).ToString(), detailservice.ConsumptionOfCategoryByUser(user, category, CompareDay).ToString(), detailservice.TotalCalorieOfCategory(category.ID, CompareDay).ToString(), detailservice.TotalCalorieOfCategoryByUser(category.ID, user, CompareDay).ToString() };
+                string[] arr = { category.CategoryName, 
+                    detailservice.TotalConsumptionOfCategory(category.ID, CompareDay).ToString(), 
+                    detailservice.ConsumptionOfCategoryByUser(_user, category, CompareDay).ToString(), 
+                    detailservice.TotalCalorieOfCategory(category.ID, CompareDay).ToString() ,
+                    detailservice.TotalCalorieOfCategoryByUser(category.ID, _user, CompareDay).ToString()
+                    };
                 ListViewItem lvi = new ListViewItem(arr);
                 lvi.Tag = category;
                 lwOgunlereGoreKarsilastir.Items.Add(lvi);
@@ -56,9 +62,9 @@ namespace UI_Forms
                 string[] arr = new string[5];
                 arr[0] = meal.MealType.ToString();
                 arr[1] = detailservice.GetMealConsumptionsOfAllUsers(meal, CompareDay);
-                arr[2] = detailservice.GetMealConsumptionsOfAllUsers(meal, user, CompareDay);
+                arr[2] = detailservice.GetMealConsumptionsOfAllUsers(meal, _user, CompareDay);
                 arr[3] = detailservice.GetMealCaloriesOfAllUsers(meal, CompareDay);
-                arr[4] = detailservice.GetMealCaloriesOfAllUsers(meal, user, CompareDay);
+                arr[4] = detailservice.GetMealCaloriesOfAllUsers(meal, _user, CompareDay);
                 ListViewItem lvi = new ListViewItem(arr);
                 lvi.Tag = meal;
                 lwOgunlereGoreKarsilastir.Items.Add(lvi);
@@ -66,19 +72,19 @@ namespace UI_Forms
             }
         }
 
-        FoodService foodService;
+      
         public void LoadWhatDidIEat()
         {
             lwYenilenOgunler.Items.Clear();
             detailservice = new UserMealDetailService();
             int counter = 0;
-            foreach (Meal meal in detailservice.GetAllMeals(user))
+            foreach (Meal meal in detailservice.GetAllMeals(_user))
             {
                 string[] arr = new string[4];
                 arr[0] = string.Empty;
                 arr[1] = meal.MealType.ToString();
-                arr[2] = detailservice.GetCountOfUsersSpecificMeal(meal, user).ToString();
-                arr[3] = detailservice.GetTotalCalorieOfSpecificMealOfUser(meal, user);
+                arr[2] = detailservice.GetCountOfUsersSpecificMeal(meal, _user).ToString();
+                arr[3] = detailservice.GetTotalCalorieOfSpecificMealOfUser(meal, _user);
                 ListViewItem lvi = new ListViewItem(arr);
                 lvi.Font = new Font(Font, FontStyle.Bold);
                 lwYenilenOgunler.Items.Add(lvi);

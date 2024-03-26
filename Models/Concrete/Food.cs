@@ -17,7 +17,8 @@ namespace Models.Concrete
         public double PortionGram { get; set; }
         public string Picture { get; set; }
 
-        
+        public int? UserID { get; set; }
+        public virtual User User { get; set; }
         public int CategoryID { get; set; }
         public Category? Category { get; set; }
 
