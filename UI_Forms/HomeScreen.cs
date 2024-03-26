@@ -165,7 +165,9 @@ namespace UI_Forms
             var foodId = ((int)lvYemekleriListele.SelectedItems[0].Tag);
             var selectedFood = foodService.GetById(foodId);
             userMealDetail.FoodID = selectedFood.ID;
+
             var selectedMeal = (Meal)cmbOgunler.SelectedItem;
+
             userMealDetail.MealID = selectedMeal.ID;
             userMealDetail.FoodCount = (int)nudGram.Value;
 
