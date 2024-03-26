@@ -15,13 +15,13 @@ namespace UI_Forms
     public partial class MainScreen : Form
     {
         UserService userService;
-        LoginScreen loginScreen;
+        LoginScreen _loginScreen;
         User _user;
-        public MainScreen(User user)
+        public MainScreen(User user,LoginScreen loginScreen)
         {
             InitializeComponent();
             userService = new UserService();
-            loginScreen = new LoginScreen();
+            _loginScreen = loginScreen;
             _user = user;
         }
 
@@ -92,7 +92,7 @@ namespace UI_Forms
         private void btnApplicationExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            loginScreen.Show();
+            _loginScreen.Show();
 
             Application.Exit();
 

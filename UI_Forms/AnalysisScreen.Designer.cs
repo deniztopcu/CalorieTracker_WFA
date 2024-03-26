@@ -37,7 +37,6 @@
             lwOgunlereGoreKarsilastir = new ListView();
             columnHeader6 = new ColumnHeader();
             columnHeader10 = new ColumnHeader();
-            columnHeader11 = new ColumnHeader();
             columnHeader12 = new ColumnHeader();
             columnHeader13 = new ColumnHeader();
             rbAylik = new RadioButton();
@@ -90,7 +89,7 @@
             // 
             // lwOgunlereGoreKarsilastir
             // 
-            lwOgunlereGoreKarsilastir.Columns.AddRange(new ColumnHeader[] { columnHeader6, columnHeader10, columnHeader11, columnHeader12, columnHeader13 });
+            lwOgunlereGoreKarsilastir.Columns.AddRange(new ColumnHeader[] { columnHeader6, columnHeader10, columnHeader12, columnHeader13 });
             lwOgunlereGoreKarsilastir.FullRowSelect = true;
             lwOgunlereGoreKarsilastir.GridLines = true;
             lwOgunlereGoreKarsilastir.Location = new Point(66, 437);
@@ -110,12 +109,6 @@
             columnHeader10.Text = "TOPLAM TÜKETİM";
             columnHeader10.TextAlign = HorizontalAlignment.Center;
             columnHeader10.Width = 100;
-            // 
-            // columnHeader11
-            // 
-            columnHeader11.Text = "KULLANICI TÜKETİM";
-            columnHeader11.TextAlign = HorizontalAlignment.Center;
-            columnHeader11.Width = 100;
             // 
             // columnHeader12
             // 
@@ -262,7 +255,6 @@
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader9;
         private ColumnHeader columnHeader10;
-        private ColumnHeader columnHeader11;
         private ColumnHeader columnHeader12;
         private ColumnHeader columnHeader13;
     }
