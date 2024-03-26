@@ -60,7 +60,7 @@ namespace UI_Forms
 
         public void LoadHomeScreen()
         {
-            HomeScreen homeScreen = new HomeScreen(); // user gelmeli....
+            HomeScreen homeScreen = new HomeScreen(_user); 
             homeScreen.MdiParent = this;
             homeScreen.Dock = DockStyle.Fill;
             homeScreen.Show();

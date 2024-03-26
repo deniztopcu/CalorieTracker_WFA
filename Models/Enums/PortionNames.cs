@@ -19,6 +19,6 @@ namespace Models.Enums
         Kase,
         Fileto,
         Adet,
-
+        Gram
     }
 }

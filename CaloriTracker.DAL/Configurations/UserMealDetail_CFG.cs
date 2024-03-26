@@ -18,7 +18,7 @@ namespace CaloriTracker.DAL.Configurations
             
             builder.HasKey(x => x.ID);
 
-
+            builder.HasOne(x => x.User).WithMany(x => x.UserMealDetails).HasForeignKey(x => x.UserID);
 
             builder.HasOne(x => x.Meal).WithMany(x => x.UserMealDetails).HasForeignKey(x => x.MealID);
 

@@ -15,16 +15,18 @@ namespace UI_Forms
 {
     public partial class HomeScreen : Form
     {
-        public HomeScreen()
+        public HomeScreen(User user)
         {
             InitializeComponent();
-
+            userMealDetailService = new UserMealDetailService();
             foodService = new FoodService();
             mealService = new MealService();
+            _user = user;   
         }
+        UserMealDetailService userMealDetailService;  
         FoodService foodService;
         MealService mealService;
-
+        User _user;
         private void btnVegetables_Click(object sender, EventArgs e)
         {
 
@@ -163,25 +165,37 @@ namespace UI_Forms
 
         private void btnOgunEkle_Click(object sender, EventArgs e)
         {
-
-            string yemekIsmi = lvYemekleriListele.SelectedItems[0].Name;
-            string pn = cmbPorsiyon.Text;
-            string ogun=cmbOgunler.Text;
-            double calorie = foodService.GetById(((int)lvYemekleriListele.SelectedItems[0].Tag)).Calorie;
-            double pg = foodService.GetById(((int)lvYemekleriListele.SelectedItems[0].Tag)).PortionGram;
+            var userMealDetail= new UserMealDetail();
+            userMealDetail.UserID = _user.ID;            
+            var foodId = ((int)lvYemekleriListele.SelectedItems[0].Tag);
+            var selectedFood=foodService.GetById(foodId);
+            userMealDetail.FoodID = selectedFood.ID;
+            var selectedMeal = (Meal)cmbOgunler.SelectedItem;
+            userMealDetail.MealID = selectedMeal.ID;
+            userMealDetail.FoodCount = (int)nudGram.Value; 
+            
+            double calorie = selectedFood.Calorie;
+            double portionGram = selectedFood.PortionGram;
 
             double finalCalorie;
             if (cmbOgunler.Text == "Gram")
             {
-                finalCalorie = calorie/100 * Convert.ToDouble(nudGram.Value);
+                finalCalorie = calorie/100 * userMealDetail.FoodCount;
+                userMealDetail.Food.PortionName = PortionNames.Gram;
             }
             else
             {
-                finalCalorie = calorie/100 * Convert.ToDouble(nudGram.Value) * pg;
+                finalCalorie = calorie/100 * userMealDetail.FoodCount * portionGram;
             }
 
+            if (userMealDetailService.Add(userMealDetail))
+                MessageBox.Show("Ogun datalarına eklendi");
+            else
+                MessageBox.Show("Ogun eklenemedi");
 
-          
+
+
+
         }
 
      
