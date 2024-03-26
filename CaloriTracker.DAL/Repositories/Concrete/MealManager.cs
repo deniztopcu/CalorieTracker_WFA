@@ -18,7 +18,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public AppDbContext _dbContext;
 
-       
+        public List<Meal> GetMeals()
+        {
+            return _dbContext.Meals.ToList();
+        }
         
     }
 }

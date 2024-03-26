@@ -22,7 +22,7 @@ namespace CalorieTracking.BLL
         public bool Add(UserMealDetail userMealDetail)
         {
             userMealDetail.CreationDate = DateTime.Now;
-            userMealDetail.Status = Status.Active;
+            userMealDetail.Status = Status.Passive;
             return userMealDetailManager.Add(userMealDetail);
         }
 

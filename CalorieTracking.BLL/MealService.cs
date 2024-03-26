@@ -1,4 +1,4 @@
-﻿using CaloriTracker.DAL;
+using CaloriTracker.DAL;
 using CaloriTracker.DAL.Repositories.Concrete;
 using Models.Concrete;
 using Models.Enums;
@@ -44,9 +44,11 @@ namespace CalorieTracking.BLL
             return mealManager.Find(id);
         }
 
-        //public List<Meal> GetAllMeals()
-        //{
-        //  return mealManager.GetAllMeals();
-        //}
+        public List<Meal> GetAllMeals()
+        {
+          return mealManager.GetMeals();
+        }
+
+
     }
 }

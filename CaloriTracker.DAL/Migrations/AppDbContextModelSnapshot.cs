@@ -55,7 +55,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 1,
                             CategoryName = "Alkollü İçecekler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1470),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8412),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -64,7 +64,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 2,
                             CategoryName = "Alkolsüz İçecekler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1485),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8427),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -73,7 +73,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 3,
                             CategoryName = "Cerezler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1486),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8428),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -82,7 +82,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 4,
                             CategoryName = "Baklagiller",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1487),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8429),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -91,7 +91,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 5,
                             CategoryName = "Sebzeler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1487),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8430),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -100,7 +100,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 6,
                             CategoryName = "Çorbalar",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1488),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8431),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -109,7 +109,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 7,
                             CategoryName = "Deniz Ürünleri",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1489),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8431),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -118,7 +118,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 8,
                             CategoryName = "Tatlılar",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1490),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8432),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -127,7 +127,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 9,
                             CategoryName = "Fast Food",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1490),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8433),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -136,7 +136,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 10,
                             CategoryName = "Et ve Et Ürünleri",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1491),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8434),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -145,7 +145,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 11,
                             CategoryName = "Meyveler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1492),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8435),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -154,7 +154,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 12,
                             CategoryName = "Ana Yemekler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1492),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8435),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -163,7 +163,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 13,
                             CategoryName = "Ekmek ve Unlu Mamuller",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1493),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8436),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -172,7 +172,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 14,
                             CategoryName = "Süt ve Süt Ürünleri",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1494),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8437),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -181,7 +181,7 @@ namespace CaloriTracker.DAL.Migrations
                         {
                             ID = 15,
                             CategoryName = "Tahıllı Gevrekler",
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1495),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8437),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = 0
@@ -11566,7 +11566,7 @@ namespace CaloriTracker.DAL.Migrations
                         new
                         {
                             ID = 1,
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4915),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1140),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MealType = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -11575,7 +11575,7 @@ namespace CaloriTracker.DAL.Migrations
                         new
                         {
                             ID = 2,
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4917),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1141),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MealType = 2,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -11584,7 +11584,7 @@ namespace CaloriTracker.DAL.Migrations
                         new
                         {
                             ID = 3,
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4918),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1142),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MealType = 3,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -11593,7 +11593,7 @@ namespace CaloriTracker.DAL.Migrations
                         new
                         {
                             ID = 4,
-                            CreationDate = new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4919),
+                            CreationDate = new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1143),
                             DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MealType = 4,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -11721,7 +11721,7 @@ namespace CaloriTracker.DAL.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -11773,7 +11773,9 @@ namespace CaloriTracker.DAL.Migrations
 
                     b.HasOne("Models.Concrete.User", "User")
                         .WithMany("UserMealDetails")
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Food");
 

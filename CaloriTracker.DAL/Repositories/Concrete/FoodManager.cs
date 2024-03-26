@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Models.Concrete;
 using Models.Enums;
 using System;
@@ -27,6 +27,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             return _dbContext.Foods.ToList();
         }
 
+
         //public List<Food> GetAllFoods(int userID)
         //{
         //    return _dbContext.Foods.Include(x => x.Category).AsNoTracking().Where(x => x.ID == null || x.ID == userID).ToList();
@@ -35,6 +36,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         {
             return _dbContext.Foods.Where(x => x.Status != Status.Passive).AsNoTracking().ToList();
         }
+
 
         public Food GetFoodByName(string foodName)
         {

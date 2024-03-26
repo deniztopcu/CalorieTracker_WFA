@@ -12,7 +12,8 @@ namespace Models.Concrete
     {
 
         public int FoodCount { get; set; }
-          
+        
+        public int UserID { get; set; }
         public User? User { get; set; }
 
         //[ForeignKey("Food")]
