@@ -135,7 +135,7 @@ namespace UI_Forms
         {
             this.ActiveMdiChild.Close();
 
-            AnalizScreen analizScreen = new AnalizScreen(); //user
+            AnalizScreen analizScreen = new AnalizScreen(_user); //user
             analizScreen.MdiParent = this;
             analizScreen.Dock = DockStyle.Fill;
             analizScreen.Show();
