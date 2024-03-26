@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CaloriTracker.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDB : Migration
+    public partial class Initdbeylem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -131,7 +131,7 @@ namespace CaloriTracker.DAL.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FoodCount = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: true),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     FoodID = table.Column<int>(type: "int", nullable: false),
                     MealID = table.Column<int>(type: "int", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -158,7 +158,8 @@ namespace CaloriTracker.DAL.Migrations
                         name: "FK_UserMealDetail_Users_UserID",
                         column: x => x.UserID,
                         principalTable: "Users",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -166,21 +167,21 @@ namespace CaloriTracker.DAL.Migrations
                 columns: new[] { "ID", "CategoryName", "CreationDate", "DeletedDate", "ModifiedDate", "Status" },
                 values: new object[,]
                 {
-                    { 1, "Alkollü İçecekler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1470), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 2, "Alkolsüz İçecekler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1485), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 3, "Cerezler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1486), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 4, "Baklagiller", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1487), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 5, "Sebzeler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1487), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 6, "Çorbalar", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1488), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 7, "Deniz Ürünleri", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1489), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 8, "Tatlılar", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1490), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 9, "Fast Food", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1490), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 10, "Et ve Et Ürünleri", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1491), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 11, "Meyveler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1492), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 12, "Ana Yemekler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1492), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 13, "Ekmek ve Unlu Mamuller", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1493), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 14, "Süt ve Süt Ürünleri", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1494), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 15, "Tahıllı Gevrekler", new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(1495), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 }
+                    { 1, "Alkollü İçecekler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8412), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 2, "Alkolsüz İçecekler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8427), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 3, "Cerezler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8428), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 4, "Baklagiller", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8429), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 5, "Sebzeler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8430), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 6, "Çorbalar", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8431), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 7, "Deniz Ürünleri", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8431), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 8, "Tatlılar", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8432), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 9, "Fast Food", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8433), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 10, "Et ve Et Ürünleri", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8434), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 11, "Meyveler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8435), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 12, "Ana Yemekler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8435), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 13, "Ekmek ve Unlu Mamuller", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8436), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 14, "Süt ve Süt Ürünleri", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8437), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 15, "Tahıllı Gevrekler", new DateTime(2024, 3, 26, 12, 48, 44, 558, DateTimeKind.Local).AddTicks(8437), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -188,10 +189,10 @@ namespace CaloriTracker.DAL.Migrations
                 columns: new[] { "ID", "CreationDate", "DeletedDate", "MealType", "ModifiedDate", "Status" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4915), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 2, new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4917), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 3, new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4918), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
-                    { 4, new DateTime(2024, 3, 25, 16, 13, 14, 39, DateTimeKind.Local).AddTicks(4919), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 }
+                    { 1, new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1140), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 2, new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1141), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 3, new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1142), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 },
+                    { 4, new DateTime(2024, 3, 26, 12, 48, 44, 559, DateTimeKind.Local).AddTicks(1143), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 }
                 });
 
             migrationBuilder.InsertData(
