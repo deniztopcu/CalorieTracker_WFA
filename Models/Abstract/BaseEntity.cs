@@ -14,7 +14,6 @@ namespace Models.Abstract
         {
             CreationDate = DateTime.Now;
             ModifiedDate = DateTime.Now;
-            DeletedDate = DateTime.Now;
         }
         public virtual int ID { get; set; }
 

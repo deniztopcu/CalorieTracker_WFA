@@ -115,7 +115,7 @@ namespace UI_Forms
         {
             this.ActiveMdiChild.Close();
 
-            HistoryScreen historyScreen = new HistoryScreen(); //user
+            HistoryScreen historyScreen = new HistoryScreen(_user);
             historyScreen.MdiParent = this;
             historyScreen.Dock = DockStyle.Fill;
             historyScreen.Show();
@@ -123,7 +123,7 @@ namespace UI_Forms
             pnlMain.Controls.Add(historyScreen);
 
 
-            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
+            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user);
             healthStatusScreen.MdiParent = this;
             healthStatusScreen.Dock = DockStyle.Fill;
             healthStatusScreen.Show();

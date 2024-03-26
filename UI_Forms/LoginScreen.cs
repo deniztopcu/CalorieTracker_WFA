@@ -46,7 +46,7 @@ namespace UI_Forms
             if (user != null)
             {
 
-                MainScreen mainScreen = new MainScreen(user); //user ve this unutma
+                MainScreen mainScreen = new MainScreen(user); //this unutma
 
                 mainScreen.Show();
                 this.Hide();
