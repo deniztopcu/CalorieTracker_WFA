@@ -21,10 +21,10 @@ namespace UI_Forms
             userMealDetailService = new UserMealDetailService();
             foodService = new FoodService();
             mealService = new MealService();
-            _user = user;   
+            _user = user;
         }
 
-        UserMealDetailService userMealDetailService;  
+        UserMealDetailService userMealDetailService;
         FoodService foodService;
         MealService mealService;
         User _user;
@@ -160,33 +160,73 @@ namespace UI_Forms
 
         private void btnOgunEkle_Click(object sender, EventArgs e)
         {
-            var userMealDetail= new UserMealDetail();
-            userMealDetail.UserID = _user.ID;            
+            var userMealDetail = new UserMealDetail();
+            userMealDetail.UserID = _user.ID;
             var foodId = ((int)lvYemekleriListele.SelectedItems[0].Tag);
-            var selectedFood=foodService.GetById(foodId);
+            var selectedFood = foodService.GetById(foodId);
             userMealDetail.FoodID = selectedFood.ID;
             var selectedMeal = (Meal)cmbOgunler.SelectedItem;
             userMealDetail.MealID = selectedMeal.ID;
-            userMealDetail.FoodCount = (int)nudGram.Value; 
-            
+            userMealDetail.FoodCount = (int)nudGram.Value;
+
             double calorie = selectedFood.Calorie;
             double portionGram = selectedFood.PortionGram;
 
             double finalCalorie;
             if (cmbOgunler.Text == "Gram")
             {
-                finalCalorie = calorie/100 * userMealDetail.FoodCount;
+                finalCalorie = calorie / 100 * userMealDetail.FoodCount;
                 userMealDetail.Food.PortionName = PortionNames.Gram;
             }
             else
             {
-                finalCalorie = calorie/100 * userMealDetail.FoodCount * portionGram;
+                finalCalorie = calorie / 100 * userMealDetail.FoodCount * portionGram;
             }
 
             if (userMealDetailService.Add(userMealDetail))
                 MessageBox.Show("Ogun datalarına eklendi");
             else
                 MessageBox.Show("Ogun eklenemedi");
+
+
+
+            ListViewOgunListesiDoldur(userMealDetail);
+
+        }
+
+        private void ListViewOgunListesiDoldur(UserMealDetail mealDetail)
+        {
+            var food = foodService.GetById(mealDetail.FoodID);
+            var meal = mealService.GetById(mealDetail.MealID);
+            string[] mealDetailInfo = { food.Name, food.PortionName.ToString(), food.Calorie.ToString(), meal.MealType.ToString() };
+
+            ListViewItem lvi = new(mealDetailInfo);
+            lvi.Tag = mealDetail.ID;
+
+            lvOgunListesi.Items.Add(lvi);
+
+        }
+
+        private void btnOgunlerimiKaydet_Click(object sender, EventArgs e)
+        {
+            var list = lvOgunListesi.Items;
+
+            foreach (ListViewItem item in list)
+            {
+                int userMealDetailID = (int)item.Tag;
+                UserMealDetail userMealDetail = userMealDetailService.GetById(userMealDetailID);
+                userMealDetailService.Update(userMealDetail, Status.Active);
+            }
+
+            MessageBox.Show("Öğünleriniz kaydedildi.");
+        }
+
+        private void btnOgunlerimiSil_Click(object sender, EventArgs e)
+        {
+            userMealDetailService.Delete((int)lvOgunListesi.SelectedItems[0].Tag);
+            lvOgunListesi.SelectedItems[0].Remove();
+
+            MessageBox.Show("Öğünleriniz silindi.");
         }
     }
 }

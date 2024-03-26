@@ -61,8 +61,8 @@
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
-            btnOgunKaydet = new Button();
             btnOgunlerimiSil = new Button();
+            btnOgunlerimiKaydet = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudGram).BeginInit();
             SuspendLayout();
@@ -358,6 +358,7 @@
             // 
             nudGram.Location = new Point(414, 233);
             nudGram.Margin = new Padding(3, 2, 3, 2);
+            nudGram.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             nudGram.Name = "nudGram";
             nudGram.Size = new Size(131, 23);
             nudGram.TabIndex = 7;
@@ -411,17 +412,6 @@
             columnHeader4.Text = "Öğün";
             columnHeader4.Width = 70;
             // 
-            // btnOgunKaydet
-            // 
-            btnOgunKaydet.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnOgunKaydet.Location = new Point(550, 392);
-            btnOgunKaydet.Margin = new Padding(3, 2, 3, 2);
-            btnOgunKaydet.Name = "btnOgunKaydet";
-            btnOgunKaydet.Size = new Size(139, 30);
-            btnOgunKaydet.TabIndex = 10;
-            btnOgunKaydet.Text = "Öğünlerimi Kaydet";
-            btnOgunKaydet.UseVisualStyleBackColor = true;
-            // 
             // btnOgunlerimiSil
             // 
             btnOgunlerimiSil.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
@@ -430,8 +420,21 @@
             btnOgunlerimiSil.Name = "btnOgunlerimiSil";
             btnOgunlerimiSil.Size = new Size(139, 30);
             btnOgunlerimiSil.TabIndex = 11;
-            btnOgunlerimiSil.Text = "Öğünlerimi Sil";
+            btnOgunlerimiSil.Text = "Öğünümü Sil";
             btnOgunlerimiSil.UseVisualStyleBackColor = true;
+            btnOgunlerimiSil.Click += btnOgunlerimiSil_Click;
+            // 
+            // btnOgunlerimiKaydet
+            // 
+            btnOgunlerimiKaydet.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnOgunlerimiKaydet.Location = new Point(550, 392);
+            btnOgunlerimiKaydet.Margin = new Padding(3, 2, 3, 2);
+            btnOgunlerimiKaydet.Name = "btnOgunlerimiKaydet";
+            btnOgunlerimiKaydet.Size = new Size(140, 30);
+            btnOgunlerimiKaydet.TabIndex = 12;
+            btnOgunlerimiKaydet.Text = "Öğünlerimi Kaydet";
+            btnOgunlerimiKaydet.UseVisualStyleBackColor = true;
+            btnOgunlerimiKaydet.Click += btnOgunlerimiKaydet_Click;
             // 
             // HomeScreen
             // 
@@ -440,8 +443,8 @@
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1034, 491);
             ControlBox = false;
+            Controls.Add(btnOgunlerimiKaydet);
             Controls.Add(btnOgunlerimiSil);
-            Controls.Add(btnOgunKaydet);
             Controls.Add(lvOgunListesi);
             Controls.Add(btnOgunEkle);
             Controls.Add(nudGram);
@@ -491,10 +494,10 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
-        private Button btnOgunKaydet;
         private ColumnHeader columnHeader5;
         private Button btnMultigrainCereals;
         private Button btnMainDishes;
         private Button btnOgunlerimiSil;
+        private Button btnOgunlerimiKaydet;
     }
 }

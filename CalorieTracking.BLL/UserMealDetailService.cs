@@ -26,10 +26,10 @@ namespace CalorieTracking.BLL
             return userMealDetailManager.Add(userMealDetail);
         }
 
-        public bool Update(UserMealDetail userMealDetail)
+        public bool Update(UserMealDetail userMealDetail, Status status = Status.Modified)
         {
             userMealDetail.ModifiedDate = DateTime.Now;
-            userMealDetail.Status = Status.Modified;
+            userMealDetail.Status = status;
             return userMealDetailManager.Update(userMealDetail);
         }
 
