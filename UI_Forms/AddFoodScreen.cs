@@ -17,34 +17,41 @@ namespace UI_Forms
 {
     public partial class AddFoodScreen : Form
     {
-        
+
         FoodService foodService;
         CategoryService categoryService;
-        
+
 
         public AddFoodScreen()
         {
             InitializeComponent();
             foodService = new FoodService();
             categoryService = new CategoryService();
-   
+
         }
-        
+
 
         private void AddFoodScreen_Load(object sender, EventArgs e)
         {
+            ButtonControls(true);
+
+            //List<Food> foods = foodService.GetAllFoods();
+
+            //FillLvItems(foods);
+
+
             var categories = categoryService.GetAllCategories();
-          
+
 
             foreach (var category in categories)
             {
                 cbCategory.Items.Add(category);
             }
 
-            
+
             PortionNames[] portionNames = (PortionNames[])Enum.GetValues(typeof(PortionNames));
 
-            
+
             foreach (PortionNames portion in portionNames)
             {
                 cbPortionType.Items.Add(portion.ToString());
@@ -61,23 +68,33 @@ namespace UI_Forms
             btnUpdate.Enabled = !status;
         }
 
-        private void FillLvItems(Food food)
+        private void FillLvItems(List<Food> foods)
         {
-           // lstFoods.Items.Clear();
-           // var foods = foodService.GetAllPassiveFoods(_user.ID);
+            //lstFoods.Items.Clear();
+            //var foods = foodService.GetAllPassiveFoods(_user.ID);
 
-    
-            
-                ListViewItem lv = new ListViewItem(food.ID.ToString());
-                lv.SubItems.Add(food.ID.ToString());
-                lv.SubItems.Add(food.Name);
-                lv.SubItems.Add(food.Calorie.ToString());
-                lv.SubItems.Add(food.PortionGram.ToString());
-                lv.SubItems.Add(food.PortionName.ToString());
-                lv.SubItems.Add(food.Category.CategoryName);
-                lstFoods.Items.Add(lv);
-                lv.Tag = food;
-            
+            //ListViewItem lv = new ListViewItem(food.ID.ToString());
+            //lv.Text = food.ID.ToString();
+            ////lv.SubItems.Add(food.Name);
+            //lv.SubItems.Add(food.ID.ToString());
+            //lv.SubItems.Add(food.Name);
+            //lv.SubItems.Add(food.Calorie.ToString());
+            //lv.SubItems.Add(food.PortionGram.ToString());
+            //lv.SubItems.Add(food.PortionName.ToString());
+            //lv.SubItems.Add(food.Category.CategoryName);
+            //lstFoods.Items.Add(lv);
+            //lv.Tag = food;
+
+            lstFoods.Items.Clear();
+            foreach (Food food in foods)
+            {
+                string[] foodInfo = { food.ID.ToString(),food.ID.ToString() ,food.Name, food.Calorie.ToString(), food.PortionGram.ToString(),food.Category.ToString() };
+
+                ListViewItem lvi = new(foodInfo);
+                lvi.Tag = food.ID;
+
+                lstFoods.Items.Add(lvi);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -86,7 +103,7 @@ namespace UI_Forms
 
             if (txtFoodName.Text == string.Empty)
             {
-                MessageBox.Show("Nutrition name cannot be left blank!");
+                MessageBox.Show("Food name cannot be left blank!");
             }
             else
             {
@@ -100,7 +117,7 @@ namespace UI_Forms
                     food.Name = txtFoodName.Text;
                     food.Calorie = float.Parse(txtCalorie.Text);
                     food.CategoryID = ((Category)cbCategory.SelectedItem).ID;
-                    food.Category= (Category)cbCategory.SelectedItem;
+                    food.Category = (Category)cbCategory.SelectedItem;
                     food.PortionName = (PortionNames)cbPortionType.SelectedIndex;
                     food.PortionGram = float.Parse(txtGram.Text);
                     string path = "";
@@ -113,7 +130,7 @@ namespace UI_Forms
 
                     foodService.Add(food);
                     MessageBox.Show("Successful");
-                    //FillLvItems(food);
+                    FillLvItems(foodService.GetAllFoods());
                     ClearItems(gbxAddFood.Controls);
                 }
             }
@@ -149,6 +166,21 @@ namespace UI_Forms
                 pbFoodImage.Image = Image.FromFile(ofd.FileName);
 
                 pbFoodImage.Tag = Path.GetExtension(ofd.FileName);
+            }
+        }
+
+        private void lstFoods_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstFoods.SelectedItems.Count > 0)
+            {
+                Food food = lstFoods.SelectedItems[0].Tag as Food;
+                txtFoodName.Text = food.Name;
+                txtCalorie.Text = food.Calorie.ToString();
+                txtGram.Text = food.PortionGram.ToString();
+                cbPortionType.SelectedItem = food.PortionName;
+                cbCategory.SelectedItem = food.Category.CategoryName;
+                pbFoodImage.Image = Image.FromFile(Application.StartupPath + food.Picture);
+                ButtonControls(false);
             }
         }
     }

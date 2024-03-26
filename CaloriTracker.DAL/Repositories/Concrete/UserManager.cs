@@ -59,5 +59,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             else
                 return null;
         }
+
+        public List<User> GetUsers()
+        {
+            return _dbContext.Users.ToList();
+        }
     }
 }
