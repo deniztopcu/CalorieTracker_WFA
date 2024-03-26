@@ -220,5 +220,13 @@ namespace UI_Forms
 
             MessageBox.Show("Öğünleriniz kaydedildi.");
         }
+
+        private void btnOgunlerimiSil_Click(object sender, EventArgs e)
+        {
+            userMealDetailService.Delete((int)lvOgunListesi.SelectedItems[0].Tag);
+            lvOgunListesi.SelectedItems[0].Remove();
+
+            MessageBox.Show("Öğünleriniz silindi.");
+        }
     }
 }
