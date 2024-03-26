@@ -28,8 +28,6 @@ namespace CaloriTracker.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
-
             optionsBuilder.UseSqlServer("Data source =MIHRAP-PC\\SQLEXPRESS; Initial catalog =CalorieTrackerDB90;Integrated security=true;TrustServerCertificate = true");
             optionsBuilder.EnableSensitiveDataLogging();
         }

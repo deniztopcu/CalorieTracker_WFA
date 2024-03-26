@@ -21,6 +21,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public AppDbContext _dbContext;
 
+
         public List<Category> GetAllCategories()
         {
             return _dbContext.UserMealDetails
@@ -177,6 +178,32 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 .ToList();
         }
 
-        
+        public List<UserMealDetail> GetUserMealHistoryByUserID(int userID)
+        {
+            return _dbContext.UserMealDetails
+                .Where(x => x.UserID == userID && x.Status == Status.Active)
+                .ToList();
+        }
+         
+        public List<UserMealDetail> GetUserMealHistoryByHistory(UserMealDetail userMealDetail)
+        {
+
+            var meals = from f in _dbContext.Foods
+                        join um in _dbContext.UserMealDetails on f.ID equals um.FoodID
+                        join u in _dbContext.Users on um.UserID equals u.ID
+                        where u.ID == userMealDetail.UserID
+                        select new { um.CreationDate, f.Calorie };
+
+            meals.GroupBy(x => x.CreationDate.Date).Select(group => new
+            {
+                Tarih = group.Key,
+                TotalKalori = group.Sum(x => x.Calorie)
+            }).ToList();
+
+
+            List<> listData = queryableData.ToList();
+
+            return meals;
+        }
     }
 }

@@ -104,6 +104,11 @@ namespace CalorieTracking.BLL
         {
             return userMealDetailManager.GetUserMealHistoryOfMeal(mealid);
         }
-        
+
+
+        public List<UserMealDetail> GetUserMealHistoryByUserID(int userID)
+        {
+            return userMealDetailManager.GetUserMealHistoryByUserID(userID);
+        }
     }
 }

@@ -37,6 +37,7 @@
             columnHeader5 = new ColumnHeader();
             columnHeader8 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
             lvDays = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader10 = new ColumnHeader();
@@ -48,12 +49,13 @@
             // 
             lvMeals.BackColor = SystemColors.InactiveCaption;
             lvMeals.BorderStyle = BorderStyle.None;
-            lvMeals.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader2, columnHeader9, columnHeader3, columnHeader5, columnHeader8, columnHeader6 });
+            lvMeals.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader2, columnHeader9, columnHeader3, columnHeader5, columnHeader8, columnHeader6, columnHeader7 });
             lvMeals.FullRowSelect = true;
             lvMeals.GridLines = true;
-            lvMeals.Location = new Point(12, 33);
+            lvMeals.Location = new Point(10, 25);
+            lvMeals.Margin = new Padding(3, 2, 3, 2);
             lvMeals.Name = "lvMeals";
-            lvMeals.Size = new Size(644, 406);
+            lvMeals.Size = new Size(719, 304);
             lvMeals.TabIndex = 7;
             lvMeals.UseCompatibleStateImageBehavior = false;
             lvMeals.View = View.Details;
@@ -98,6 +100,11 @@
             columnHeader6.TextAlign = HorizontalAlignment.Center;
             columnHeader6.Width = 100;
             // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "ÖĞÜN TİPİ";
+            columnHeader7.Width = 100;
+            // 
             // lvDays
             // 
             lvDays.BackColor = SystemColors.InactiveCaption;
@@ -106,10 +113,11 @@
             lvDays.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             lvDays.FullRowSelect = true;
             lvDays.GridLines = true;
-            lvDays.Location = new Point(705, 33);
+            lvDays.Location = new Point(773, 25);
+            lvDays.Margin = new Padding(3, 2, 3, 2);
             lvDays.MultiSelect = false;
             lvDays.Name = "lvDays";
-            lvDays.Size = new Size(322, 406);
+            lvDays.Size = new Size(203, 304);
             lvDays.TabIndex = 8;
             lvDays.UseCompatibleStateImageBehavior = false;
             lvDays.View = View.Details;
@@ -117,13 +125,13 @@
             // columnHeader1
             // 
             columnHeader1.Text = "TARİHLER";
-            columnHeader1.Width = 200;
+            columnHeader1.Width = 100;
             // 
             // columnHeader10
             // 
             columnHeader10.Text = "TOPLAM KALORİ";
             columnHeader10.TextAlign = HorizontalAlignment.Center;
-            columnHeader10.Width = 120;
+            columnHeader10.Width = 100;
             // 
             // btnOgunSil
             // 
@@ -132,9 +140,10 @@
             btnOgunSil.FlatStyle = FlatStyle.Flat;
             btnOgunSil.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnOgunSil.Image = (Image)resources.GetObject("btnOgunSil.Image");
-            btnOgunSil.Location = new Point(226, 478);
+            btnOgunSil.Location = new Point(198, 358);
+            btnOgunSil.Margin = new Padding(3, 2, 3, 2);
             btnOgunSil.Name = "btnOgunSil";
-            btnOgunSil.Size = new Size(311, 148);
+            btnOgunSil.Size = new Size(272, 111);
             btnOgunSil.TabIndex = 9;
             btnOgunSil.Text = "ÖĞÜNÜ SİL";
             btnOgunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -147,9 +156,10 @@
             btnGunSil.FlatStyle = FlatStyle.Flat;
             btnGunSil.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnGunSil.Image = (Image)resources.GetObject("btnGunSil.Image");
-            btnGunSil.Location = new Point(651, 478);
+            btnGunSil.Location = new Point(570, 358);
+            btnGunSil.Margin = new Padding(3, 2, 3, 2);
             btnGunSil.Name = "btnGunSil";
-            btnGunSil.Size = new Size(311, 148);
+            btnGunSil.Size = new Size(272, 111);
             btnGunSil.TabIndex = 10;
             btnGunSil.Text = "GÜNÜ SİL";
             btnGunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -157,16 +167,18 @@
             // 
             // HistoryScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1129, 638);
+            ClientSize = new Size(988, 478);
             ControlBox = false;
             Controls.Add(btnGunSil);
             Controls.Add(btnOgunSil);
             Controls.Add(lvDays);
             Controls.Add(lvMeals);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "HistoryScreen";
+            Load += HistoryScreen_Load;
             ResumeLayout(false);
         }
 
@@ -185,5 +197,6 @@
         private ColumnHeader columnHeader10;
         private Button btnOgunSil;
         private Button btnGunSil;
+        private ColumnHeader columnHeader7;
     }
 }
