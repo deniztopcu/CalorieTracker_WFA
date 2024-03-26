@@ -69,6 +69,10 @@ namespace CalorieTracking.BLL
             return clue;
 
         }
+        public List<User> GetUsers()
+        {
+            return userManager.GetUsers();
+        }
 
     }
 }

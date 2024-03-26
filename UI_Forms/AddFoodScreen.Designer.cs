@@ -240,6 +240,7 @@
             lstFoods.TabIndex = 5;
             lstFoods.UseCompatibleStateImageBehavior = false;
             lstFoods.View = View.Details;
+            lstFoods.SelectedIndexChanged += lstFoods_SelectedIndexChanged;
             // 
             // columnHeader1
             // 

@@ -36,7 +36,7 @@
             label2 = new Label();
             label1 = new Label();
             grpAdminPanel = new GroupBox();
-            lvKullanıcılar = new ListView();
+            lvUsers = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -53,6 +53,7 @@
             btnBack.TabIndex = 16;
             btnBack.Text = "Ana Menüye Dön";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // btnGüncelle
             // 
@@ -64,6 +65,7 @@
             btnGüncelle.TabIndex = 15;
             btnGüncelle.Text = "Güncelle";
             btnGüncelle.UseVisualStyleBackColor = true;
+            btnGüncelle.Click += btnGüncelle_Click;
             // 
             // btnSil
             // 
@@ -75,6 +77,7 @@
             btnSil.TabIndex = 14;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = true;
+            btnSil.Click += btnSil_Click;
             // 
             // txtSifre
             // 
@@ -114,7 +117,7 @@
             // 
             // grpAdminPanel
             // 
-            grpAdminPanel.Controls.Add(lvKullanıcılar);
+            grpAdminPanel.Controls.Add(lvUsers);
             grpAdminPanel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             grpAdminPanel.Location = new Point(390, 27);
             grpAdminPanel.Margin = new Padding(3, 4, 3, 4);
@@ -125,19 +128,20 @@
             grpAdminPanel.TabStop = false;
             grpAdminPanel.Text = "Kullanıcı Listesi";
             // 
-            // lvKullanıcılar
+            // lvUsers
             // 
-            lvKullanıcılar.BackColor = SystemColors.InactiveCaption;
-            lvKullanıcılar.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            lvKullanıcılar.FullRowSelect = true;
-            lvKullanıcılar.GridLines = true;
-            lvKullanıcılar.Location = new Point(45, 33);
-            lvKullanıcılar.Margin = new Padding(3, 4, 3, 4);
-            lvKullanıcılar.Name = "lvKullanıcılar";
-            lvKullanıcılar.Size = new Size(305, 354);
-            lvKullanıcılar.TabIndex = 0;
-            lvKullanıcılar.UseCompatibleStateImageBehavior = false;
-            lvKullanıcılar.View = View.Details;
+            lvUsers.BackColor = SystemColors.InactiveCaption;
+            lvUsers.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvUsers.FullRowSelect = true;
+            lvUsers.GridLines = true;
+            lvUsers.Location = new Point(45, 33);
+            lvUsers.Margin = new Padding(3, 4, 3, 4);
+            lvUsers.Name = "lvUsers";
+            lvUsers.Size = new Size(305, 354);
+            lvUsers.TabIndex = 0;
+            lvUsers.UseCompatibleStateImageBehavior = false;
+            lvUsers.View = View.Details;
+            lvUsers.Click += lvUsers_Click;
             // 
             // columnHeader1
             // 
@@ -185,7 +189,7 @@
         private Label label2;
         private Label label1;
         private GroupBox grpAdminPanel;
-        private ListView lvKullanıcılar;
+        private ListView lvUsers;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;

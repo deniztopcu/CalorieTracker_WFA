@@ -44,9 +44,9 @@ namespace CalorieTracking.BLL
             return mealManager.Find(id);
         }
 
-        public List<Meal> GetAllMeals()
-        {
-          return mealManager.GetMeals();
-        }
+        //public List<Meal> GetAllMeals()
+        //{
+        //  return mealManager.GetAllMeals();
+        //}
     }
 }

@@ -57,6 +57,11 @@ namespace CalorieTracking.BLL
             }
         }
 
-        
+        public List<Food> GetAllFoods()
+        {
+            return foodManager.GetAllFoods();
+        }
+
+
     }
 }
