@@ -35,6 +35,11 @@
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
             lwOgunlereGoreKarsilastir = new ListView();
+            columnHeader6 = new ColumnHeader();
+            columnHeader10 = new ColumnHeader();
+            columnHeader11 = new ColumnHeader();
+            columnHeader12 = new ColumnHeader();
+            columnHeader13 = new ColumnHeader();
             rbAylik = new RadioButton();
             rbHaftalik = new RadioButton();
             label1 = new Label();
@@ -42,14 +47,9 @@
             label3 = new Label();
             lwYenilenOgunler = new ListView();
             ID = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
             columnHeader8 = new ColumnHeader();
             columnHeader9 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
-            columnHeader11 = new ColumnHeader();
-            columnHeader12 = new ColumnHeader();
-            columnHeader13 = new ColumnHeader();
             SuspendLayout();
             // 
             // lwHaftalikAylikDurum
@@ -100,6 +100,35 @@
             lwOgunlereGoreKarsilastir.UseCompatibleStateImageBehavior = false;
             lwOgunlereGoreKarsilastir.View = View.Details;
             // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "ÖĞÜN";
+            columnHeader6.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            columnHeader10.Text = "TOPLAM TÜKETİM";
+            columnHeader10.TextAlign = HorizontalAlignment.Center;
+            columnHeader10.Width = 100;
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "KULLANICI TÜKETİM";
+            columnHeader11.TextAlign = HorizontalAlignment.Center;
+            columnHeader11.Width = 100;
+            // 
+            // columnHeader12
+            // 
+            columnHeader12.Text = "TOPLAM KALORİ";
+            columnHeader12.TextAlign = HorizontalAlignment.Center;
+            columnHeader12.Width = 100;
+            // 
+            // columnHeader13
+            // 
+            columnHeader13.Text = "KULLANICI KALORİ";
+            columnHeader13.TextAlign = HorizontalAlignment.Center;
+            columnHeader13.Width = 100;
+            // 
             // rbAylik
             // 
             rbAylik.AutoSize = true;
@@ -110,6 +139,7 @@
             rbAylik.TabIndex = 2;
             rbAylik.Text = "Aylık";
             rbAylik.UseVisualStyleBackColor = true;
+            rbAylik.CheckedChanged += rbAylik_CheckedChanged;
             // 
             // rbHaftalik
             // 
@@ -121,6 +151,7 @@
             rbHaftalik.TabIndex = 3;
             rbHaftalik.Text = "Haftalık";
             rbHaftalik.UseVisualStyleBackColor = true;
+            rbHaftalik.CheckedChanged += rbHaftalik_CheckedChanged;
             // 
             // label1
             // 
@@ -170,11 +201,6 @@
             ID.Text = "ID";
             ID.Width = 100;
             // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "ÖĞÜN";
-            columnHeader6.Width = 100;
-            // 
             // columnHeader7
             // 
             columnHeader7.Text = "İSİM";
@@ -193,30 +219,6 @@
             columnHeader9.TextAlign = HorizontalAlignment.Center;
             columnHeader9.Width = 100;
             // 
-            // columnHeader10
-            // 
-            columnHeader10.Text = "TOPLAM TÜKETİM";
-            columnHeader10.TextAlign = HorizontalAlignment.Center;
-            columnHeader10.Width = 100;
-            // 
-            // columnHeader11
-            // 
-            columnHeader11.Text = "KULLANICI TÜKETİM";
-            columnHeader11.TextAlign = HorizontalAlignment.Center;
-            columnHeader11.Width = 100;
-            // 
-            // columnHeader12
-            // 
-            columnHeader12.Text = "TOPLAM KALORİ";
-            columnHeader12.TextAlign = HorizontalAlignment.Center;
-            columnHeader12.Width = 100;
-            // 
-            // columnHeader13
-            // 
-            columnHeader13.Text = "KULLANICI KALORİ";
-            columnHeader13.TextAlign = HorizontalAlignment.Center;
-            columnHeader13.Width = 100;
-            // 
             // AnalizScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -234,6 +236,7 @@
             Font = new Font("Segoe UI", 9F);
             ForeColor = SystemColors.ControlText;
             Name = "AnalizScreen";
+            Load += AnalizScreen_Load;
             ResumeLayout(false);
             PerformLayout();
         }

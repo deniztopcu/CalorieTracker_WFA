@@ -43,5 +43,67 @@ namespace CalorieTracking.BLL
         {
             return userMealDetailManager.Find(id);
         }
+
+        public List<Category> GetAllCategories()
+        {
+            return userMealDetailManager.GetAllCategories();
+        }
+
+        public double TotalConsumptionOfCategory(int id, int gun)
+        {
+            return userMealDetailManager.TotalConsumptionOfCategory( id, gun);
+        }
+
+        public double ConsumptionOfCategoryByUser(User user, Category category, int gun)
+        {
+            return userMealDetailManager.ConsumptionOfCategoryByUser(user, category, gun);
+        }
+
+        public double TotalCalorieOfCategory(int categoryid, int gun)
+        {
+            return userMealDetailManager.TotalCalorieOfCategory(categoryid, gun);
+        }
+
+        public double TotalCalorieOfCategoryByUser(int categoryid, User user, int gun)
+        {
+            return userMealDetailManager.TotalCalorieOfCategoryByUser(categoryid, user, gun);
+        }
+        public List<Meal> GetAllMeals(User user)
+        {
+            return userMealDetailManager.GetAllMeals(user);
+        }
+
+        public string GetMealConsumptionsOfAllUsers(Meal meal, int gun)
+        {
+            return userMealDetailManager.GetMealConsumptionsOfAllUsers(meal, gun);
+        }
+        public string  GetMealConsumptionsOfAllUsers(Meal meal, User user, int compareDay)
+        {
+            return userMealDetailManager.GetMealConsumptionsOfAllUsers(meal, user, compareDay);
+        }
+        public string GetMealCaloriesOfAllUsers(Meal meal, int compareDay)
+        {
+            return userMealDetailManager.GetMealCaloriesOfAllUsers(meal, compareDay);
+        }
+
+        public string GetMealCaloriesOfAllUsers(Meal meal, User user, int compareDay)
+        {
+            return userMealDetailManager.GetMealCaloriesOfAllUsers(meal,user ,compareDay);
+        }
+
+        public int GetCountOfUsersSpecificMeal(Meal meal, User user)
+        {
+            return userMealDetailManager.GetCountOfUsersSpecificMeal(meal, user);
+        }
+
+        public string GetTotalCalorieOfSpecificMealOfUser(Meal meal, User user)
+        {
+            return userMealDetailManager.GetTotalCalorieOfSpecificMealOfUser(meal, user);
+        }
+        public List<UserMealDetail> GetUserMealHistoryOfMeal(int mealid)
+        {
+            return userMealDetailManager.GetUserMealHistoryOfMeal(mealid);
+        }
+        
     }
 }

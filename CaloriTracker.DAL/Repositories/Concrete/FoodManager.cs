@@ -44,5 +44,9 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             return food;
 
         }
+        public Food GetFoodByID(int id)
+        {
+            return _dbContext.Foods.Where(x => x.ID == id).ToList().FirstOrDefault();
+        }
     }
 }
