@@ -23,16 +23,11 @@ namespace UI_Forms
             mealService = new MealService();
             _user = user;   
         }
+
         UserMealDetailService userMealDetailService;  
         FoodService foodService;
         MealService mealService;
         User _user;
-        private void btnVegetables_Click(object sender, EventArgs e)
-        {
-
-            List<Food> vegetables = foodService.GetFoodsByCategoryID(5);
-            ListViewDoldur(vegetables);
-        }
 
         private void ListViewDoldur(List<Food> foods)
         {
@@ -48,27 +43,29 @@ namespace UI_Forms
             }
         }
 
-        private void btnFruit_Click(object sender, EventArgs e)
-        {
-
-            List<Food> fruits = foodService.GetFoodsByCategoryID(11);
-            ListViewDoldur(fruits);
-        }
-
-
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
-
             var meals = mealService.GetAllMeals();
 
             foreach (var meal in meals)
             {
                 cmbOgunler.Items.Add(meal);
             }
+        }
 
+        // Kategorilere göre yemeklerin listelenmesi
+        private void btnVegetables_Click(object sender, EventArgs e)
+        {
+            List<Food> vegetables = foodService.GetFoodsByCategoryID(5);
+            ListViewDoldur(vegetables);
+        }
 
+        private void btnFruit_Click(object sender, EventArgs e)
+        {
 
+            List<Food> fruits = foodService.GetFoodsByCategoryID(11);
+            ListViewDoldur(fruits);
         }
 
         private void btnSoftDrink_Click(object sender, EventArgs e)
@@ -82,8 +79,6 @@ namespace UI_Forms
             List<Food> alcoholicBeverages = foodService.GetFoodsByCategoryID(1);
             ListViewDoldur(alcoholicBeverages);
         }
-
-
 
         private void btnFastFood_Click(object sender, EventArgs e)
         {
@@ -151,6 +146,7 @@ namespace UI_Forms
             ListViewDoldur(mainDishes);
         }
 
+        // Öğün ekleme işlemleri
         private void lvYemekleriListele_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbPorsiyon.Text = "";
@@ -160,7 +156,6 @@ namespace UI_Forms
                 cmbPorsiyon.Items.Add(foodService.GetById(((int)lvYemekleriListele.SelectedItems[0].Tag)).PortionName.ToString());
                 cmbPorsiyon.Items.Add("Gram");
             }
-
         }
 
         private void btnOgunEkle_Click(object sender, EventArgs e)
@@ -192,12 +187,6 @@ namespace UI_Forms
                 MessageBox.Show("Ogun datalarına eklendi");
             else
                 MessageBox.Show("Ogun eklenemedi");
-
-
-
-
         }
-
-     
     }
 }

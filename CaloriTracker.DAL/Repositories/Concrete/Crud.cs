@@ -36,7 +36,6 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             return _table.Find(id);
         }
 
-
         public List<T> GetAll()
         {
             return _table.ToList();
