@@ -26,8 +26,9 @@ namespace Models.Concrete
 
         public string    PasswordClue { get; set; }
 
+        public ICollection<Food> Foods { get; set; }    
         public UserDetail? UserDetail { get; set; }
-        //public ICollection <Meal> Meals { get; set; }
+        public ICollection <Meal> Meals { get; set; }
         public ICollection<UserMealDetail> UserMealDetails { get; set; }
     }
 }

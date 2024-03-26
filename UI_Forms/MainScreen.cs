@@ -114,8 +114,8 @@ namespace UI_Forms
         private void btnHistory_Click(object sender, EventArgs e)
         {
             this.ActiveMdiChild.Close();
+            HistoryScreen historyScreen = new HistoryScreen(_user); //user
 
-            HistoryScreen historyScreen = new HistoryScreen(_user);
             historyScreen.MdiParent = this;
             historyScreen.Dock = DockStyle.Fill;
             historyScreen.Show();

@@ -14,7 +14,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         public UserMealDetailManager(AppDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
+           
         }
+
+        
 
         public AppDbContext _dbContext;
 
@@ -23,8 +26,8 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         {
             return _dbContext.UserMealDetails
                 .Join(_dbContext.Foods, x => x.FoodID, y => y.ID, (x, y) => new { y.Category, x.FoodID, y.CategoryID, x.Status })
-                .Where(x => x.Status == Status.Active)
-                .Select(x => x.Category)
+                .Where(a => a.Status == Status.Active)
+                .Select(a => a.Category)
                 .Distinct()
                 .ToList();
         }
@@ -40,18 +43,20 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             if (result == null) return 0;
             else return result.TotalConsumption;
         }
-
+        //
         public double ConsumptionOfCategoryByUser(User user, Category category, int dayago)
         {
+            int userID = (int)user.ID;
             var result = _dbContext.Foods
-                .Join(_dbContext.UserMealDetails, y => y.ID, x => x.FoodID, (y, x) => new { y.CategoryID, y.ID, x.Status, x.FoodCount, x.UserID, x.CreationDate })
-                .Where(x => x.CreationDate > DateTime.Now.AddDays(-dayago))
-                .GroupBy(y => new { y.CategoryID, y.Status, y.UserID })
-                .Select(x => new { x.Key.CategoryID, TotalConsumption = x.Sum(y => y.FoodCount), x.Key.Status, x.Key.UserID })
-                .Where(x => x.Status == Status.Active && x.CategoryID == category.ID && x.UserID == user.ID).FirstOrDefault();
+                .Join(_dbContext.UserMealDetails, x => x.ID, y => y.FoodID, (x, y) => new { x.CategoryID, x.ID, y.Status, y.FoodCount, y.UserID, y.CreationDate })
+                .Where(a => a.CreationDate > DateTime.Now.AddDays(-dayago))
+                .GroupBy(x => new { x.CategoryID, x.Status, x.UserID })
+                .Select(a => new { a.Key.CategoryID, TotalConsumption = a.Sum(b=> b.FoodCount), a.Key.Status, a.Key.UserID })
+                .Where(a => a.Status == Status.Active && a.CategoryID == category.ID && a.UserID == userID).FirstOrDefault();
 
             if (result == null) return 0;
             else return result.TotalConsumption;
+
         }
 
         public double TotalCalorieOfCategory(int categoryid, int dayago)
@@ -71,6 +76,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public double TotalCalorieOfCategoryByUser(int categoryid, User user, int dayago)
         {
+            int userID = user.ID;
             var result = _dbContext.Foods
                 .Join(_dbContext.UserMealDetails, y => y.ID, x => x.FoodID, (y, x) => new { y.CategoryID, y.Name, x.Status, x.FoodCount, y.Calorie, x.User.ID, x.CreationDate })
                 .Where(x => x.CreationDate > DateTime.Now.AddDays(-dayago))
@@ -79,7 +85,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 .Distinct()
                 .GroupBy(y => new { y.CategoryID, y.Status, y.ID })
                 .Select(x => new { x.Key.CategoryID, SumOfCalories = x.Sum(y => y.TotalCalorie), x.Key.Status, x.Key.ID })
-                .Where(x => x.Status == Status.Active && x.CategoryID == categoryid && x.ID == user.ID).FirstOrDefault();
+                .Where(x => x.Status == Status.Active && x.CategoryID == categoryid && x.ID == userID).FirstOrDefault();
             if (result == null) return 0;
             else return result.SumOfCalories;
         }
@@ -103,10 +109,11 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public string GetMealConsumptionsOfAllUsers(Meal meal, User user, int compareDay)
         {
+            int userID = user.ID;
             var result = _dbContext.Meals
                 .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType,x.ID })
                 .Where(x => x.CreationDate > DateTime.Now.AddDays(-compareDay)
-                && x.MealType == meal.MealType && x.ID == user.ID && x.Status == Status.Active)
+                && x.MealType == meal.MealType && x.ID == userID && x.Status == Status.Active)
                 .GroupBy(x => new { x.MealType, x.Status, x.ID })
                 .Select(x => new { TotalConsumption = x.Sum(y => y.FoodCount) })
                 .FirstOrDefault();
@@ -143,18 +150,24 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public int GetCountOfUsersSpecificMeal(Meal meal, User user)
         {
+            int userID=user.ID;
+            int mealID = meal.ID;
             return _dbContext.UserMealDetails
-                .Where(x => x.MealID == meal.ID && x.Status == Status.Active && x.UserID == user.ID)
+                .Where(x => x.MealID == mealID && x.Status == Status.Active && x.UserID == userID)
                 .GroupBy(x => x.CreationDate.Date)
                 .Select(x => x.Key.Date)
                 .ToList().Count();
         }
         public string GetTotalCalorieOfSpecificMealOfUser(Meal meal, User user)
         {
+            int userID = user.ID;
+            int mealID = meal.ID;
             double calorie = 0;
-            foreach (UserMealDetail item in _dbContext.UserMealDetails.Where(x => x.UserID == user.ID && x.MealID == meal.ID && x.Status  ==Status.Active).ToList())
+            foreach (UserMealDetail item in _dbContext.UserMealDetails.Where(x => x.UserID == userID && x.MealID == mealID && x.Status  ==Status.Active).ToList())
             {
-                calorie += (item.FoodCount) * item.Food.Calorie;
+               int foodID=item.FoodID;
+                var food = _dbContext.Foods.Where(x => x.ID == foodID).FirstOrDefault();
+                calorie += (item.FoodCount) * food.Calorie;
             }
             return calorie.ToString();
         }

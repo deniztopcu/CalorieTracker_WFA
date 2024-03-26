@@ -17,10 +17,10 @@ namespace Models.Concrete
 
 
 
-        //[ForeignKey("User")]
 
-        //public int UserID { get; set; }
-        //public User? User { get; set; }
+
+        public int? UserID { get; set; }
+        public virtual User User { get; set; }
 
         public ICollection<UserMealDetail> UserMealDetails { get; set; }
 
