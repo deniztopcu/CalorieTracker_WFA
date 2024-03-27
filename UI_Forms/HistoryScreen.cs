@@ -21,7 +21,7 @@ namespace UI_Forms
             InitializeComponent();
             _userMealDetailService = new UserMealDetailService();
             _user = user;
-            foodService= new FoodService();
+            foodService = new FoodService();
             mealService = new MealService();
             categoryService = new CategoryService();
         }
@@ -39,6 +39,9 @@ namespace UI_Forms
             List<UserMealDetail> UML = _userMealDetailService.GetUserMealHistoryByUserID(userID);
             ListViewDoldur(UML);
 
+            var tarihListesi = _userMealDetailService.GetDaysCalorie(userID);
+            dgTarihOgun.DataSource = tarihListesi;
+
         }
 
         private void ListViewDoldur2()
@@ -53,7 +56,7 @@ namespace UI_Forms
             {
                 if (userMealDetail != null)
                 {
-                    var food= foodService.GetById(userMealDetail.FoodID);
+                    var food = foodService.GetById(userMealDetail.FoodID);
                     var meal = mealService.GetById(userMealDetail.MealID);
                     var categoryID = food.CategoryID;
                     var category = categoryService.GetById(categoryID);
@@ -75,7 +78,7 @@ namespace UI_Forms
                     string[] userMealDetailInfo = { userMealDetail.ID.ToString(), food.Name, category.CategoryName, calorie.ToString(), userMealDetail.FoodCount.ToString(), finalCalorie.ToString(), portionName.ToString(), meal.MealType.ToString() };
 
                     ListViewItem lvi = new(userMealDetailInfo);
-                    lvi.Tag = userMealDetail.CreationDate.Date;
+                    lvi.Tag = userMealDetail.ID;
 
                     lvMeals.Items.Add(lvi);
                 }
@@ -85,6 +88,20 @@ namespace UI_Forms
                 }
             }
         }
+
+        private void btnOgunSil_Click(object sender, EventArgs e)
+        {
+            int userID = _user.ID;
+            _userMealDetailService.Delete((int)lvMeals.SelectedItems[0].Tag);
+            lvMeals.SelectedItems[0].Remove();
+
+            MessageBox.Show("Seçili Öğün Silindi.");
+
+            var tarihListesi = _userMealDetailService.GetDaysCalorie(userID);
+            dgTarihOgun.DataSource = tarihListesi;
+        }
+
+       
     }
 }
 

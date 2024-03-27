@@ -63,6 +63,11 @@ namespace UI_Forms
             pbCalorieStatus.Maximum = (int)Math.Round(calorieNeed);
             double todayTotalCalorie = userMealDetailService.GetTotalCalorieToday(_user.ID);
 
+            var mealList = userMealDetailService.GetMealsTodayCalorie(_user.ID);
+            foreach (var meal in mealList)
+            {
+                todayTotalCalorie += meal.TotalCalorie;
+            }
 
             if (todayTotalCalorie > pbCalorieStatus.Maximum)
             {
@@ -90,6 +95,5 @@ namespace UI_Forms
             }
             return bMR;
         }
-
     }
 }

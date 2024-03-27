@@ -22,20 +22,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             return _dbContext.Users.Where(x => x.Email == email && x.Password == password).FirstOrDefault();               
         }
 
-        //private string Md5(string sifre)
-        //{
-        //    MD5 md5 = MD5.Create();
-        //    byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(sifre));
-
-        //    string str = "";
-        //    foreach (byte b in hash)
-        //    {
-        //        str += b.ToString("x2");
-
-        //    }
-        //    return str;
-        //
-
+        
         public string GetEmail(string email)
         {
 
@@ -63,6 +50,21 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         public List<User> GetUsers()
         {
             return _dbContext.Users.ToList();
+        }
+
+        public User CheckInfo(string email, string ipucu)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.Email == email && u.PasswordClue == ipucu);
+        }
+
+        public User UserByUserId(int userId)
+        {
+            return _dbContext.Users.FirstOrDefault(x => x.ID == userId);
+        }
+
+        public User CheckInfo(string email)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.Email == email);
         }
     }
 }
