@@ -206,5 +206,34 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
            
         }
+
+        public double TodayTotalMealCalorie(int userID, string mealName)
+        {
+            double totalMealCalorie = 0;
+            foreach (var item in _dbContext.UserMealDetails.Include(x => x.Meal).Where(x => x.UserID == userID && x.Meal.MealType.ToString() == mealName && x.CreationDate.Date == DateTime.Now.Date && x.Status == Status.Active).ToList())
+            {
+                totalMealCalorie += item.TotalCalorie;
+            }
+            return totalMealCalorie;
+
+
+
+
+
+
+
+        }
+
+
+        public IEnumerable<dynamic> GetMealsTodayCalorie(int userID)
+        {
+            var list = _dbContext.UserMealDetails.Join(_dbContext.Meals, x=>x.MealID,y=>y.ID,(x,y)=> new {x.})
+                
+                
+                
+                //.Where(x=>x.CreationDate.Date==DateTime.Today).GroupBy(x=>x.MealID).ToList();
+            //_dbContext.Meals
+            //    .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType, y.FoodID, y.UserID })
+        }
     }
 }

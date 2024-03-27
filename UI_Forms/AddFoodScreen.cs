@@ -22,23 +22,21 @@ namespace UI_Forms
         CategoryService categoryService;
 
 
-        public AddFoodScreen()
+        public AddFoodScreen(User user)
         {
             InitializeComponent();
             foodService = new FoodService();
             categoryService = new CategoryService();
+            _user = user;
 
         }
-
+        User _user;
 
         private void AddFoodScreen_Load(object sender, EventArgs e)
         {
             ButtonControls(true);
 
-            //List<Food> foods = foodService.GetAllFoods();
-
-            //FillLvItems(foods);
-
+            GetFoods(_user);
 
             var categories = categoryService.GetAllCategories();
 
@@ -46,6 +44,7 @@ namespace UI_Forms
             foreach (var category in categories)
             {
                 cbCategory.Items.Add(category);
+
             }
 
 
@@ -57,8 +56,6 @@ namespace UI_Forms
                 cbPortionType.Items.Add(portion.ToString());
             }
 
-
-
         }
 
         public void ButtonControls(bool status)
@@ -67,35 +64,25 @@ namespace UI_Forms
             btnDelete.Enabled = !status;
             btnUpdate.Enabled = !status;
         }
-
-        private void FillLvItems(List<Food> foods)
+        private void GetFoods(User user)
         {
-            //lstFoods.Items.Clear();
-            //var foods = foodService.GetAllPassiveFoods(_user.ID);
-
-            //ListViewItem lv = new ListViewItem(food.ID.ToString());
-            //lv.Text = food.ID.ToString();
-            ////lv.SubItems.Add(food.Name);
-            //lv.SubItems.Add(food.ID.ToString());
-            //lv.SubItems.Add(food.Name);
-            //lv.SubItems.Add(food.Calorie.ToString());
-            //lv.SubItems.Add(food.PortionGram.ToString());
-            //lv.SubItems.Add(food.PortionName.ToString());
-            //lv.SubItems.Add(food.Category.CategoryName);
-            //lstFoods.Items.Add(lv);
-            //lv.Tag = food;
-
+            int userID = user.ID;
             lstFoods.Items.Clear();
+            var foods = foodService.GetAllFoods(userID);
+
             foreach (Food food in foods)
             {
-                string[] foodInfo = { food.ID.ToString(),food.ID.ToString() ,food.Name, food.Calorie.ToString(), food.PortionGram.ToString(),food.Category.ToString() };
+                string[] foodInfo = { food.ID.ToString(), food.UserID.ToString(), food.Name, food.Calorie.ToString(), food.PortionGram.ToString(), food.PortionName.ToString() };
 
                 ListViewItem lvi = new(foodInfo);
                 lvi.Tag = food.ID;
 
                 lstFoods.Items.Add(lvi);
             }
+
         }
+
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -113,11 +100,13 @@ namespace UI_Forms
                 }
                 else
                 {
+                    int userID = _user.ID;
+                    int categoryID = ((Category)cbCategory.SelectedItem).ID;
                     Food food = new Food();
                     food.Name = txtFoodName.Text;
                     food.Calorie = float.Parse(txtCalorie.Text);
-                    food.CategoryID = ((Category)cbCategory.SelectedItem).ID;
-                    food.Category = (Category)cbCategory.SelectedItem;
+                    food.CategoryID = categoryID;
+                    food.UserID = userID;
                     food.PortionName = (PortionNames)cbPortionType.SelectedIndex;
                     food.PortionGram = float.Parse(txtGram.Text);
                     string path = "";
@@ -130,7 +119,7 @@ namespace UI_Forms
 
                     foodService.Add(food);
                     MessageBox.Show("Successful");
-                    FillLvItems(foodService.GetAllFoods());
+                    GetFoods(_user);
                     ClearItems(gbxAddFood.Controls);
                 }
             }
@@ -171,17 +160,61 @@ namespace UI_Forms
 
         private void lstFoods_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (lstFoods.SelectedItems.Count > 0)
             {
-                Food food = lstFoods.SelectedItems[0].Tag as Food;
+                int foodID = (int)lstFoods.SelectedItems[0].Tag;
+                Food food = foodService.GetFoodByID(foodID);
+                var category = categoryService.GetById(food.CategoryID);
+                var portionName = food.PortionName.ToString();
                 txtFoodName.Text = food.Name;
                 txtCalorie.Text = food.Calorie.ToString();
                 txtGram.Text = food.PortionGram.ToString();
                 cbPortionType.SelectedItem = food.PortionName;
-                cbCategory.SelectedItem = food.Category.CategoryName;
-                pbFoodImage.Image = Image.FromFile(Application.StartupPath + food.Picture);
+                cbCategory.SelectedItem = category;
+                //pbFoodImage.Image = Image.FromFile(Application.StartupPath + food.Picture);
                 ButtonControls(false);
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            string foodName = txtFoodName.Text;
+
+            if (txtFoodName.Text == string.Empty)
+            {
+                MessageBox.Show("Food name cannot be left blank!");
+            }
+            else
+            {
+
+
+                int userID = _user.ID;
+                int categoryID = ((Category)cbCategory.SelectedItem).ID;
+                int foodID=(int)lstFoods.SelectedItems[0].Tag;
+                Food food = foodService.GetFoodByID(foodID);
+                food.Name = txtFoodName.Text;
+                food.Calorie = float.Parse(txtCalorie.Text);
+                food.CategoryID = categoryID;
+                food.UserID = userID;
+                food.PortionName = (PortionNames)cbPortionType.SelectedIndex;
+                food.PortionGram = float.Parse(txtGram.Text);
+                string path = "";
+                if (pbFoodImage.Tag != null)
+                {
+                    path = Guid.NewGuid() + pbFoodImage.Tag.ToString();
+                    pbFoodImage.Image.Save(Application.StartupPath + "\\FoodPhotos\\" + path);
+                }
+                food.Picture = "\\FoodPhotos\\" + path;
+
+                foodService.Update(food);
+                MessageBox.Show("Successful");
+                GetFoods(_user);
+                ClearItems(gbxAddFood.Controls);
+            }
+        }
+
     }
 }
+

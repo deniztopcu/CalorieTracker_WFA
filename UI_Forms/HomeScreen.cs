@@ -185,6 +185,7 @@ namespace UI_Forms
                 finalCalorie = calorie / 100 * userMealDetail.FoodCount * portionGram;
             }
 
+            userMealDetail.TotalCalorie = finalCalorie;
             if (userMealDetailService.Add(userMealDetail))
                 MessageBox.Show("Ogun datalarına eklendi");
             else

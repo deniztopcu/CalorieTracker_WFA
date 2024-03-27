@@ -46,12 +46,12 @@
             lblUserAge = new Label();
             label2 = new Label();
             btnCalculate = new Button();
-            groupBox2 = new GroupBox();
-            flpUsersMealsCalories = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
             pbCalorieStatus = new ProgressBar();
+            listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -242,27 +242,6 @@
             btnCalculate.UseVisualStyleBackColor = false;
             btnCalculate.Click += btnCalculate_Click;
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(flpUsersMealsCalories);
-            groupBox2.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
-            groupBox2.Location = new Point(40, 427);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(552, 228);
-            groupBox2.TabIndex = 32;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Kullanıcını Günlük Yemek Kalorisi";
-            // 
-            // flpUsersMealsCalories
-            // 
-            flpUsersMealsCalories.Location = new Point(7, 33);
-            flpUsersMealsCalories.Margin = new Padding(3, 4, 3, 4);
-            flpUsersMealsCalories.Name = "flpUsersMealsCalories";
-            flpUsersMealsCalories.Size = new Size(527, 172);
-            flpUsersMealsCalories.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -282,6 +261,29 @@
             pbCalorieStatus.Size = new Size(518, 64);
             pbCalorieStatus.TabIndex = 34;
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Location = new Point(40, 465);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(552, 191);
+            listView1.TabIndex = 35;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Öğün Adı";
+            columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Toplam Kalori";
+            columnHeader2.TextAlign = HorizontalAlignment.Center;
+            columnHeader2.Width = 150;
+            // 
             // HealthStatusScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -289,16 +291,15 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1242, 668);
             ControlBox = false;
+            Controls.Add(listView1);
             Controls.Add(btnCalculate);
             Controls.Add(pbCalorieStatus);
             Controls.Add(pictureBox1);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "HealthStatusScreen";
             Load += HealthStatusScreen_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -323,9 +324,10 @@
         private Label label5;
         private Label lblUserAge;
         private Label label2;
-        private GroupBox groupBox2;
-        private FlowLayoutPanel flpUsersMealsCalories;
         private PictureBox pictureBox1;
         private ProgressBar pbCalorieStatus;
+        private ListView listView1;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

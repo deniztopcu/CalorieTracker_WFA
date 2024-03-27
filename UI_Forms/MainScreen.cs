@@ -161,7 +161,7 @@ namespace UI_Forms
         {
             this.ActiveMdiChild.Close();
 
-            AddFoodScreen addFoodScreen = new AddFoodScreen(); //user
+            AddFoodScreen addFoodScreen = new AddFoodScreen(_user); //user
             addFoodScreen.MdiParent = this;
             addFoodScreen.Dock = DockStyle.Fill;
             addFoodScreen.Show();
