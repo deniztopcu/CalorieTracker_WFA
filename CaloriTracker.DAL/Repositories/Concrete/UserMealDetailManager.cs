@@ -227,13 +227,16 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public IEnumerable<dynamic> GetMealsTodayCalorie(int userID)
         {
-            var list = _dbContext.UserMealDetails.Join(_dbContext.Meals, x=>x.MealID,y=>y.ID,(x,y)=> new {x.})
-                
-                
-                
-                //.Where(x=>x.CreationDate.Date==DateTime.Today).GroupBy(x=>x.MealID).ToList();
-            //_dbContext.Meals
-            //    .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType, y.FoodID, y.UserID })
+     
+                var list = _dbContext.UserMealDetails.Join(_dbContext.Meals, x => x.MealID, y => y.ID, (x, y) => new { x.CreationDate, y.MealType, x.TotalCalorie, x.UserID}).Where(x => x.CreationDate.Date == DateTime.Today && x.UserID== userID ).GroupBy(x => x.MealType).Select(group => new
+                {
+                    OgunAdi = group.Key,
+                    ToplamKalori = group.Sum(x => x.TotalCalorie)
+                }
+                ).ToList();
+
+                return list;
+
+            }
         }
-    }
 }
