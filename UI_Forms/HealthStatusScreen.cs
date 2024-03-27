@@ -58,10 +58,17 @@ namespace UI_Forms
             if (rbActive.Checked)
                 lblCalorieNeed.Text = (CalculateBMR() * 1.5).ToString();
 
-            double calorieNeed = double.Parse(lblCalorieNeed.Text);
-            pbCalorieStatus.Maximum = (int)Math.Round(calorieNeed);
+            //double calorieNeed = double.Parse(lblCalorieNeed.Text);
+            //pbCalorieStatus.Maximum = (int)Math.Round(calorieNeed);
             double todayTotalCalorie = 0;
 
+           
+
+            var mealList = userMealDetailService.GetMealsTodayCalorie(_user.ID);
+            foreach (var meal in mealList)
+            {
+                todayTotalCalorie += meal.TotalCalorie;
+            }
 
             if (todayTotalCalorie > pbCalorieStatus.Maximum)
             {

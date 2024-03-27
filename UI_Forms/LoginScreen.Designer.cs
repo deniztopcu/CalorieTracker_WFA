@@ -47,6 +47,7 @@
             chkSifreGoster = new CheckBox();
             label4 = new Label();
             txt_Password = new TextBox();
+            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             pnlGiris.SuspendLayout();
@@ -64,9 +65,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-
             panel1.Size = new Size(617, 48);
-
             panel1.TabIndex = 9;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -89,9 +88,7 @@
             btnKapat.Dock = DockStyle.Right;
             btnKapat.FlatStyle = FlatStyle.Flat;
             btnKapat.ForeColor = Color.Navy;
-
             btnKapat.Location = new Point(564, 0);
-
             btnKapat.Margin = new Padding(3, 4, 3, 4);
             btnKapat.Name = "btnKapat";
             btnKapat.Size = new Size(53, 48);
@@ -104,14 +101,13 @@
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(0, 55);
             pictureBox3.Name = "pictureBox3";
-
             pictureBox3.Size = new Size(612, 398);
-
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
             // 
             // pnlGiris
             // 
+            pnlGiris.Controls.Add(linkLabel1);
             pnlGiris.Controls.Add(lblIpucu);
             pnlGiris.Controls.Add(lklbl_HesapOlustur);
             pnlGiris.Controls.Add(label1);
@@ -125,11 +121,9 @@
             pnlGiris.Controls.Add(chkSifreGoster);
             pnlGiris.Controls.Add(label4);
             pnlGiris.Controls.Add(txt_Password);
-
             pnlGiris.Location = new Point(94, 66);
             pnlGiris.Name = "pnlGiris";
             pnlGiris.Size = new Size(424, 378);
-
             pnlGiris.TabIndex = 12;
             // 
             // lblIpucu
@@ -143,7 +137,7 @@
             // lklbl_HesapOlustur
             // 
             lklbl_HesapOlustur.AutoSize = true;
-            lklbl_HesapOlustur.Location = new Point(155, 342);
+            lklbl_HesapOlustur.Location = new Point(253, 342);
             lklbl_HesapOlustur.Name = "lklbl_HesapOlustur";
             lklbl_HesapOlustur.Size = new Size(133, 20);
             lklbl_HesapOlustur.TabIndex = 42;
@@ -208,7 +202,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(112, 204);
+            pictureBox5.Location = new Point(76, 204);
             pictureBox5.Margin = new Padding(3, 4, 3, 4);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(37, 47);
@@ -242,7 +236,7 @@
             // 
             chkSifreGoster.AutoSize = true;
             chkSifreGoster.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            chkSifreGoster.Location = new Point(166, 221);
+            chkSifreGoster.Location = new Point(139, 227);
             chkSifreGoster.Name = "chkSifreGoster";
             chkSifreGoster.Size = new Size(126, 24);
             chkSifreGoster.TabIndex = 30;
@@ -272,13 +266,22 @@
             txt_Password.Size = new Size(301, 36);
             txt_Password.TabIndex = 29;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(76, 342);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(117, 20);
+            linkLabel1.TabIndex = 44;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Şifremi Unuttum";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // LoginScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-
             ClientSize = new Size(617, 465);
-
             ControlBox = false;
             Controls.Add(pnlGiris);
             Controls.Add(pictureBox3);
@@ -315,5 +318,6 @@
         private Label label4;
         private TextBox txt_Password;
         private Label lblIpucu;
+        private LinkLabel linkLabel1;
     }
 }

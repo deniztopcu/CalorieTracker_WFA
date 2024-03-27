@@ -100,6 +100,12 @@ namespace UI_Forms
                     MessageBox.Show("Ýpucu bulunamadý");
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PasswordRenewScreen passwordRenewScreen = new PasswordRenewScreen();
+            passwordRenewScreen.ShowDialog();
+        }
     }
 }
 

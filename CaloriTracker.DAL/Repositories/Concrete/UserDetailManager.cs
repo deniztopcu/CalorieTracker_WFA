@@ -21,5 +21,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             var user = _dbContext.Users.Where(x=>x.ID == id).FirstOrDefault();
             return user.UserType;
         }
+
+        
     }
 }
