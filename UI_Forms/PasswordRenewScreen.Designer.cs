@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordRenewScreen));
             panel1 = new Panel();
+            btnClose = new Button();
             label1 = new Label();
-            btnKapat = new Button();
             label2 = new Label();
             label3 = new Label();
             txtEmail = new TextBox();
@@ -45,6 +45,8 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox5 = new PictureBox();
+            btnUpdatePassword = new Button();
+            txtIpucu = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbPasswordInfo).BeginInit();
@@ -57,12 +59,29 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
-            panel1.Controls.Add(btnKapat);
+            panel1.Controls.Add(btnClose);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(-4, -5);
             panel1.Name = "panel1";
             panel1.Size = new Size(1401, 57);
             panel1.TabIndex = 0;
+            panel1.MouseDown += panel1_MouseDown;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Navy;
+            btnClose.BackgroundImage = (Image)resources.GetObject("btnClose.BackgroundImage");
+            btnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            btnClose.Dock = DockStyle.Right;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.ForeColor = Color.Navy;
+            btnClose.Location = new Point(1344, 0);
+            btnClose.Margin = new Padding(3, 4, 3, 4);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(57, 57);
+            btnClose.TabIndex = 8;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // label1
             // 
@@ -74,21 +93,6 @@
             label1.Size = new Size(215, 23);
             label1.TabIndex = 1;
             label1.Text = "Kalori Takiip Programı";
-            // 
-            // btnKapat
-            // 
-            btnKapat.BackColor = Color.Navy;
-            btnKapat.BackgroundImage = (Image)resources.GetObject("btnKapat.BackgroundImage");
-            btnKapat.BackgroundImageLayout = ImageLayout.Zoom;
-            btnKapat.Dock = DockStyle.Right;
-            btnKapat.FlatStyle = FlatStyle.Flat;
-            btnKapat.ForeColor = Color.Navy;
-            btnKapat.Location = new Point(1344, 0);
-            btnKapat.Margin = new Padding(3, 4, 3, 4);
-            btnKapat.Name = "btnKapat";
-            btnKapat.Size = new Size(57, 57);
-            btnKapat.TabIndex = 8;
-            btnKapat.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -114,7 +118,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(507, 186);
+            txtEmail.Location = new Point(498, 186);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
@@ -139,13 +143,14 @@
             btnCheckInfos.FlatAppearance.MouseOverBackColor = Color.Red;
             btnCheckInfos.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnCheckInfos.ForeColor = Color.Black;
-            btnCheckInfos.Location = new Point(533, 268);
+            btnCheckInfos.Location = new Point(533, 302);
             btnCheckInfos.Margin = new Padding(3, 4, 3, 4);
             btnCheckInfos.Name = "btnCheckInfos";
             btnCheckInfos.Size = new Size(214, 55);
             btnCheckInfos.TabIndex = 7;
             btnCheckInfos.Text = "Bilgileri Kontrol Et";
             btnCheckInfos.UseVisualStyleBackColor = false;
+            btnCheckInfos.Click += btnCheckInfos_Click;
             // 
             // label5
             // 
@@ -160,7 +165,7 @@
             // 
             // txtYeniSifre
             // 
-            txtYeniSifre.Location = new Point(507, 415);
+            txtYeniSifre.Location = new Point(511, 399);
             txtYeniSifre.Margin = new Padding(3, 4, 3, 4);
             txtYeniSifre.Multiline = true;
             txtYeniSifre.Name = "txtYeniSifre";
@@ -171,7 +176,7 @@
             // ptbPasswordInfo
             // 
             ptbPasswordInfo.Image = (Image)resources.GetObject("ptbPasswordInfo.Image");
-            ptbPasswordInfo.Location = new Point(799, 415);
+            ptbPasswordInfo.Location = new Point(816, 388);
             ptbPasswordInfo.Margin = new Padding(3, 4, 3, 4);
             ptbPasswordInfo.Name = "ptbPasswordInfo";
             ptbPasswordInfo.Size = new Size(37, 47);
@@ -182,7 +187,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(439, 415);
+            pictureBox2.Location = new Point(439, 399);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(37, 47);
@@ -194,18 +199,19 @@
             // 
             chbSifreyiGöster.AutoSize = true;
             chbSifreyiGöster.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            chbSifreyiGöster.Location = new Point(578, 502);
+            chbSifreyiGöster.Location = new Point(554, 461);
             chbSifreyiGöster.Margin = new Padding(3, 4, 3, 4);
             chbSifreyiGöster.Name = "chbSifreyiGöster";
             chbSifreyiGöster.Size = new Size(159, 27);
             chbSifreyiGöster.TabIndex = 22;
             chbSifreyiGöster.Text = "Şifreyi Göster";
             chbSifreyiGöster.UseVisualStyleBackColor = true;
+            chbSifreyiGöster.CheckedChanged += chbSifreyiGöster_CheckedChanged;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(522, 492);
+            pictureBox4.Location = new Point(498, 452);
             pictureBox4.Margin = new Padding(3, 4, 3, 4);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(37, 47);
@@ -233,12 +239,40 @@
             pictureBox5.TabIndex = 25;
             pictureBox5.TabStop = false;
             // 
+            // btnUpdatePassword
+            // 
+            btnUpdatePassword.BackColor = Color.Transparent;
+            btnUpdatePassword.FlatAppearance.BorderColor = Color.White;
+            btnUpdatePassword.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnUpdatePassword.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnUpdatePassword.ForeColor = Color.Black;
+            btnUpdatePassword.Location = new Point(533, 508);
+            btnUpdatePassword.Margin = new Padding(3, 4, 3, 4);
+            btnUpdatePassword.Name = "btnUpdatePassword";
+            btnUpdatePassword.Size = new Size(214, 55);
+            btnUpdatePassword.TabIndex = 26;
+            btnUpdatePassword.Text = "Şifre Yenile";
+            btnUpdatePassword.UseVisualStyleBackColor = false;
+            btnUpdatePassword.Click += btnUpdatePassword_Click;
+            // 
+            // txtIpucu
+            // 
+            txtIpucu.Location = new Point(498, 249);
+            txtIpucu.Margin = new Padding(3, 4, 3, 4);
+            txtIpucu.Multiline = true;
+            txtIpucu.Name = "txtIpucu";
+            txtIpucu.PlaceholderText = "ipucunu yazınız";
+            txtIpucu.Size = new Size(274, 45);
+            txtIpucu.TabIndex = 27;
+            // 
             // PasswordRenewScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1393, 564);
             ControlBox = false;
+            Controls.Add(txtIpucu);
+            Controls.Add(btnUpdatePassword);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox4);
@@ -254,6 +288,7 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             Name = "PasswordRenewScreen";
+            Load += PasswordRenewScreen_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -270,7 +305,7 @@
 
         private Panel panel1;
         private Label label1;
-        private Button btnKapat;
+        private Button btnClose;
         private Label label2;
         private Label label3;
         private TextBox txtEmail;
@@ -284,5 +319,7 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;
+        private Button btnUpdatePassword;
+        private TextBox txtIpucu;
     }
 }

@@ -31,7 +31,6 @@ namespace CalorieTracking.BLL
         public bool Update(User user)
         {
             user.ModifiedDate = DateTime.Now;
-            user.Status = Status.Modified;
             return userManager.Update(user);
         }
 
@@ -73,7 +72,20 @@ namespace CalorieTracking.BLL
         {
             return userManager.GetUsers();
         }
+        public User CheckInfo(string email, string ipucu)
+        {
+            return userManager.CheckInfo(email, ipucu);
+        }
 
+        public User UserByUserId(int userId)
+        {
+            return userManager.UserByUserId(userId);
+        }
+
+        public User CheckInfo(string email)
+        {
+            return userManager.CheckInfo(email);
+        }
     }
 }
 
