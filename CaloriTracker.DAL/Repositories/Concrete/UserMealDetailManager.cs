@@ -215,13 +215,6 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 totalMealCalorie += item.TotalCalorie;
             }
             return totalMealCalorie;
-
-
-
-
-
-
-
         }
 
 
@@ -232,26 +225,26 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             {
                 OgunAdi = group.Key,
                 ToplamKalori = group.Sum(x => x.TotalCalorie)
-            }
-            ).ToList();
-
+            }).ToList();
             return list;
-
         }
 
+        public double GetEatenTotalCalorieToday(int userID)
+        {
+            double totalCalorie = _dbContext.UserMealDetails.Where(x => x.CreationDate.Date == DateTime.Today && x.UserID == userID&&x.Status!=Status.Passive).Sum(x => (double)x.TotalCalorie);
+            return totalCalorie;
+        }
+  
         public IEnumerable<dynamic> GetDaysCalorie(int userID)
         {
-
             var list = _dbContext.UserMealDetails.Where(x => x.UserID == userID).GroupBy(x => x.CreationDate.Date).Select(group => new
             {
                 Tarih = group.Key,
                 ToplamKalori = group.Sum(x => x.TotalCalorie)
             }).ToList();
             return list;
-
         }
     }
-
-
-
 }
+
+
