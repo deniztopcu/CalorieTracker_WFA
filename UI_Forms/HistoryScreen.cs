@@ -91,6 +91,11 @@ namespace UI_Forms
 
         private void btnOgunSil_Click(object sender, EventArgs e)
         {
+            if (lvMeals.SelectedIndices.Count == 0)
+            {
+                MessageBox.Show("Lütfen bir yemek seçiniz");
+                return;
+            }
             int userID = _user.ID;
             _userMealDetailService.Delete((int)lvMeals.SelectedItems[0].Tag);
             lvMeals.SelectedItems[0].Remove();
