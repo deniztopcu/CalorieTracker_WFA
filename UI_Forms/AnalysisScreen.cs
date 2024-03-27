@@ -25,7 +25,6 @@ namespace UI_Forms
         User _user;
         private void AnalizScreen_Load(object sender, EventArgs e)
         {
-
             LoadCompareYourself();
             LoadCompareMeals();
             LoadWhatDidIEat();
@@ -90,7 +89,7 @@ namespace UI_Forms
                 lwYenilenOgunler.Items.Add(lvi);
                 lvi.Tag = meal;
                 counter = 0;
-                foreach (UserMealDetail item in detailservice.GetUserMealHistoryOfMeal(meal.ID))
+                foreach (UserMealDetail item in detailservice.GetUserMealHistoryOfMeal(meal.ID,_user.ID))
                 {
                     Food food= new Food();
                     foodService = new FoodService();
@@ -110,12 +109,16 @@ namespace UI_Forms
 
         private void rbHaftalik_CheckedChanged(object sender, EventArgs e)
         {
+            lwOgunlereGoreKarsilastir.Items.Clear();
+            lwHaftalikAylikDurum.Items.Clear();
             LoadCompareYourself();
             LoadCompareMeals();
         }
 
         private void rbAylik_CheckedChanged(object sender, EventArgs e)
         {
+            lwOgunlereGoreKarsilastir.Items.Clear();
+            lwHaftalikAylikDurum.Items.Clear();
             LoadCompareYourself();
             LoadCompareMeals();
         }

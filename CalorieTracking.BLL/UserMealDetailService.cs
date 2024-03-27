@@ -100,9 +100,9 @@ namespace CalorieTracking.BLL
         {
             return userMealDetailManager.GetTotalCalorieOfSpecificMealOfUser(meal, user);
         }
-        public List<UserMealDetail> GetUserMealHistoryOfMeal(int mealid)
+        public List<UserMealDetail> GetUserMealHistoryOfMeal(int mealid,int userID)
         {
-            return userMealDetailManager.GetUserMealHistoryOfMeal(mealid);
+            return userMealDetailManager.GetUserMealHistoryOfMeal(mealid,userID);
         }
 
 

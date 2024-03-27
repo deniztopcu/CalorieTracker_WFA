@@ -172,10 +172,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             }
             return calorie.ToString();
         }
-        public List<UserMealDetail> GetUserMealHistoryOfMeal(int mealid)
+        public List<UserMealDetail> GetUserMealHistoryOfMeal(int mealid, int userID)
         {
             return _dbContext.UserMealDetails
-                .Where(x => x.MealID == mealid && x.Status == Status.Active)
+                .Where(x => x.MealID == mealid && x.Status == Status.Active && x.UserID == userID)
                 .ToList();
         }
 
