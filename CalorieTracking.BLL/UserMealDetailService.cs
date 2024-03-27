@@ -110,5 +110,9 @@ namespace CalorieTracking.BLL
         {
             return userMealDetailManager.GetUserMealHistoryByUserID(userID);
         }
+        public double TodayTotalMealCalorie(int userID, string mealName)
+        {
+            return userMealDetailManager.TodayTotalMealCalorie(userID, mealName);
+        }
     }
 }

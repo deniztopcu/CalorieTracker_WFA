@@ -8,7 +8,7 @@ namespace Models.Enums
 {
     public enum PortionNames
     {
-        Kadeh=1,
+        Kadeh,
         Shot,
         Sise,
         Bardak,

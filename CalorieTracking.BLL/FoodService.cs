@@ -68,6 +68,14 @@ namespace CalorieTracking.BLL
             return foodManager.GetFoodByID(id);
         }
 
+        public List<Food> GetAllFoods(int userID)
+        { 
+            return foodManager.GetAllFoods(userID);
+        }
+        public List<Food> GetFoods()
+        {
+            return foodManager.GetFoods();
+        }
 
     }
 }

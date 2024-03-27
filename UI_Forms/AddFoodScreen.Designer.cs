@@ -52,7 +52,6 @@
             columnHeader5 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
             gbxAddFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbFoodImage).BeginInit();
             grpMeals.SuspendLayout();
@@ -186,6 +185,7 @@
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -230,7 +230,7 @@
             // 
             // lstFoods
             // 
-            lstFoods.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader4, columnHeader5, columnHeader3, columnHeader6, columnHeader7 });
+            lstFoods.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader4, columnHeader5, columnHeader3, columnHeader6 });
             lstFoods.FullRowSelect = true;
             lstFoods.GridLines = true;
             lstFoods.Location = new Point(12, 33);
@@ -271,11 +271,6 @@
             // 
             columnHeader6.Text = "Portion Type";
             columnHeader6.Width = 120;
-            // 
-            // columnHeader7
-            // 
-            columnHeader7.Text = "Category";
-            columnHeader7.Width = 100;
             // 
             // AddFoodScreen
             // 
@@ -319,7 +314,6 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
         private PictureBox pbFoodImage;
     }
 }

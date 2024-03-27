@@ -12,7 +12,8 @@ namespace Models.Concrete
     {
 
         public int FoodCount { get; set; }
-        
+        public double TotalCalorie { get; set; }
+
         public int UserID { get; set; }
         public User? User { get; set; }
 

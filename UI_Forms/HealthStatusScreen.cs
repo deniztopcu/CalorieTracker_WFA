@@ -33,8 +33,8 @@ namespace UI_Forms
             lblUserHeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
             lblUserWeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
 
-            UserMealDetailService userMealDetailService = new UserMealDetailService();
-            MealService mealService = new MealService();
+
+            
 
 
         }
