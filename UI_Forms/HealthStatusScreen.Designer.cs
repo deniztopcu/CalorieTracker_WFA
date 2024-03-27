@@ -48,11 +48,10 @@
             btnCalculate = new Button();
             pictureBox1 = new PictureBox();
             pbCalorieStatus = new ProgressBar();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
+            dgTodayMeals = new DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgTodayMeals).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -261,28 +260,14 @@
             pbCalorieStatus.Size = new Size(518, 64);
             pbCalorieStatus.TabIndex = 34;
             // 
-            // listView1
+            // dgTodayMeals
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(40, 465);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(552, 191);
-            listView1.TabIndex = 35;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Öğün Adı";
-            columnHeader1.Width = 150;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Toplam Kalori";
-            columnHeader2.TextAlign = HorizontalAlignment.Center;
-            columnHeader2.Width = 150;
+            dgTodayMeals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgTodayMeals.Location = new Point(40, 438);
+            dgTodayMeals.Name = "dgTodayMeals";
+            dgTodayMeals.RowHeadersWidth = 51;
+            dgTodayMeals.Size = new Size(418, 188);
+            dgTodayMeals.TabIndex = 35;
             // 
             // HealthStatusScreen
             // 
@@ -291,7 +276,7 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1242, 668);
             ControlBox = false;
-            Controls.Add(listView1);
+            Controls.Add(dgTodayMeals);
             Controls.Add(btnCalculate);
             Controls.Add(pbCalorieStatus);
             Controls.Add(pictureBox1);
@@ -301,6 +286,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgTodayMeals).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -326,8 +312,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private ProgressBar pbCalorieStatus;
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
+        private DataGridView dgTodayMeals;
     }
 }

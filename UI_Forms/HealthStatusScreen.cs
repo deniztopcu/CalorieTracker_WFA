@@ -16,12 +16,14 @@ namespace UI_Forms
     {
         UserDetailService userDetailService;
         User _user;
+        UserMealDetailService userMealDetailService;
 
         public HealthStatusScreen(User user)
         {
             InitializeComponent();
             userDetailService = new UserDetailService();
             _user = user;
+            userMealDetailService = new UserMealDetailService();    
         }
         
 
@@ -33,8 +35,8 @@ namespace UI_Forms
             lblUserHeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
             lblUserWeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
 
-
-            
+            var ogunListesi = userMealDetailService.GetMealsTodayCalorie(_user.ID);             
+            dgTodayMeals.DataSource = ogunListesi;  
 
 
         }
