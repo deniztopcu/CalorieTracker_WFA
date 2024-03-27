@@ -17,7 +17,7 @@ namespace UI_Forms
         UserService userService;
         LoginScreen _loginScreen;
         User _user;
-        public MainScreen(User user,LoginScreen loginScreen)
+        public MainScreen(User user, LoginScreen loginScreen)
         {
             InitializeComponent();
             userService = new UserService();
@@ -55,12 +55,12 @@ namespace UI_Forms
             LoadHomeScreen();
             timer1.Start();
             lblTime.Text = DateTime.Now.ToString();
-           
+
         }
 
         public void LoadHomeScreen()
         {
-            HomeScreen homeScreen = new HomeScreen(_user); 
+            HomeScreen homeScreen = new HomeScreen(_user);
             homeScreen.MdiParent = this;
             homeScreen.Dock = DockStyle.Fill;
             homeScreen.Show();
@@ -70,7 +70,7 @@ namespace UI_Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           // lblTime.Text = DateTime.Now.ToString();
+            // lblTime.Text = DateTime.Now.ToString();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -100,15 +100,15 @@ namespace UI_Forms
 
         private void btnHealthStatus_Click(object sender, EventArgs e)
         {
-                
-                this.ActiveMdiChild.Close();
-                HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
-                healthStatusScreen.MdiParent = this;
-                healthStatusScreen.Dock = DockStyle.Fill;
-                healthStatusScreen.Show();
-                pnlMain.Controls.Clear();
-                pnlMain.Controls.Add(healthStatusScreen);
-         
+
+            this.ActiveMdiChild.Close();
+            HealthStatusScreen healthStatusScreen = new HealthStatusScreen(_user); //user
+            healthStatusScreen.MdiParent = this;
+            healthStatusScreen.Dock = DockStyle.Fill;
+            healthStatusScreen.Show();
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(healthStatusScreen);
+
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -144,18 +144,6 @@ namespace UI_Forms
 
         }
 
-        private void btnAddMeal_Click(object sender, EventArgs e)
-        {
-            this.ActiveMdiChild.Close();
-
-            AddMealScreen addMealScreen = new AddMealScreen(); //user
-            addMealScreen.MdiParent = this;
-            addMealScreen.Dock = DockStyle.Fill;
-            addMealScreen.Show();
-            pnlMain.Controls.Clear();
-            pnlMain.Controls.Add(addMealScreen);
-
-        }
 
         private void btnAddNutrition_Click(object sender, EventArgs e)
         {
@@ -177,6 +165,18 @@ namespace UI_Forms
             healthStatusScreen.Dock = DockStyle.Fill;
             healthStatusScreen.Show();
 
+        }
+
+        private void btnHealthArticle_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Close();
+
+            HealthArticleScreen addMealScreen = new HealthArticleScreen(); //user
+            addMealScreen.MdiParent = this;
+            addMealScreen.Dock = DockStyle.Fill;
+            addMealScreen.Show();
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(addMealScreen);
 
         }
     }

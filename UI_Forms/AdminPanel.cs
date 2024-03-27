@@ -69,6 +69,7 @@ namespace UI_Forms
             selectedUser.Password = password;
             userService.Update(selectedUser);
             MessageBox.Show("User is updated!");
+            LoadUsersList();
         }
 
         private string sha256(string password)

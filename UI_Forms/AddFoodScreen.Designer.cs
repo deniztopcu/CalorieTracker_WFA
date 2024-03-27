@@ -74,9 +74,11 @@
             gbxAddFood.Controls.Add(label1);
             gbxAddFood.Controls.Add(txtFoodName);
             gbxAddFood.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            gbxAddFood.Location = new Point(741, 10);
+            gbxAddFood.Location = new Point(847, 13);
+            gbxAddFood.Margin = new Padding(3, 4, 3, 4);
             gbxAddFood.Name = "gbxAddFood";
-            gbxAddFood.Size = new Size(411, 478);
+            gbxAddFood.Padding = new Padding(3, 4, 3, 4);
+            gbxAddFood.Size = new Size(470, 637);
             gbxAddFood.TabIndex = 12;
             gbxAddFood.TabStop = false;
             gbxAddFood.Text = "Yemek Ekle";
@@ -84,26 +86,28 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(48, 241);
+            label5.Location = new Point(55, 321);
             label5.Name = "label5";
-            label5.Size = new Size(58, 19);
+            label5.Size = new Size(71, 23);
             label5.TabIndex = 15;
             label5.Text = "Gram:";
             // 
             // txtGram
             // 
-            txtGram.Location = new Point(181, 238);
+            txtGram.Location = new Point(207, 317);
+            txtGram.Margin = new Padding(3, 4, 3, 4);
             txtGram.Name = "txtGram";
-            txtGram.Size = new Size(170, 27);
+            txtGram.Size = new Size(194, 32);
             txtGram.TabIndex = 14;
             // 
             // pbFoodImage
             // 
             pbFoodImage.BorderStyle = BorderStyle.FixedSingle;
             pbFoodImage.Image = (Image)resources.GetObject("pbFoodImage.Image");
-            pbFoodImage.Location = new Point(114, 32);
+            pbFoodImage.Location = new Point(130, 43);
+            pbFoodImage.Margin = new Padding(3, 4, 3, 4);
             pbFoodImage.Name = "pbFoodImage";
-            pbFoodImage.Size = new Size(174, 94);
+            pbFoodImage.Size = new Size(199, 125);
             pbFoodImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pbFoodImage.TabIndex = 13;
             pbFoodImage.TabStop = false;
@@ -112,67 +116,73 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(49, 332);
+            label4.Location = new Point(56, 443);
             label4.Name = "label4";
-            label4.Size = new Size(74, 19);
+            label4.Size = new Size(91, 23);
             label4.TabIndex = 12;
             label4.Text = "Kategori";
             // 
             // cbCategory
             // 
             cbCategory.FormattingEnabled = true;
-            cbCategory.Location = new Point(181, 329);
+            cbCategory.Location = new Point(207, 439);
+            cbCategory.Margin = new Padding(3, 4, 3, 4);
             cbCategory.Name = "cbCategory";
-            cbCategory.Size = new Size(170, 27);
+            cbCategory.Size = new Size(194, 31);
             cbCategory.TabIndex = 11;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(48, 289);
+            label3.Location = new Point(55, 385);
             label3.Name = "label3";
-            label3.Size = new Size(102, 19);
+            label3.Size = new Size(128, 23);
             label3.TabIndex = 10;
             label3.Text = "Porsiyon Tipi";
             // 
             // cbPortionType
             // 
             cbPortionType.FormattingEnabled = true;
-            cbPortionType.Location = new Point(181, 281);
+            cbPortionType.Location = new Point(207, 375);
+            cbPortionType.Margin = new Padding(3, 4, 3, 4);
             cbPortionType.Name = "cbPortionType";
-            cbPortionType.Size = new Size(170, 27);
+            cbPortionType.Size = new Size(194, 31);
             cbPortionType.TabIndex = 9;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(48, 199);
+            label2.Location = new Point(55, 265);
             label2.Name = "label2";
-            label2.Size = new Size(57, 19);
+            label2.Size = new Size(70, 23);
             label2.TabIndex = 8;
             label2.Text = "Kalori:";
             // 
             // txtCalorie
             // 
-            txtCalorie.Location = new Point(181, 196);
+            txtCalorie.Location = new Point(207, 261);
+            txtCalorie.Margin = new Padding(3, 4, 3, 4);
             txtCalorie.Name = "txtCalorie";
-            txtCalorie.Size = new Size(170, 27);
+            txtCalorie.Size = new Size(194, 32);
             txtCalorie.TabIndex = 7;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(37, 406);
+            btnDelete.Location = new Point(42, 541);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(86, 45);
+            btnDelete.Size = new Size(98, 60);
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Sil";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(158, 406);
+            btnUpdate.Location = new Point(181, 541);
+            btnUpdate.Margin = new Padding(3, 4, 3, 4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(103, 45);
+            btnUpdate.Size = new Size(118, 60);
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Güncelle";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -180,9 +190,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(290, 406);
+            btnAdd.Location = new Point(331, 541);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(85, 45);
+            btnAdd.Size = new Size(97, 60);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "Ekle";
             btnAdd.UseVisualStyleBackColor = true;
@@ -191,26 +202,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 163);
+            label1.Location = new Point(51, 217);
             label1.Name = "label1";
-            label1.Size = new Size(99, 19);
+            label1.Size = new Size(124, 23);
             label1.TabIndex = 1;
             label1.Text = "Yemek Adı:";
             // 
             // txtFoodName
             // 
-            txtFoodName.Location = new Point(181, 155);
+            txtFoodName.Location = new Point(207, 207);
+            txtFoodName.Margin = new Padding(3, 4, 3, 4);
             txtFoodName.Name = "txtFoodName";
-            txtFoodName.Size = new Size(170, 27);
+            txtFoodName.Size = new Size(194, 32);
             txtFoodName.TabIndex = 0;
             // 
             // grpMeals
             // 
             grpMeals.Controls.Add(lstFoods);
             grpMeals.Font = new Font("Century Gothic", 12F);
-            grpMeals.Location = new Point(34, 27);
+            grpMeals.Location = new Point(39, 36);
+            grpMeals.Margin = new Padding(3, 4, 3, 4);
             grpMeals.Name = "grpMeals";
-            grpMeals.Size = new Size(681, 460);
+            grpMeals.Padding = new Padding(3, 4, 3, 4);
+            grpMeals.Size = new Size(778, 613);
             grpMeals.TabIndex = 14;
             grpMeals.TabStop = false;
             grpMeals.Text = "Yemekler";
@@ -220,9 +234,10 @@
             lstFoods.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader4, columnHeader5, columnHeader3, columnHeader6 });
             lstFoods.FullRowSelect = true;
             lstFoods.GridLines = true;
-            lstFoods.Location = new Point(10, 25);
+            lstFoods.Location = new Point(11, 33);
+            lstFoods.Margin = new Padding(3, 4, 3, 4);
             lstFoods.Name = "lstFoods";
-            lstFoods.Size = new Size(669, 431);
+            lstFoods.Size = new Size(764, 573);
             lstFoods.TabIndex = 5;
             lstFoods.UseCompatibleStateImageBehavior = false;
             lstFoods.View = View.Details;
@@ -260,14 +275,13 @@
             // 
             // AddFoodScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1155, 511);
+            ClientSize = new Size(1320, 681);
             ControlBox = false;
             Controls.Add(grpMeals);
             Controls.Add(gbxAddFood);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AddFoodScreen";
             Load += AddFoodScreen_Load;
             gbxAddFood.ResumeLayout(false);
