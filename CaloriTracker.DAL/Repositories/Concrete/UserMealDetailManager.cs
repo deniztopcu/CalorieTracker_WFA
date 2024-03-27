@@ -238,5 +238,17 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 return list;
 
             }
+        public double GetEatenTotalCalorieToday(int userID)
+        {
+
+            double totalCalorie = _dbContext.UserMealDetails.Where(x => x.CreationDate.Date == DateTime.Today && x.UserID == userID&&x.Status!=Status.Passive).Sum(x => (double)x.TotalCalorie);
+
+            return totalCalorie;
+
         }
+    }
+
+
 }
+
+

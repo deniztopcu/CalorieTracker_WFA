@@ -262,11 +262,14 @@
             // 
             // dgTodayMeals
             // 
+            dgTodayMeals.AllowUserToOrderColumns = true;
+            dgTodayMeals.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgTodayMeals.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgTodayMeals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgTodayMeals.Location = new Point(40, 438);
             dgTodayMeals.Name = "dgTodayMeals";
-            dgTodayMeals.RowHeadersWidth = 51;
-            dgTodayMeals.Size = new Size(418, 188);
+            dgTodayMeals.RowHeadersWidth = 60;
+            dgTodayMeals.Size = new Size(310, 124);
             dgTodayMeals.TabIndex = 35;
             // 
             // HealthStatusScreen

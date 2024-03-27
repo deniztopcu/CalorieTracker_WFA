@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Formats.Tar;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,7 @@ namespace UI_Forms
 
             double calorieNeed = double.Parse(lblCalorieNeed.Text);
             pbCalorieStatus.Maximum = (int)Math.Round(calorieNeed);
-            double todayTotalCalorie = 0;
+            double todayTotalCalorie = userMealDetailService.GetTotalCalorieToday(_user.ID);
 
 
             if (todayTotalCalorie > pbCalorieStatus.Maximum)
@@ -72,6 +73,8 @@ namespace UI_Forms
             {
                 pbCalorieStatus.Value = (int)Math.Round(todayTotalCalorie);
             }
+
+            
         }
 
         public double CalculateBMR()
