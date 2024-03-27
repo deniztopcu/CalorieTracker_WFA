@@ -1,4 +1,5 @@
 ﻿using CalorieTracking.BLL;
+using CaloriTracker.DAL.Repositories.Concrete;
 using Models.Concrete;
 using System;
 using System.Collections.Generic;
@@ -18,39 +19,37 @@ namespace UI_Forms
         public AdminPanel()
         {
             InitializeComponent();
+            userService = new UserService();
+
         }
+        UserService userService;
 
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             LoadUsersList();
-
         }
-        UserService userService;
+        
         public void LoadUsersList()
         {
             lvUsers.Items.Clear();
-            userService = new UserService();
-            List<User> appUsers = userService.GetUsers();
-            foreach (var item in appUsers)
+            List<User> users = userService.GetUsers();
+            foreach (var user in users)
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.Text = item.ID.ToString();
-                lvi.SubItems.Add(item.Email.ToString());
-                lvi.SubItems.Add(item.Password.ToString());
-                lvi.Tag = item.ID;
+                lvi.Text = user.ID.ToString();
+                lvi.SubItems.Add(user.Email.ToString());
+                lvi.SubItems.Add(user.Password.ToString());
+                lvi.Tag = user.ID;
                 lvUsers.Items.Add(lvi);
             }
         }
 
         User selectedUser;
-
         private void lvUsers_Click(object sender, EventArgs e)
         {
             if (lvUsers.SelectedItems.Count == 1)
             {
-                selectedUser.ID = (int)lvUsers.SelectedItems[0].Tag;
-                int selectedUserID=selectedUser.ID;
-                
+                selectedUser = userService.GetById((int)(lvUsers.SelectedItems[0].Tag));
                 txtEmail.Text = selectedUser.Email;
                 txtSifre.Text = selectedUser.Password;
             }
@@ -58,9 +57,8 @@ namespace UI_Forms
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            selectedUser.ID = (int)lvUsers.SelectedItems[0].Tag;
-            int selectedUserID = selectedUser.ID;
-            userService.Delete(selectedUserID);
+            userService.Delete(selectedUser.ID);
+            lvUsers.SelectedItems[0].Remove();
             MessageBox.Show("User is deleted!");
         }
 
