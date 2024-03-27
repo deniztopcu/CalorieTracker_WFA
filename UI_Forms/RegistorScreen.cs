@@ -22,58 +22,118 @@ namespace UI_Forms
             userService = new UserService();
         }
         UserService userService;
+
+        // Programa sadece 10 yaşından büyük kişilerin giriş yapabilmesini sağlar.
         private void RegistorScreen_Load(object sender, EventArgs e)
         {
-            // Programa sadece 10 yaşından büyük kişilerin giriş yapabilmesini sağlar.
             dtpDogumTarihi.MaxDate = DateTime.Now.AddYears(-10);
+        }
+
+        // Şifre görünürlüğünü değiştirir
+        private void chbSifreGöster_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (chbSifreGöster.Checked)
+            {
+                txtSifre.PasswordChar = '\0';
+                txtTekrarSifre.PasswordChar = '\0';
+            }
+            else
+            {
+                txtSifre.PasswordChar = '*';
+                txtTekrarSifre.PasswordChar = '*';
+            }
+        }
+
+        private void btnKapat_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lnkHesapVarMı_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
         }
 
         private void btnKayıt_Click(object sender, EventArgs e)
         {
-            ControlNullOrNot();
-            //user bilgileri
             string email = txtEMail.Text;
             string password = txtSifre.Text;
             string confirmPassword = txtTekrarSifre.Text;
 
+            // Kullanıcının sistemde olup olmadığını kotrol eder
             if (!userService.ControlEmail(email))
             {
                 MessageBox.Show("Mail Adresi Sistemde Kayıtlıdır!");
+                txtEMail.BackColor = Color.Coral;
                 return;
-            }
-
-            if (!ControlPassword(password))
-            {
-                return;
-            }
-
-            User user = new User()
-            {
-                Email = email,
-                Password = sha256(password),
-                PasswordClue = txtIpucu.Text,
-                UserDetail = new UserDetail()
-                {
-                    Name = txtAd.Text,
-                    Surname = txtSoyad.Text,
-                    Gender = (rbErkek.Checked ? Models.Enums.Genders.Male : Models.Enums.Genders.Female),
-                    BirthDate = dtpDogumTarihi.Value,
-                    Height = Convert.ToInt32(nudBoy.Value),
-                    Weight = Convert.ToDouble(nudKilo.Value),
-                }
-            };
-
-            bool isAdded = userService.Add(user);
-            if (!isAdded)
-            {
-                MessageBox.Show("Kullanıcı eklenirken beklenmeyen bir hata oluştu");
             }
             else
+                txtEMail.BackColor = SystemColors.Window;
+
+            // Alanlara değer girilme durumunu kontrol eder.
+            if (!ControlNullOrNot())
             {
-                MessageBox.Show("Kayıt Başarılı!");
+                return;
+            }
+            // Kullanıcını geçerli bir parola girmesini ve gerekli diğer kontrolleri yapar.
+            else if (ControlPassword(password, confirmPassword))
+            {
+                User user = new User()
+                {
+                    Email = email,
+                    Password = sha256(password),
+                    PasswordClue = txtIpucu.Text,
+                    UserDetail = new UserDetail()
+                    {
+                        Name = txtAd.Text,
+                        Surname = txtSoyad.Text,
+                        Gender = (rbErkek.Checked ? Models.Enums.Genders.Male : Models.Enums.Genders.Female),
+                        BirthDate = dtpDogumTarihi.Value,
+                        Height = Convert.ToInt32(nudBoy.Value),
+                        Weight = Convert.ToDouble(nudKilo.Value),
+                    }
+                };
+
+                if (rbErkek.Checked == false && rbKadin.Checked == false)
+                {
+                    MessageBox.Show("Cinsiyet alanı boş bırakılamaz.");
+                    return;
+                }
+
+                bool isAdded = userService.Add(user);
+                if (!isAdded)
+                {
+                    MessageBox.Show("Kullanıcı eklenirken beklenmeyen bir hata oluştu");
+                }
+                else
+                {
+                    foreach (Control control in pnlKullanıcı.Controls)
+                    {
+                        if (control is TextBox)
+                            ((TextBox)control).Text = "";
+                    }
+
+                    foreach (Control control in pnlKullanıcıBilgi.Controls)
+                    {
+                        if (control is RadioButton)
+                            ((RadioButton)control).Checked = false;
+                        else if (control is NumericUpDown)
+                            ((NumericUpDown)control).Value = ((NumericUpDown)control).Minimum;
+                        else if (control is DateTimePicker)
+                            ((DateTimePicker)control).Value = DateTime.Today.AddYears(-10);
+                    }
+
+                    MessageBox.Show("Kayıt Başarılı!");
+                }
             }
         }
 
+        /// <summary>
+        /// Şifreyi hashler.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns>Hashlenmiş şifreyi döner.</returns>
         private string sha256(string password)
         {
             using (SHA256 hash = SHA256Managed.Create())
@@ -82,6 +142,10 @@ namespace UI_Forms
             }
         }
 
+        /// <summary>
+        /// Kullanıcı Kayıt ekranındaki doldurulması gerekenalanların boş geçilmemesini sağlar.
+        /// </summary>
+        /// <returns>Boş Alan yoksa true döner varsa false döner.</returns>
         private bool ControlNullOrNot()
         {
             // Ad alanının boş girilmemesi sağlanır.
@@ -137,21 +201,13 @@ namespace UI_Forms
             return true;
         }
 
-        private void chbSifreGöster_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chbSifreGöster.Checked)
-            {
-                txtSifre.PasswordChar = '\0';
-                txtTekrarSifre.PasswordChar = '\0';
-            }
-            else
-            {
-                txtSifre.PasswordChar = '*';
-                txtTekrarSifre.PasswordChar = '*';
-            }
-        }
-
-        public bool ControlPassword(string password)
+        /// <summary>
+        /// Parola Kontrollerini yapar.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="confirmPassword"></param>
+        /// <returns>Parola uygun formattaysa true değilse false döner.</returns>
+        public bool ControlPassword(string password, string confirmPassword)
         {
             string specialChar = "!@#$%^&*()-_+=<>?/,.:;{}[]|";
             int specialCharCount = password.Count(c => specialChar.Contains(c));
@@ -159,25 +215,38 @@ namespace UI_Forms
             if (password.Length < 8)
             {
                 MessageBox.Show("Şifre en az 8 karakterli olmalıdır!");
+                txtSifre.ForeColor = Color.Red;
                 return false;
             }
-            else if (password.Count(char.IsUpper) < 1)
+            else
+                txtSifre.ForeColor = Color.Black;
+            if (password.Count(char.IsUpper) < 1)
             {
                 MessageBox.Show("Şifre içerisinde en az 1 büyük harf olmalıdır!");
+                txtSifre.ForeColor = Color.Red;
                 return false;
             }
-            else if (password.Count(char.IsLower) < 1)
+            else
+                txtSifre.ForeColor = Color.Black;
+            if (password.Count(char.IsLower) < 1)
             {
                 MessageBox.Show("Şifre içerisinde en az 1 küçük harf olmalıdır!");
+                txtSifre.ForeColor = Color.Red;
                 return false;
             }
-            else if (specialCharCount < 1)
+            else
+                txtSifre.ForeColor = Color.Black;
+            if (specialCharCount < 1)
             {
                 MessageBox.Show("Şifre içerisinde en az 1 özel karakter olmalıdır!");
+                txtSifre.ForeColor = Color.Red;
                 return false;
             }
+            else
+                txtSifre.ForeColor = Color.Black;
+
             //Şifrenin eşleşip eşleşmediği kontrol edilir.
-            else if (txtSifre.Text != txtTekrarSifre.Text)
+            if (password != confirmPassword)
             {
                 txtTekrarSifre.ForeColor = Color.Red;
                 txtSifre.ForeColor = Color.Red;
@@ -186,23 +255,13 @@ namespace UI_Forms
             }
             else
             {
-                txtTekrarSifre.BackColor = SystemColors.Window;
-                txtSifre.BackColor = SystemColors.Window;
+                txtTekrarSifre.ForeColor = Color.Black;
+                txtSifre.ForeColor = Color.Black;
             }
             return true;
         }
 
-        private void btnKapat_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
-
-        private void lnkHesapVarMı_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
-        }
-   
+        // Formun mouse ile kaydırılmasını sağlayan kodlar
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
