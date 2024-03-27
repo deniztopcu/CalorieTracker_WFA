@@ -34,7 +34,7 @@ namespace UI_Forms
             lblUserAge.Text = (DateTime.Now.Year - userDetailService.GetById(_user.ID).BirthDate.Year).ToString();
             lblUserGender.Text = userDetailService.GetById(_user.ID).Gender.ToString();
             lblUserHeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
-            lblUserWeight.Text = userDetailService.GetById(_user.ID).Height.ToString();
+            lblUserWeight.Text = userDetailService.GetById(_user.ID).Weight.ToString();
 
             var ogunListesi = userMealDetailService.GetMealsTodayCalorie(_user.ID);             
             dgTodayMeals.DataSource = ogunListesi;  
