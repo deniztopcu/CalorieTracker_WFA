@@ -93,10 +93,10 @@
             panel1.Controls.Add(btnKapat);
             panel1.Controls.Add(label1);
             panel1.ForeColor = Color.Red;
-            panel1.Location = new Point(-7, -25);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(-7, -26);
+            panel1.Margin = new Padding(4, 2, 4, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1429, 76);
+            panel1.Size = new Size(1298, 76);
             panel1.TabIndex = 0;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -105,12 +105,13 @@
             btnKapat.BackColor = Color.Navy;
             btnKapat.BackgroundImage = (Image)resources.GetObject("btnKapat.BackgroundImage");
             btnKapat.BackgroundImageLayout = ImageLayout.Zoom;
-            btnKapat.Dock = DockStyle.Right;
             btnKapat.FlatStyle = FlatStyle.Flat;
+            btnKapat.Font = new Font("Segoe UI", 5F);
             btnKapat.ForeColor = Color.Navy;
-            btnKapat.Location = new Point(1383, 0);
+            btnKapat.Location = new Point(1228, 28);
+            btnKapat.Margin = new Padding(4, 3, 4, 3);
             btnKapat.Name = "btnKapat";
-            btnKapat.Size = new Size(46, 76);
+            btnKapat.Size = new Size(66, 45);
             btnKapat.TabIndex = 8;
             btnKapat.UseVisualStyleBackColor = false;
             btnKapat.MouseClick += btnKapat_MouseClick;
@@ -121,6 +122,7 @@
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
             label1.Location = new Point(30, 32);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(172, 21);
             label1.TabIndex = 0;
@@ -130,11 +132,11 @@
             // 
             pictureBox1.BackColor = SystemColors.AppWorkspace;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-7, 46);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(340, 57);
+            pictureBox1.Margin = new Padding(4, 2, 4, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1471, 551);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Size = new Size(625, 508);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
@@ -161,9 +163,9 @@
             pnlKullanıcı.Controls.Add(txtAd);
             pnlKullanıcı.Controls.Add(label2);
             pnlKullanıcı.Location = new Point(10, 56);
-            pnlKullanıcı.Margin = new Padding(3, 2, 3, 2);
+            pnlKullanıcı.Margin = new Padding(4, 2, 4, 2);
             pnlKullanıcı.Name = "pnlKullanıcı";
-            pnlKullanıcı.Size = new Size(322, 530);
+            pnlKullanıcı.Size = new Size(322, 510);
             pnlKullanıcı.TabIndex = 2;
             // 
             // label11
@@ -171,7 +173,8 @@
             label11.AutoSize = true;
             label11.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label11.ForeColor = SystemColors.InactiveCaptionText;
-            label11.Location = new Point(82, 395);
+            label11.Location = new Point(82, 394);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(89, 19);
             label11.TabIndex = 25;
@@ -179,8 +182,8 @@
             // 
             // txtIpucu
             // 
-            txtIpucu.Location = new Point(85, 417);
-            txtIpucu.Margin = new Padding(3, 2, 3, 2);
+            txtIpucu.Location = new Point(86, 417);
+            txtIpucu.Margin = new Padding(4, 2, 4, 2);
             txtIpucu.Multiline = true;
             txtIpucu.Name = "txtIpucu";
             txtIpucu.PlaceholderText = "Şifreniz İçin İpucu Giriniz";
@@ -190,9 +193,10 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(34, 406);
+            pictureBox5.Location = new Point(33, 406);
+            pictureBox5.Margin = new Padding(4, 3, 4, 3);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(32, 35);
+            pictureBox5.Size = new Size(32, 34);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 23;
             pictureBox5.TabStop = false;
@@ -200,9 +204,10 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(34, 306);
+            pictureBox4.Location = new Point(33, 306);
+            pictureBox4.Margin = new Padding(4, 3, 4, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(32, 35);
+            pictureBox4.Size = new Size(32, 34);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 22;
             pictureBox4.TabStop = false;
@@ -210,9 +215,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(34, 242);
+            pictureBox3.Location = new Point(33, 242);
+            pictureBox3.Margin = new Padding(4, 3, 4, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(32, 35);
+            pictureBox3.Size = new Size(32, 34);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 21;
             pictureBox3.TabStop = false;
@@ -220,9 +226,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(34, 185);
+            pictureBox2.Location = new Point(33, 184);
+            pictureBox2.Margin = new Padding(4, 3, 4, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(32, 35);
+            pictureBox2.Size = new Size(32, 34);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
@@ -230,9 +237,10 @@
             // pictureBox19
             // 
             pictureBox19.Image = (Image)resources.GetObject("pictureBox19.Image");
-            pictureBox19.Location = new Point(34, 118);
+            pictureBox19.Location = new Point(33, 118);
+            pictureBox19.Margin = new Padding(4, 3, 4, 3);
             pictureBox19.Name = "pictureBox19";
-            pictureBox19.Size = new Size(32, 35);
+            pictureBox19.Size = new Size(32, 34);
             pictureBox19.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox19.TabIndex = 19;
             pictureBox19.TabStop = false;
@@ -240,9 +248,10 @@
             // pictureBox20
             // 
             pictureBox20.Image = (Image)resources.GetObject("pictureBox20.Image");
-            pictureBox20.Location = new Point(36, 66);
+            pictureBox20.Location = new Point(37, 66);
+            pictureBox20.Margin = new Padding(4, 3, 4, 3);
             pictureBox20.Name = "pictureBox20";
-            pictureBox20.Size = new Size(32, 35);
+            pictureBox20.Size = new Size(32, 34);
             pictureBox20.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox20.TabIndex = 18;
             pictureBox20.TabStop = false;
@@ -253,7 +262,7 @@
             chbSifreGöster.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 162);
             chbSifreGöster.ForeColor = SystemColors.InactiveCaptionText;
             chbSifreGöster.Location = new Point(98, 358);
-            chbSifreGöster.Margin = new Padding(3, 2, 3, 2);
+            chbSifreGöster.Margin = new Padding(4, 2, 4, 2);
             chbSifreGöster.Name = "chbSifreGöster";
             chbSifreGöster.Size = new Size(96, 19);
             chbSifreGöster.TabIndex = 16;
@@ -264,7 +273,7 @@
             // txtTekrarSifre
             // 
             txtTekrarSifre.Location = new Point(82, 316);
-            txtTekrarSifre.Margin = new Padding(3, 2, 3, 2);
+            txtTekrarSifre.Margin = new Padding(4, 2, 4, 2);
             txtTekrarSifre.Multiline = true;
             txtTekrarSifre.Name = "txtTekrarSifre";
             txtTekrarSifre.PasswordChar = '*';
@@ -277,7 +286,8 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label6.ForeColor = SystemColors.InactiveCaptionText;
-            label6.Location = new Point(82, 289);
+            label6.Location = new Point(82, 290);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(164, 19);
             label6.TabIndex = 13;
@@ -285,8 +295,8 @@
             // 
             // txtSifre
             // 
-            txtSifre.Location = new Point(82, 245);
-            txtSifre.Margin = new Padding(3, 2, 3, 2);
+            txtSifre.Location = new Point(82, 244);
+            txtSifre.Margin = new Padding(4, 2, 4, 2);
             txtSifre.Multiline = true;
             txtSifre.Name = "txtSifre";
             txtSifre.PasswordChar = '*';
@@ -301,6 +311,7 @@
             label5.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label5.ForeColor = SystemColors.InactiveCaptionText;
             label5.Location = new Point(131, 226);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(40, 19);
             label5.TabIndex = 10;
@@ -308,12 +319,12 @@
             // 
             // txtEMail
             // 
-            txtEMail.Location = new Point(85, 185);
-            txtEMail.Margin = new Padding(3, 2, 3, 2);
+            txtEMail.Location = new Point(86, 184);
+            txtEMail.Margin = new Padding(4, 2, 4, 2);
             txtEMail.Multiline = true;
             txtEMail.Name = "txtEMail";
             txtEMail.PlaceholderText = "Mail Adresinizi Giriniz";
-            txtEMail.Size = new Size(157, 26);
+            txtEMail.Size = new Size(156, 26);
             txtEMail.TabIndex = 8;
             // 
             // label4
@@ -322,6 +333,7 @@
             label4.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = SystemColors.InactiveCaptionText;
             label4.Location = new Point(131, 166);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(57, 19);
             label4.TabIndex = 7;
@@ -329,12 +341,12 @@
             // 
             // txtSoyad
             // 
-            txtSoyad.Location = new Point(85, 128);
-            txtSoyad.Margin = new Padding(3, 2, 3, 2);
+            txtSoyad.Location = new Point(86, 128);
+            txtSoyad.Margin = new Padding(4, 2, 4, 2);
             txtSoyad.Multiline = true;
             txtSoyad.Name = "txtSoyad";
             txtSoyad.PlaceholderText = "Soyadınızı Giriniz";
-            txtSoyad.Size = new Size(157, 26);
+            txtSoyad.Size = new Size(156, 26);
             txtSoyad.TabIndex = 5;
             // 
             // label3
@@ -342,7 +354,8 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = SystemColors.InactiveCaptionText;
-            label3.Location = new Point(131, 109);
+            label3.Location = new Point(131, 110);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(58, 19);
             label3.TabIndex = 4;
@@ -351,11 +364,11 @@
             // txtAd
             // 
             txtAd.Location = new Point(88, 76);
-            txtAd.Margin = new Padding(3, 2, 3, 2);
+            txtAd.Margin = new Padding(4, 2, 4, 2);
             txtAd.Multiline = true;
             txtAd.Name = "txtAd";
             txtAd.PlaceholderText = "Adınızı Giriniz";
-            txtAd.Size = new Size(157, 26);
+            txtAd.Size = new Size(156, 26);
             txtAd.TabIndex = 2;
             // 
             // label2
@@ -364,6 +377,7 @@
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.ForeColor = SystemColors.InfoText;
             label2.Location = new Point(136, 46);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(36, 19);
             label2.TabIndex = 1;
@@ -387,16 +401,16 @@
             pnlKullanıcıBilgi.Controls.Add(rbKadin);
             pnlKullanıcıBilgi.Controls.Add(label7);
             pnlKullanıcıBilgi.ForeColor = SystemColors.Window;
-            pnlKullanıcıBilgi.Location = new Point(1125, 56);
-            pnlKullanıcıBilgi.Margin = new Padding(3, 2, 3, 2);
+            pnlKullanıcıBilgi.Location = new Point(971, 57);
+            pnlKullanıcıBilgi.Margin = new Padding(4, 2, 4, 2);
             pnlKullanıcıBilgi.Name = "pnlKullanıcıBilgi";
-            pnlKullanıcıBilgi.Size = new Size(297, 519);
+            pnlKullanıcıBilgi.Size = new Size(320, 512);
             pnlKullanıcıBilgi.TabIndex = 3;
             // 
             // nudKilo
             // 
             nudKilo.Location = new Point(93, 364);
-            nudKilo.Margin = new Padding(3, 2, 3, 2);
+            nudKilo.Margin = new Padding(4, 2, 4, 2);
             nudKilo.Maximum = new decimal(new int[] { 610, 0, 0, 0 });
             nudKilo.Minimum = new decimal(new int[] { 20, 0, 0, 0 });
             nudKilo.Name = "nudKilo";
@@ -406,8 +420,8 @@
             // 
             // nudBoy
             // 
-            nudBoy.Location = new Point(92, 289);
-            nudBoy.Margin = new Padding(3, 2, 3, 2);
+            nudBoy.Location = new Point(93, 290);
+            nudBoy.Margin = new Padding(4, 2, 4, 2);
             nudBoy.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             nudBoy.Minimum = new decimal(new int[] { 50, 0, 0, 0 });
             nudBoy.Name = "nudBoy";
@@ -419,8 +433,9 @@
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
             pictureBox8.Location = new Point(18, 358);
+            pictureBox8.Margin = new Padding(4, 3, 4, 3);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(32, 35);
+            pictureBox8.Size = new Size(32, 34);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 16;
             pictureBox8.TabStop = false;
@@ -429,8 +444,9 @@
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new Point(18, 288);
+            pictureBox7.Margin = new Padding(4, 3, 4, 3);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(32, 35);
+            pictureBox7.Size = new Size(32, 34);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 15;
             pictureBox7.TabStop = false;
@@ -439,8 +455,9 @@
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(18, 200);
+            pictureBox6.Margin = new Padding(4, 3, 4, 3);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(32, 35);
+            pictureBox6.Size = new Size(32, 34);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 14;
             pictureBox6.TabStop = false;
@@ -449,6 +466,7 @@
             // 
             lnkHesapVarMı.AutoSize = true;
             lnkHesapVarMı.Location = new Point(105, 482);
+            lnkHesapVarMı.Margin = new Padding(4, 0, 4, 0);
             lnkHesapVarMı.Name = "lnkHesapVarMı";
             lnkHesapVarMı.Size = new Size(135, 15);
             lnkHesapVarMı.TabIndex = 11;
@@ -461,7 +479,7 @@
             btnKayıt.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnKayıt.ForeColor = SystemColors.InactiveCaptionText;
             btnKayıt.Location = new Point(116, 428);
-            btnKayıt.Margin = new Padding(3, 2, 3, 2);
+            btnKayıt.Margin = new Padding(4, 2, 4, 2);
             btnKayıt.Name = "btnKayıt";
             btnKayıt.Size = new Size(108, 28);
             btnKayıt.TabIndex = 10;
@@ -474,7 +492,8 @@
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label10.ForeColor = SystemColors.InactiveCaptionText;
-            label10.Location = new Point(143, 338);
+            label10.Location = new Point(144, 338);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(37, 19);
             label10.TabIndex = 7;
@@ -485,7 +504,8 @@
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label9.ForeColor = SystemColors.InactiveCaptionText;
-            label9.Location = new Point(143, 259);
+            label9.Location = new Point(144, 260);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(37, 19);
             label9.TabIndex = 6;
@@ -496,7 +516,7 @@
             dtpDogumTarihi.CalendarFont = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             dtpDogumTarihi.CalendarMonthBackground = SystemColors.Info;
             dtpDogumTarihi.Location = new Point(70, 200);
-            dtpDogumTarihi.Margin = new Padding(3, 2, 3, 2);
+            dtpDogumTarihi.Margin = new Padding(4, 2, 4, 2);
             dtpDogumTarihi.MaxDate = new DateTime(2024, 3, 23, 19, 8, 35, 0);
             dtpDogumTarihi.Name = "dtpDogumTarihi";
             dtpDogumTarihi.Size = new Size(219, 23);
@@ -509,6 +529,7 @@
             label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label8.ForeColor = SystemColors.InactiveCaptionText;
             label8.Location = new Point(105, 160);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(112, 19);
             label8.TabIndex = 3;
@@ -519,8 +540,8 @@
             rbErkek.AutoSize = true;
             rbErkek.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             rbErkek.ForeColor = SystemColors.InactiveCaptionText;
-            rbErkek.Location = new Point(186, 101);
-            rbErkek.Margin = new Padding(3, 2, 3, 2);
+            rbErkek.Location = new Point(186, 100);
+            rbErkek.Margin = new Padding(4, 2, 4, 2);
             rbErkek.Name = "rbErkek";
             rbErkek.Size = new Size(68, 23);
             rbErkek.TabIndex = 2;
@@ -533,8 +554,8 @@
             rbKadin.AutoSize = true;
             rbKadin.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             rbKadin.ForeColor = SystemColors.InactiveCaptionText;
-            rbKadin.Location = new Point(42, 101);
-            rbKadin.Margin = new Padding(3, 2, 3, 2);
+            rbKadin.Location = new Point(42, 100);
+            rbKadin.Margin = new Padding(4, 2, 4, 2);
             rbKadin.Name = "rbKadin";
             rbKadin.Size = new Size(73, 23);
             rbKadin.TabIndex = 1;
@@ -547,7 +568,8 @@
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label7.ForeColor = SystemColors.InactiveCaptionText;
-            label7.Location = new Point(105, 53);
+            label7.Location = new Point(105, 52);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(68, 19);
             label7.TabIndex = 0;
@@ -557,14 +579,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1199, 579);
+            ClientSize = new Size(1302, 580);
             ControlBox = false;
             Controls.Add(pnlKullanıcıBilgi);
             Controls.Add(pnlKullanıcı);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            Font = new Font("Segoe UI", 9F);
             ForeColor = SystemColors.Window;
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "RegistorScreen";
             Load += RegistorScreen_Load;
             panel1.ResumeLayout(false);

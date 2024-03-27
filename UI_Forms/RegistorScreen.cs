@@ -19,11 +19,14 @@ namespace UI_Forms
         public RegistorScreen()
         {
             InitializeComponent();
-
             userService = new UserService();
         }
         UserService userService;
-
+        private void RegistorScreen_Load(object sender, EventArgs e)
+        {
+            // Programa sadece 10 yaşından büyük kişilerin giriş yapabilmesini sağlar.
+            dtpDogumTarihi.MaxDate = DateTime.Now.AddYears(-10);
+        }
 
         private void btnKayıt_Click(object sender, EventArgs e)
         {
@@ -33,8 +36,6 @@ namespace UI_Forms
             string password = txtSifre.Text;
             string confirmPassword = txtTekrarSifre.Text;
 
-            //if (true)
-            //{
             if (!userService.ControlEmail(email))
             {
                 MessageBox.Show("Mail Adresi Sistemde Kayıtlıdır!");
@@ -71,8 +72,6 @@ namespace UI_Forms
             {
                 MessageBox.Show("Kayıt Başarılı!");
             }
-            //}
-
         }
 
         private string sha256(string password)
@@ -83,53 +82,59 @@ namespace UI_Forms
             }
         }
 
-
-        private void ControlNullOrNot()
+        private bool ControlNullOrNot()
         {
-            //Mail Adresinin boş girilmemesi sağlanır.
+            // Ad alanının boş girilmemesi sağlanır.
+            if (string.IsNullOrEmpty(txtAd.Text))
+            {
+                txtAd.BackColor = Color.Coral;
+                MessageBox.Show("Ad alanı boş bırakılamaz");
+                return false;
+            }
+            else
+                txtAd.BackColor = SystemColors.Window;
+
+            // Soyad alanının boş girilmemesi sağlanır.
+            if (string.IsNullOrEmpty(txtSoyad.Text))
+            {
+                txtSoyad.BackColor = Color.Coral;
+                MessageBox.Show("Soyad alanı boş bırakılamaz");
+                return false;
+            }
+            else
+                txtSoyad.BackColor = SystemColors.Window;
+
+            // Mail Adresinin boş girilmemesi sağlanır.
             if (string.IsNullOrEmpty(txtEMail.Text))
             {
-                txtEMail.BackColor = Color.Red;
-                return;
+                txtEMail.BackColor = Color.Coral;
+                MessageBox.Show("Email alanı boş bırakılamaz");
+                return false;
             }
             else
-            {
                 txtEMail.BackColor = SystemColors.Window;
-            }
 
-            //Cinsiyetin seçilmesi sağlanır.
-            if (rbKadin.Checked == false && rbErkek.Checked == false)
-            {
-                MessageBox.Show("Lütfen Cinsiyet Seçiniz!");
-                return;
-            }
-
-            //Şifrenin boş girilmemesi sağlanır.
+            // Şifrenin boş girilmemesi sağlanır.
             if (string.IsNullOrEmpty(txtSifre.Text))
             {
-                txtSifre.BackColor = Color.Red;
-                return;
+                txtSifre.BackColor = Color.Coral;
+                MessageBox.Show("Şifre boş bırakılamaz");
+                return false;
             }
             else
-            {
                 txtSifre.BackColor = SystemColors.Window;
-            }
 
-            //Tekrar eden şifrenin boş girilmemesi sağlanır.
+            // Tekrar eden şifrenin boş girilmemesi sağlanır.
             if (string.IsNullOrEmpty(txtTekrarSifre.Text))
             {
-                txtTekrarSifre.BackColor = Color.Red;
-                return;
+                txtTekrarSifre.BackColor = Color.Coral;
+                MessageBox.Show("Şifre tekrar alanı boş bırakılamaz");
+                return false;
             }
             else
-            {
                 txtTekrarSifre.BackColor = SystemColors.Window;
-            }
-        }
 
-        private void RegistorScreen_Load(object sender, EventArgs e)
-        {
-            dtpDogumTarihi.MaxDate = DateTime.Now.AddYears(-10); //10 yaşından büyük kişiler için program çalışır.
+            return true;
         }
 
         private void chbSifreGöster_CheckedChanged(object sender, EventArgs e)
