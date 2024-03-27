@@ -38,11 +38,11 @@
             columnHeader8 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
-            lvDays = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
             btnOgunSil = new Button();
             btnGunSil = new Button();
+            columnHeader1 = new ColumnHeader();
+            columnHeader10 = new ColumnHeader();
+            lvDays = new ListView();
             SuspendLayout();
             // 
             // lvMeals
@@ -105,34 +105,6 @@
             columnHeader7.Text = "ÖĞÜN TİPİ";
             columnHeader7.Width = 100;
             // 
-            // lvDays
-            // 
-            lvDays.BackColor = SystemColors.InactiveCaption;
-            lvDays.BorderStyle = BorderStyle.None;
-            lvDays.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader10 });
-            lvDays.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            lvDays.FullRowSelect = true;
-            lvDays.GridLines = true;
-            lvDays.Location = new Point(773, 25);
-            lvDays.Margin = new Padding(3, 2, 3, 2);
-            lvDays.MultiSelect = false;
-            lvDays.Name = "lvDays";
-            lvDays.Size = new Size(203, 304);
-            lvDays.TabIndex = 8;
-            lvDays.UseCompatibleStateImageBehavior = false;
-            lvDays.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "TARİHLER";
-            columnHeader1.Width = 100;
-            // 
-            // columnHeader10
-            // 
-            columnHeader10.Text = "TOPLAM KALORİ";
-            columnHeader10.TextAlign = HorizontalAlignment.Center;
-            columnHeader10.Width = 100;
-            // 
             // btnOgunSil
             // 
             btnOgunSil.BackColor = SystemColors.GradientInactiveCaption;
@@ -165,6 +137,34 @@
             btnGunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnGunSil.UseVisualStyleBackColor = false;
             // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "TARİHLER";
+            columnHeader1.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            columnHeader10.Text = "TOPLAM KALORİ";
+            columnHeader10.TextAlign = HorizontalAlignment.Center;
+            columnHeader10.Width = 100;
+            // 
+            // lvDays
+            // 
+            lvDays.BackColor = SystemColors.InactiveCaption;
+            lvDays.BorderStyle = BorderStyle.None;
+            lvDays.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader10 });
+            lvDays.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            lvDays.FullRowSelect = true;
+            lvDays.GridLines = true;
+            lvDays.Location = new Point(773, 25);
+            lvDays.Margin = new Padding(3, 2, 3, 2);
+            lvDays.MultiSelect = false;
+            lvDays.Name = "lvDays";
+            lvDays.Size = new Size(203, 304);
+            lvDays.TabIndex = 8;
+            lvDays.UseCompatibleStateImageBehavior = false;
+            lvDays.View = View.Details;
+            // 
             // HistoryScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -192,11 +192,11 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader6;
-        private ListView lvDays;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader10;
         private Button btnOgunSil;
         private Button btnGunSil;
         private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader10;
+        private ListView lvDays;
     }
 }

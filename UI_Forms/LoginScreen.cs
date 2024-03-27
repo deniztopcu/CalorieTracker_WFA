@@ -11,7 +11,7 @@ namespace UI_Forms
         {
             InitializeComponent();
             userService = new UserService();
-            
+
         }
         UserService userService;
         private void UserEntranceScreen_Load(object sender, EventArgs e)
@@ -40,14 +40,10 @@ namespace UI_Forms
         {
             string password = sha256(txt_Password.Text);
             string email = txt_Mail.Text;
-
             User user = userService.ControlUser(email, password);
-
             if (user != null)
             {
-
-                MainScreen mainScreen = new MainScreen(user,this); //this unutma
-
+                MainScreen mainScreen = new MainScreen(user, this);
                 mainScreen.Show();
                 this.Hide();
             }
@@ -68,15 +64,9 @@ namespace UI_Forms
         private void chkSifreGoster_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSifreGoster.Checked)
-            {
                 txt_Password.PasswordChar = '\0';
-
-            }
             else
-            {
                 txt_Password.PasswordChar = '*';
-
-            }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -94,23 +84,20 @@ namespace UI_Forms
         private const int HT_CAPTION = 0x2;
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-
         private static extern bool ReleaseCapture();
 
         private void lnkIpucuGoster_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string email = txt_Mail.Text;
-            if (email is not null )
+            if (email is not null)
             {
                 if (!userService.ControlEmail(email))
-                {
                     lblIpucu.Text = userService.SendPasswordClue(email);
-                   
-                }
+                else
+                    MessageBox.Show("Ýpucu bulunamadý");
             }
         }
     }
