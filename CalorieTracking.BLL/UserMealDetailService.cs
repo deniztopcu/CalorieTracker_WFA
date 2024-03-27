@@ -119,5 +119,12 @@ namespace CalorieTracking.BLL
         {
             return userMealDetailManager.GetMealsTodayCalorie(userID);
         }
+
+        public IEnumerable<dynamic> GetDaysCalorie(int userID)
+        {
+            return userMealDetailManager.GetDaysCalorie(userID);
+        }
+
+
     }
 }

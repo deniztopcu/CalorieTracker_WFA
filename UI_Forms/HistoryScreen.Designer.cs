@@ -39,10 +39,8 @@
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
             btnOgunSil = new Button();
-            btnGunSil = new Button();
-            columnHeader1 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
-            lvDays = new ListView();
+            dgTarihOgun = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgTarihOgun).BeginInit();
             SuspendLayout();
             // 
             // lvMeals
@@ -52,10 +50,9 @@
             lvMeals.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader2, columnHeader9, columnHeader3, columnHeader5, columnHeader8, columnHeader6, columnHeader7 });
             lvMeals.FullRowSelect = true;
             lvMeals.GridLines = true;
-            lvMeals.Location = new Point(10, 25);
-            lvMeals.Margin = new Padding(3, 2, 3, 2);
+            lvMeals.Location = new Point(11, 33);
             lvMeals.Name = "lvMeals";
-            lvMeals.Size = new Size(719, 304);
+            lvMeals.Size = new Size(822, 405);
             lvMeals.TabIndex = 7;
             lvMeals.UseCompatibleStateImageBehavior = false;
             lvMeals.View = View.Details;
@@ -112,73 +109,39 @@
             btnOgunSil.FlatStyle = FlatStyle.Flat;
             btnOgunSil.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnOgunSil.Image = (Image)resources.GetObject("btnOgunSil.Image");
-            btnOgunSil.Location = new Point(198, 358);
-            btnOgunSil.Margin = new Padding(3, 2, 3, 2);
+            btnOgunSil.Location = new Point(258, 462);
             btnOgunSil.Name = "btnOgunSil";
-            btnOgunSil.Size = new Size(272, 111);
+            btnOgunSil.Size = new Size(311, 148);
             btnOgunSil.TabIndex = 9;
             btnOgunSil.Text = "ÖĞÜNÜ SİL";
             btnOgunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnOgunSil.UseVisualStyleBackColor = false;
+            btnOgunSil.Click += btnOgunSil_Click;
             // 
-            // btnGunSil
+            // dgTarihOgun
             // 
-            btnGunSil.BackColor = SystemColors.GradientInactiveCaption;
-            btnGunSil.FlatAppearance.BorderSize = 0;
-            btnGunSil.FlatStyle = FlatStyle.Flat;
-            btnGunSil.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnGunSil.Image = (Image)resources.GetObject("btnGunSil.Image");
-            btnGunSil.Location = new Point(570, 358);
-            btnGunSil.Margin = new Padding(3, 2, 3, 2);
-            btnGunSil.Name = "btnGunSil";
-            btnGunSil.Size = new Size(272, 111);
-            btnGunSil.TabIndex = 10;
-            btnGunSil.Text = "GÜNÜ SİL";
-            btnGunSil.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnGunSil.UseVisualStyleBackColor = false;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "TARİHLER";
-            columnHeader1.Width = 100;
-            // 
-            // columnHeader10
-            // 
-            columnHeader10.Text = "TOPLAM KALORİ";
-            columnHeader10.TextAlign = HorizontalAlignment.Center;
-            columnHeader10.Width = 100;
-            // 
-            // lvDays
-            // 
-            lvDays.BackColor = SystemColors.InactiveCaption;
-            lvDays.BorderStyle = BorderStyle.None;
-            lvDays.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader10 });
-            lvDays.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            lvDays.FullRowSelect = true;
-            lvDays.GridLines = true;
-            lvDays.Location = new Point(773, 25);
-            lvDays.Margin = new Padding(3, 2, 3, 2);
-            lvDays.MultiSelect = false;
-            lvDays.Name = "lvDays";
-            lvDays.Size = new Size(203, 304);
-            lvDays.TabIndex = 8;
-            lvDays.UseCompatibleStateImageBehavior = false;
-            lvDays.View = View.Details;
+            dgTarihOgun.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgTarihOgun.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgTarihOgun.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgTarihOgun.Location = new Point(878, 38);
+            dgTarihOgun.Name = "dgTarihOgun";
+            dgTarihOgun.RowHeadersWidth = 51;
+            dgTarihOgun.Size = new Size(293, 400);
+            dgTarihOgun.TabIndex = 11;
             // 
             // HistoryScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(988, 478);
+            ClientSize = new Size(1206, 644);
             ControlBox = false;
-            Controls.Add(btnGunSil);
+            Controls.Add(dgTarihOgun);
             Controls.Add(btnOgunSil);
-            Controls.Add(lvDays);
             Controls.Add(lvMeals);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "HistoryScreen";
             Load += HistoryScreen_Load;
+            ((System.ComponentModel.ISupportInitialize)dgTarihOgun).EndInit();
             ResumeLayout(false);
         }
 
@@ -193,10 +156,7 @@
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader6;
         private Button btnOgunSil;
-        private Button btnGunSil;
         private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader10;
-        private ListView lvDays;
+        private DataGridView dgTarihOgun;
     }
 }

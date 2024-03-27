@@ -14,10 +14,10 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         public UserMealDetailManager(AppDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
-           
+
         }
 
-        
+
 
         public AppDbContext _dbContext;
 
@@ -51,7 +51,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 .Join(_dbContext.UserMealDetails, x => x.ID, y => y.FoodID, (x, y) => new { x.CategoryID, x.ID, y.Status, y.FoodCount, y.UserID, y.CreationDate })
                 .Where(a => a.CreationDate > DateTime.Now.AddDays(-dayago))
                 .GroupBy(x => new { x.CategoryID, x.Status, x.UserID })
-                .Select(a => new { a.Key.CategoryID, TotalConsumption = a.Sum(b=> b.FoodCount), a.Key.Status, a.Key.UserID })
+                .Select(a => new { a.Key.CategoryID, TotalConsumption = a.Sum(b => b.FoodCount), a.Key.Status, a.Key.UserID })
                 .Where(a => a.Status == Status.Active && a.CategoryID == category.ID && a.UserID == userID).FirstOrDefault();
 
             if (result == null) return 0;
@@ -92,8 +92,8 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public List<Meal> GetAllMeals(User user)
         {
-                 return _dbContext.UserMealDetails.Include(x=>x.Meal).Where(x => x.Status == Status.Active && x.User == user).Select(x => x.Meal).Distinct().ToList();
-                
+            return _dbContext.UserMealDetails.Include(x => x.Meal).Where(x => x.Status == Status.Active && x.User == user).Select(x => x.Meal).Distinct().ToList();
+
         }
 
         public string GetMealConsumptionsOfAllUsers(Meal meal, int dayago)
@@ -138,7 +138,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
         public string GetMealCaloriesOfAllUsers(Meal meal, User user, int compareDay)
         {
             return _dbContext.Meals
-                .Join(_dbContext.UserMealDetails, x => x.ID, y=> y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType, y.FoodID, y.UserID })
+                .Join(_dbContext.UserMealDetails, x => x.ID, y => y.MealID, (x, y) => new { y.CreationDate, y.Status, y.FoodCount, x.MealType, y.FoodID, y.UserID })
                 .Where(x => x.CreationDate > DateTime.Now.AddDays(-compareDay) && x.MealType == meal.MealType && x.Status == Status.Active && x.UserID == user.ID)
                 .Join(_dbContext.Foods, x => x.FoodID, y => y.ID, (x, y) => new { x.MealType, x.FoodCount, y.Calorie })
                 .GroupBy(x => new { x.MealType, x.Calorie })
@@ -151,7 +151,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public int GetCountOfUsersSpecificMeal(Meal meal, User user)
         {
-            int userID=user.ID;
+            int userID = user.ID;
             int mealID = meal.ID;
             return _dbContext.UserMealDetails
                 .Where(x => x.MealID == mealID && x.Status == Status.Active && x.UserID == userID)
@@ -164,9 +164,9 @@ namespace CaloriTracker.DAL.Repositories.Concrete
             int userID = user.ID;
             int mealID = meal.ID;
             double calorie = 0;
-            foreach (UserMealDetail item in _dbContext.UserMealDetails.Where(x => x.UserID == userID && x.MealID == mealID && x.Status  ==Status.Active).ToList())
+            foreach (UserMealDetail item in _dbContext.UserMealDetails.Where(x => x.UserID == userID && x.MealID == mealID && x.Status == Status.Active).ToList())
             {
-               int foodID=item.FoodID;
+                int foodID = item.FoodID;
                 var food = _dbContext.Foods.Where(x => x.ID == foodID).FirstOrDefault();
                 calorie += (item.FoodCount) * food.Calorie;
             }
@@ -185,7 +185,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
                 .Where(x => x.UserID == userID && x.Status == Status.Active)
                 .ToList();
         }
-         
+
         public void GetUserMealHistoryByHistory(UserMealDetail userMealDetail)
         {
 
@@ -204,7 +204,7 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
             //List<> listData = queryableData.ToList();
 
-           
+
         }
 
         public double TodayTotalMealCalorie(int userID, string mealName)
@@ -227,16 +227,31 @@ namespace CaloriTracker.DAL.Repositories.Concrete
 
         public IEnumerable<dynamic> GetMealsTodayCalorie(int userID)
         {
-     
-                var list = _dbContext.UserMealDetails.Join(_dbContext.Meals, x => x.MealID, y => y.ID, (x, y) => new { x.CreationDate, y.MealType, x.TotalCalorie, x.UserID}).Where(x => x.CreationDate.Date == DateTime.Today && x.UserID== userID ).GroupBy(x => x.MealType).Select(group => new
-                {
-                    OgunAdi = group.Key,
-                    ToplamKalori = group.Sum(x => x.TotalCalorie)
-                }
-                ).ToList();
 
-                return list;
-
+            var list = _dbContext.UserMealDetails.Join(_dbContext.Meals, x => x.MealID, y => y.ID, (x, y) => new { x.CreationDate, y.MealType, x.TotalCalorie, x.UserID }).Where(x => x.CreationDate.Date == DateTime.Today && x.UserID == userID).GroupBy(x => x.MealType).Select(group => new
+            {
+                OgunAdi = group.Key,
+                ToplamKalori = group.Sum(x => x.TotalCalorie)
             }
+            ).ToList();
+
+            return list;
+
         }
+
+        public IEnumerable<dynamic> GetDaysCalorie(int userID)
+        {
+
+            var list = _dbContext.UserMealDetails.Where(x => x.UserID == userID).GroupBy(x => x.CreationDate.Date).Select(group => new
+            {
+                Tarih = group.Key,
+                ToplamKalori = group.Sum(x => x.TotalCalorie)
+            }).ToList();
+            return list;
+
+        }
+    }
+
+
+
 }
