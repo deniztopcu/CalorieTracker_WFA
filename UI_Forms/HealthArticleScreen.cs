@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI_Forms
 {
-    public partial class AddMealScreen : Form
+    public partial class HealthArticleScreen : Form
     {
-        public AddMealScreen()
+        public HealthArticleScreen()
         {
             InitializeComponent();
         }

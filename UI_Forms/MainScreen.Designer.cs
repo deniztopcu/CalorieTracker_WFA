@@ -39,7 +39,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
             btnAddFood = new Button();
-            btnAddMeal = new Button();
+            btnHealthArticle = new Button();
             btnAnalize = new Button();
             btnHistory = new Button();
             btnHealthStatus = new Button();
@@ -136,7 +136,7 @@
             // 
             panel2.BackColor = Color.Pink;
             panel2.Controls.Add(btnAddFood);
-            panel2.Controls.Add(btnAddMeal);
+            panel2.Controls.Add(btnHealthArticle);
             panel2.Controls.Add(btnAnalize);
             panel2.Controls.Add(btnHistory);
             panel2.Controls.Add(btnHealthStatus);
@@ -164,24 +164,24 @@
             btnAddFood.UseVisualStyleBackColor = true;
             btnAddFood.Click += btnAddNutrition_Click;
             // 
-            // btnAddMeal
+            // btnHealthArticle
             // 
-            btnAddMeal.FlatAppearance.BorderSize = 0;
-            btnAddMeal.FlatStyle = FlatStyle.Flat;
-            btnAddMeal.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
-            btnAddMeal.ForeColor = SystemColors.ControlText;
-            btnAddMeal.Image = (Image)resources.GetObject("btnAddMeal.Image");
-            btnAddMeal.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddMeal.Location = new Point(0, 357);
-            btnAddMeal.Margin = new Padding(3, 4, 3, 4);
-            btnAddMeal.Name = "btnAddMeal";
-            btnAddMeal.Size = new Size(158, 83);
-            btnAddMeal.TabIndex = 7;
-            btnAddMeal.Text = "       ÖĞÜN EKLE";
-            btnAddMeal.TextAlign = ContentAlignment.TopCenter;
-            btnAddMeal.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddMeal.UseVisualStyleBackColor = true;
-            btnAddMeal.Click += btnAddMeal_Click;
+            btnHealthArticle.FlatAppearance.BorderSize = 0;
+            btnHealthArticle.FlatStyle = FlatStyle.Flat;
+            btnHealthArticle.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
+            btnHealthArticle.ForeColor = SystemColors.ControlText;
+            btnHealthArticle.Image = (Image)resources.GetObject("btnHealthArticle.Image");
+            btnHealthArticle.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHealthArticle.Location = new Point(0, 357);
+            btnHealthArticle.Margin = new Padding(3, 4, 3, 4);
+            btnHealthArticle.Name = "btnHealthArticle";
+            btnHealthArticle.Size = new Size(158, 83);
+            btnHealthArticle.TabIndex = 7;
+            btnHealthArticle.Text = "       Sağlık Makalesi";
+            btnHealthArticle.TextAlign = ContentAlignment.TopCenter;
+            btnHealthArticle.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHealthArticle.UseVisualStyleBackColor = true;
+            btnHealthArticle.Click += btnHealthArticle_Click;
             // 
             // btnAnalize
             // 
@@ -292,7 +292,7 @@
         private Label label2;
         private System.Windows.Forms.Timer timer1;
         private Panel panel2;
-        private Button btnAddMeal;
+        private Button btnHealthArticle;
         private Button btnAnalize;
         private Button btnHistory;
         private Button btnHealthStatus;

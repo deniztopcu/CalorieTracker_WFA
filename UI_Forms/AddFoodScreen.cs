@@ -253,7 +253,7 @@ namespace UI_Forms
             {
                 int userID = _user.ID;
                 int categoryID = ((Category)cbCategory.SelectedItem).ID;
-                int foodID=(int)lstFoods.SelectedItems[0].Tag;
+                int foodID = (int)lstFoods.SelectedItems[0].Tag;
                 Food food = foodService.GetFoodByID(foodID);
                 food.Name = txtFoodName.Text;
                 food.Calorie = float.Parse(txtCalorie.Text);
@@ -275,6 +275,23 @@ namespace UI_Forms
                 ClearItems(gbxAddFood.Controls);
             }
         }
-    }
-}
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            
+
+                
+                int foodID = (int)lstFoods.SelectedItems[0].Tag;
+                
+
+
+                    foodService.Delete(foodID);
+                    MessageBox.Show("Successful");
+                    GetFoods(_user);
+                    ClearItems(gbxAddFood.Controls);
+                }
+            }
+        }
+    
+
 
