@@ -174,6 +174,7 @@
             // 
             // txtAd
             // 
+            txtAd.Enabled = false;
             txtAd.Location = new Point(137, 176);
             txtAd.Name = "txtAd";
             txtAd.Size = new Size(149, 27);
@@ -181,6 +182,7 @@
             // 
             // txtSoyad
             // 
+            txtSoyad.Enabled = false;
             txtSoyad.Location = new Point(137, 209);
             txtSoyad.Name = "txtSoyad";
             txtSoyad.Size = new Size(149, 27);
@@ -188,6 +190,7 @@
             // 
             // txtDogumTarihi
             // 
+            txtDogumTarihi.Enabled = false;
             txtDogumTarihi.Location = new Point(138, 267);
             txtDogumTarihi.Name = "txtDogumTarihi";
             txtDogumTarihi.Size = new Size(149, 27);
@@ -195,6 +198,7 @@
             // 
             // txtCinsiyet
             // 
+            txtCinsiyet.Enabled = false;
             txtCinsiyet.Location = new Point(138, 320);
             txtCinsiyet.Name = "txtCinsiyet";
             txtCinsiyet.Size = new Size(149, 27);
